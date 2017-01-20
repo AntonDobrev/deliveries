@@ -1,0 +1,55 @@
+<GridLayout rows="*, auto">
+    <ScrollView>
+        <StackLayout class="list-group">
+            <GridLayout class="list-group-item" rows="auto, auto">
+                <GridLayout columns="auto, 10, *" rows="auto, auto">
+                    <!-- TODO: insert properties of editableList here -->
+
+                    <!--<Label class="list-group-item-heading fa"></Label>-->
+
+                    <StackLayout col="2">
+                        <Label class="list-group-item-heading" [text]="item.data.DeliveryItemType"></Label>
+                    </StackLayout>
+
+
+                    <Label class="list-group-item-text m-l-10 m-t-10" row="1" colSpan="3" [text]="item.data.DeliveryItem" textWrap="true">
+                    </Label>
+
+                </GridLayout>
+
+                <GridLayout row="1">
+
+                    <StackLayout class="form">
+                        <GridLayout class="input-field" columns="*, *">
+    <Label class="h3 text-muted" text="Heading"></Label>
+
+    <Label class="h4" col="1" [text]="item.data.Status" textWrap="true"></Label>
+
+</GridLayout><GridLayout class="input-field" columns="*, *">
+    <Label class="h3 text-muted" text="Heading"></Label>
+
+    <Label class="h4" col="1" [text]="item.data.DeliveryName" textWrap="true"></Label>
+
+</GridLayout><GridLayout class="input-field" columns="*, *">
+    <Label class="h3 text-muted" text="Address"></Label>
+
+    <Label class="paragraph h3" col="1" [text]="item.data.DeliveryAddressLine1" textWrap="true"></Label>
+
+</GridLayout><!--- editableListForm9 additional fields -->
+                    </StackLayout>
+                    <!--- master detail form -->
+
+                </GridLayout>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+
+
+    <GridLayout row="1">
+        <Button class="btn btn-primary" text="Edit" (tap)="onEdit()"></Button>
+    </GridLayout>
+
+
+    <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
+    </ActivityIndicator>
+</GridLayout>

@@ -1,0 +1,136 @@
+{
+  "type": "nativescript-angular",
+  "views": [
+    {
+      "type": "nativescript-angular:view",
+      "name": "homeView",
+      "components": [
+        {
+          "type": "nativescript-angular:editableList",
+          "serverSideSorting": false,
+          "serverSidePaging": false,
+          "listExtraFields": [],
+          "detailExtraFields": [],
+          "addScreenExtraFields": [],
+          "editScreenExtraFields": [],
+          "components": [
+            {
+              "type": "nativescript-angular:editableListForm",
+              "components": [
+                {
+                  "type": "nativescript-angular:editableListFormField",
+                  "name": "cityHeading",
+                  "title": "Heading",
+                  "inputType": "heading",
+                  "titlePosition": "left",
+                  "headingSize": "h3",
+                  "dataBindingOptional": "DeliveryAddressCity"
+                },
+                {
+                  "type": "nativescript-angular:editableListFormField",
+                  "name": "zipHeading",
+                  "title": "Heading",
+                  "inputType": "heading",
+                  "titlePosition": "left",
+                  "headingSize": "h4",
+                  "dataBindingOptional": "DeliveryAddressPostcode"
+                }
+              ],
+              "name": "editableListForm15",
+              "formType": "list"
+            },
+            {
+              "type": "nativescript-angular:editableListForm",
+              "components": [
+                {
+                  "type": "nativescript-angular:editableListFormField",
+                  "name": "statusHeading",
+                  "title": "Heading",
+                  "inputType": "heading",
+                  "titlePosition": "left",
+                  "headingSize": "h4",
+                  "dataBindingOptional": "Status"
+                },
+                {
+                  "type": "nativescript-angular:editableListFormField",
+                  "name": "deliverToHeading",
+                  "title": "Heading",
+                  "inputType": "heading",
+                  "titlePosition": "left",
+                  "headingSize": "h4",
+                  "dataBindingOptional": "DeliveryName"
+                },
+                {
+                  "type": "nativescript-angular:editableListFormField",
+                  "name": "addressTextBlock",
+                  "title": "Address",
+                  "inputType": "textBlock",
+                  "titlePosition": "left",
+                  "dataBindingOptional": "DeliveryAddressLine1"
+                }
+              ],
+              "name": "editableListForm9",
+              "formType": "detail"
+            },
+            {
+              "type": "nativescript-angular:editableListForm",
+              "components": [
+                {
+                  "type": "nativescript-angular:editableListFormField",
+                  "name": "commentsTextArea",
+                  "title": "Comments",
+                  "inputType": "textArea",
+                  "titlePosition": "left",
+                  "dataBinding": "Comments"
+                }
+              ],
+              "name": "editableListForm14",
+              "formType": "edit"
+            }
+          ],
+          "name": "homeViewModel",
+          "dataProvider": "backendServices",
+          "collection": "DeliveryOrder",
+          "headerField": "DeliveryItem",
+          "subHeaderField": "DeliveryAddressLine1",
+          "isMapView": false,
+          "addItemForm": false,
+          "editItemForm": true,
+          "editScreenHeaderSource": "dataBound",
+          "editScreenHeaderField": "DeliveryItem",
+          "deleteItemButton": false,
+          "pullToRefresh": false,
+          "endlessScroll": false,
+          "detailHeaderFieldSource": "dataBound",
+          "detailHeaderField": "DeliveryItem",
+          "detailSubHeaderField": "DeliveryItemType",
+          "detailDescriptionField": "DeliveryItem"
+        }
+      ],
+      "title": "Deliveries",
+      "addToNavigation": true,
+      "icon": "home"
+    },
+    {
+      "type": "nativescript-angular:view",
+      "name": "home",
+      "components": [],
+      "title": "Home",
+      "addToNavigation": false
+    }
+  ],
+  "dataProviders": [
+    {
+      "type": "nativescript-angular:dataProvider",
+      "name": "backendServices",
+      "source": "everlive",
+      "everliveKey": "y1awicxxgmw0vtrc",
+      "offlineStorage": true,
+      "title": "Backend Services"
+    }
+  ],
+  "name": "nativeScriptApp",
+  "navigation": "none",
+  "view": "homeView",
+  "skin": "aqua"
+}

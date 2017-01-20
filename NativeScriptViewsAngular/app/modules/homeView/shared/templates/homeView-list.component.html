@@ -1,0 +1,45 @@
+<GridLayout rows="*, auto">
+    <ListView class="list-group" [items]="items">
+        <template let-item="item">
+            <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
+                <GridLayout columns="auto, 10, *" rows="auto, auto">
+
+                    <!--<Image class="image" width="40" height="40" [src]="item.data.ImageProperty"></Image>
+          <Label class="list-group-item-heading fa"></Label>-->
+
+                    <StackLayout col="2">
+
+                        <Label class="list-group-item-heading" [text]="item.data.DeliveryItem"></Label>
+
+
+                        <Label class="list-group-item-text" [text]="item.data.DeliveryAddressLine1"></Label>
+
+                    </StackLayout>
+                </GridLayout>
+
+                <GridLayout row="1">
+
+                    <StackLayout class="form">
+                        <GridLayout class="input-field" columns="*, *">
+    <Label class="h3 text-muted" text="Heading"></Label>
+
+    <Label class="h3" col="1" [text]="item.data.DeliveryAddressCity" textWrap="true"></Label>
+
+</GridLayout><GridLayout class="input-field" columns="*, *">
+    <Label class="h3 text-muted" text="Heading"></Label>
+
+    <Label class="h4" col="1" [text]="item.data.DeliveryAddressPostcode" textWrap="true"></Label>
+
+</GridLayout><!--- editableListForm15 additional fields -->
+                    </StackLayout>
+                    <!--- master detail form -->
+
+                </GridLayout>
+            </GridLayout>
+        </template>
+    </ListView>
+
+
+    <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!items.length" [visibility]="items.length ? 'collapse' : 'visible'">
+    </ActivityIndicator>
+</GridLayout>

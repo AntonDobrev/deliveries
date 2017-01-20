@@ -1,0 +1,29 @@
+<ns-action-bar title="Deliveries" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)" <!--- component view navigation directive --->
+
+    ></ns-action-bar>
+
+
+<GridLayout>
+    <GridLayout *ngIf="mode == modes.LIST">
+        <ns-homeView-list [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+        </ns-homeView-list>
+    </GridLayout>
+
+    <GridLayout *ngIf="mode == modes.DETAIL">
+        <ns-homeView-detail [current]="_store.currentItem$ | async" [provider]="_store.provider" (navigate)="onNavigate(modes.EDIT)">
+        </ns-homeView-detail>
+    </GridLayout>
+
+
+    <GridLayout *ngIf="mode == modes.EDIT">
+        <ns-homeView-edit [current]="_store.currentItem$ | async" [provider]="_store.provider" (update)="onSave($event)">
+        </ns-homeView-edit>
+    </GridLayout>
+
+</GridLayout>
+<!-- additional view content -->
+
+<!-- START_CUSTOM_CODE_homeView -->
+<!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
+
+<!-- END_CUSTOM_CODE_homeView -->

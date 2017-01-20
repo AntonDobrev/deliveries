@@ -1,0 +1,7 @@
+{
+  "generator-nativescript-angular": {
+    "dependsOn": [
+      "generator-nativescript-angular@0.0.20"
+    ]
+  }
+}

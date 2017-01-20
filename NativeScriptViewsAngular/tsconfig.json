@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES5",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": true,
+    "emitDecoratorMetadata": true,
+    "noEmitOnError": false
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules",
+    "platforms"
+  ]
+}

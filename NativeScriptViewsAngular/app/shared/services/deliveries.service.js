@@ -1,0 +1,20 @@
+"use strict";
+var core_1 = require('@angular/core');
+var providers_1 = require("../providers");
+var DeliveriesService = (function () {
+    function DeliveriesService(_backendProvider) {
+        this._backendProvider = _backendProvider;
+        this._deliveriesContentTypeName = "DeliveryOrder";
+        this._data = this._backendProvider.instance.data(this._deliveriesContentTypeName);
+    }
+    DeliveriesService.prototype.getItemsCount = function () {
+        return this._data.count({}).then(function (r) { return r.result; });
+    };
+    DeliveriesService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [providers_1.backendServicesService])
+    ], DeliveriesService);
+    return DeliveriesService;
+}());
+exports.DeliveriesService = DeliveriesService;
+//# sourceMappingURL=deliveries.service.js.map

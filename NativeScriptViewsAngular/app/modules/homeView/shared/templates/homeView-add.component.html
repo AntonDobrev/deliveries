@@ -1,0 +1,12 @@
+<GridLayout rows="*, auto">
+    <ScrollView>
+        <!--- master detail form -->
+    </ScrollView>
+
+    <GridLayout row="1">
+        <Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
+    </GridLayout>
+
+    <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
+    </ActivityIndicator>
+</GridLayout>

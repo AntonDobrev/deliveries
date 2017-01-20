@@ -1,0 +1,21 @@
+<GridLayout rows="*, auto">
+    <ScrollView>
+
+        <StackLayout class="form">
+            <GridLayout class="input-field" columns="*, *">
+    <Label class="h3 text-muted" text="Comments"></Label>
+    <TextField class="input" col="1" [(ngModel)]="item.data.Comments" hint=""></TextField>
+</GridLayout><!--- editableListForm14 additional fields -->
+        </StackLayout>
+        <!--- master detail form -->
+
+    </ScrollView>
+
+    <GridLayout row="1" columns="*, *">
+        <Button class="btn btn-primary" text="Update" (tap)="onUpdate()"></Button>
+        <Button class="btn btn-outline" col="1" text="Delete" (tap)="onDelete()"></Button>
+    </GridLayout>
+
+    <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
+    </ActivityIndicator>
+</GridLayout>
