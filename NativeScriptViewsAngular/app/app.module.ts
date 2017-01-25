@@ -51,52 +51,5 @@ import * as shared from "./shared/providers";
 	})
 
 export class AppModule {
-	public connectionType: string;
-
-	constructor(private _provider: shared.backendServicesService) {
-		this.addConectivityListeners();
-		this.addSyncEventListeners();
-	}
-
-	addSyncEventListeners() {
-		this._provider.instance.on('syncStart', function(){
-		//	Dialogs.alert("Sync started");
-		});
-
-		this._provider.instance.on('syncEnd', function(syncInfo){
-			Dialogs.alert("Sync ended" + JSON.stringify(syncInfo));
-		});
-	}
-
-	addConectivityListeners() {
-		connectivity.startMonitoring((newConnectionType: number) => {
-			switch (newConnectionType) {
-				case connectivity.connectionType.none:
-					this.connectionType = "None"; //0
-					this._provider.instance.offline();
-				//	Dialogs.alert("Connection changed to " + this.connectionType);
-
-
-					break;
-				case connectivity.connectionType.wifi:
-					this.connectionType = "Wi-Fi"; // 1
-					
-
-					this._provider.instance.online();
-					 this._provider.instance.sync();
-
-					break;
-				case connectivity.connectionType.mobile:
-					this.connectionType = "Mobile";
-						this._provider.instance.online();
-					 this._provider.instance.sync();
-
-					
-
-					break;
-				default:
-					break;
-			}
-		});
-	};
+	
 }
