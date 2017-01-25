@@ -1,7 +1,18 @@
-<ns-action-bar title="Home" <!--- component view navigation directive --->
+<ns-action-bar title="Deliveries Home" <!--- component view navigation directive --->
     ></ns-action-bar>
 
+
+<ScrollView>
+    <StackLayout class="form">
+        <!--- homeModel additional fields -->
+        <GridLayout columns="*, *">
+            <Button class="btn btn-primary" text="Confirm" (tap)="onConfirm()"></Button>
+            <Button class="btn btn-outline" col="1" text="Cancel" (tap)="onCancel()"></Button>
+        </GridLayout>
+    </StackLayout>
+</ScrollView>
 <!-- additional view content -->
+
 <!-- START_CUSTOM_CODE_home -->
 <!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
 

@@ -6,9 +6,12 @@ var HomeComponent = (function () {
     function HomeComponent(
         /// component constructor dependencies
         _service) {
-        this._service = _service;
         /// component constructor method
+        this._service = _service;
     }
+    HomeComponent.prototype.onConfirm = function () {
+    };
+    HomeComponent.prototype.onCancel = function () { };
     HomeComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
