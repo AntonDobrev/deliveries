@@ -64,6 +64,11 @@ implements OnInit
         this.onNavigate(this.mode === shared.Modes.ADD ? shared.Modes.LIST : shared.Modes.DETAIL);
     }
 
+    onDelete(args) {
+        this._store.delete(args.item);
+        this.onNavigate(shared.Modes.LIST);
+    }
+
     onNavigateBack() {
         this.onNavigate(this.mode === shared.Modes.EDIT ? shared.Modes.DETAIL : shared.Modes.LIST);
     }

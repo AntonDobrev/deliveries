@@ -10,7 +10,9 @@ var NavigationService = (function () {
         this._mode = this._modes.NONE;
         this._routes = [
             /// start navigation routes
-            { path: "homeView", title: "Deliveries", icon: "\uf015" },
+            { path: "homeView", title: "Delivery Orders", icon: "\uf015" },
+            { path: "home", title: "Deliveries Home", icon: "\uf015" },
+            { path: "aboutView", title: "About this app", icon: "\uf015" },
         ];
         this._openDrawer$ = new rxjs_1.BehaviorSubject(false);
     }

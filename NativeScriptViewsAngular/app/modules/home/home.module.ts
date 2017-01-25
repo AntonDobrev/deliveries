@@ -16,6 +16,15 @@ import {
     HomeComponent
 }
 from "./home.component";
+
+import {
+    NativeScriptFormsModule
+}
+from "nativescript-angular/forms";
+import {
+    NativeScriptRouterModule
+}
+from "nativescript-angular/router";
 /// module additional imports
 
 import * as common from "./shared";
@@ -24,7 +33,11 @@ import * as shared from "../../shared";
 @
 NgModule({
     imports: [
+
+        NativeScriptRouterModule,
+        NativeScriptFormsModule,
         /// module imports declaration
+
         NativeScriptModule,
         SharedModule
     ],

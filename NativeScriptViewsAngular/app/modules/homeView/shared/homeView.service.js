@@ -25,11 +25,31 @@ var HomeViewService = (function () {
         });
         return Observable_1.Observable.fromPromise(promise);
     };
+    HomeViewService.prototype.post = function (item) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this._data
+                .create(item)
+                .then(function (data) { return resolve(data.result || {}); })
+                .catch(function (error) { return reject(error); });
+        });
+        return Observable_1.Observable.fromPromise(promise);
+    };
     HomeViewService.prototype.put = function (item) {
         var _this = this;
         var promise = new Promise(function (resolve, reject) {
             _this._data
                 .updateSingle(item)
+                .then(function (data) { return resolve(data || {}); })
+                .catch(function (error) { return reject(error); });
+        });
+        return Observable_1.Observable.fromPromise(promise);
+    };
+    HomeViewService.prototype.delete = function (item) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this._data
+                .destroySingle(item)
                 .then(function (data) { return resolve(data || {}); })
                 .catch(function (error) { return reject(error); });
         });

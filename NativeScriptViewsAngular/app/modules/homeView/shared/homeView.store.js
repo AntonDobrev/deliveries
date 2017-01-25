@@ -59,6 +59,21 @@ var HomeViewStore = (function () {
     HomeViewStore.prototype.select = function (item) {
         this._currentItem$.next(item);
     };
+    HomeViewStore.prototype.add = function (item) {
+        var _this = this;
+        this._service.post(item.data)
+            .subscribe(function (data) {
+            var arr = _this._items$.getValue();
+            if (!data.Id) {
+                return;
+            }
+            item.id = data.Id;
+            arr.push(item);
+            _this._items$.next(arr.slice());
+        }, function (error) {
+            console.log(JSON.stringify(error));
+        });
+    };
     HomeViewStore.prototype.update = function (item) {
         var _this = this;
         this._service.put(item.data)
@@ -75,8 +90,24 @@ var HomeViewStore = (function () {
             console.log(JSON.stringify(error));
         });
     };
+    HomeViewStore.prototype.delete = function (item) {
+        var _this = this;
+        this._service.delete(item.data)
+            .subscribe(function (data) {
+            var arr = _this._items$.getValue();
+            arr.forEach(function (itm, idx) {
+                if (itm.id === item.id) {
+                    arr.splice(idx, 1);
+                }
+            });
+            _this._items$.next(arr.slice());
+            _this.reset();
+        }, function (error) {
+            console.log(JSON.stringify(error));
+        });
+    };
     HomeViewStore.prototype.save = function (item) {
-        this.update(item);
+        (item.id) ? this.update(item) : this.add(item);
     };
     HomeViewStore = __decorate([
         core_1.Injectable(), 

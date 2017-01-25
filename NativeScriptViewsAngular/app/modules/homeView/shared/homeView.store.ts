@@ -74,6 +74,25 @@ export class HomeViewStore {
         this._currentItem$.next(item);
     }
 
+    add(item: shared.Item) {
+        this._service.post(item.data)
+            .subscribe(
+                (data) => {
+                    let arr: shared.Item[] = this._items$.getValue();
+
+                    if (!data.Id) {
+                        return;
+                    }
+                    item.id = data.Id;
+
+                    arr.push(item);
+                    this._items$.next([...arr]);
+                }, (error) => {
+                    console.log(JSON.stringify(error));
+                }
+            );
+    }
+
     update(item: shared.Item) {
         this._service.put(item.data)
             .subscribe(
@@ -94,8 +113,28 @@ export class HomeViewStore {
             );
     }
 
+    delete(item: shared.Item) {
+        this._service.delete(item.data)
+            .subscribe(
+                (data) => {
+                    let arr: shared.Item[] = this._items$.getValue();
+
+                    arr.forEach((itm, idx) => {
+                        if (itm.id === item.id) {
+                            arr.splice(idx, 1);
+                        }
+                    });
+
+                    this._items$.next([...arr]);
+                    this.reset();
+                }, (error) => {
+                    console.log(JSON.stringify(error));
+                }
+            );
+    }
+
     save(item: shared.Item) {
-        this.update(item);
+        (item.id) ? this.update(item): this.add(item);
     }
 
 }

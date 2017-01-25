@@ -24,6 +24,10 @@ var HomeViewComponent = (function () {
         this._store.save(args.item);
         this.onNavigate(this.mode === shared.Modes.ADD ? shared.Modes.LIST : shared.Modes.DETAIL);
     };
+    HomeViewComponent.prototype.onDelete = function (args) {
+        this._store.delete(args.item);
+        this.onNavigate(shared.Modes.LIST);
+    };
     HomeViewComponent.prototype.onNavigateBack = function () {
         this.onNavigate(this.mode === shared.Modes.EDIT ? shared.Modes.DETAIL : shared.Modes.LIST);
     };

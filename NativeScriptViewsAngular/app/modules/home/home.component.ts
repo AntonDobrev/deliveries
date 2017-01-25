@@ -22,12 +22,24 @@ Component({
 export class HomeComponent
 /// component inheritance
 {
+
     /// component additional properties
+
     constructor(
-            /// component constructor dependencies
-            private _service: common.HomeService
-        ) {
-            /// component constructor method
-        }
+
+        /// component constructor dependencies
+
+        private _service: common.HomeService
+    ) {
+
+        /// component constructor method
+
+    }
+
+    onConfirm() {
+
+    }
+    onCancel() {}
         /// component additional methods
+
 }

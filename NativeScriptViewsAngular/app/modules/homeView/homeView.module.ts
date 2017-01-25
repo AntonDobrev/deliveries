@@ -46,6 +46,8 @@ NgModule({
         common.HomeViewListComponent,
         common.HomeViewDetailComponent,
 
+        common.HomeViewAddComponent,
+
         common.HomeViewEditComponent,
 
         /// module declarations
@@ -56,6 +58,8 @@ NgModule({
 
         common.HomeViewListComponent,
         common.HomeViewDetailComponent,
+
+        common.HomeViewAddComponent,
 
         common.HomeViewEditComponent,
 

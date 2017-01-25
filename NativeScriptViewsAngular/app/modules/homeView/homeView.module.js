@@ -22,6 +22,7 @@ var HomeViewModule = (function () {
             declarations: [
                 common.HomeViewListComponent,
                 common.HomeViewDetailComponent,
+                common.HomeViewAddComponent,
                 common.HomeViewEditComponent,
                 /// module declarations
                 homeView_component_1.HomeViewComponent
@@ -29,6 +30,7 @@ var HomeViewModule = (function () {
             exports: [
                 common.HomeViewListComponent,
                 common.HomeViewDetailComponent,
+                common.HomeViewAddComponent,
                 common.HomeViewEditComponent,
                 /// module exports
                 homeView_component_1.HomeViewComponent

@@ -41,11 +41,37 @@ export class HomeViewService {
         return Observable.fromPromise(promise);
     }
 
+    post(item: any): Observable < any > {
+        let promise: Promise < any > = new Promise(
+            (resolve, reject) => {
+                this._data
+                    .create(item)
+                    .then(data => resolve(data.result || {}))
+                    .catch(error => reject(error));
+            }
+        );
+
+        return Observable.fromPromise(promise);
+    }
+
     put(item: any): Observable < any > {
         let promise: Promise < any > = new Promise(
             (resolve, reject) => {
                 this._data
                     .updateSingle(item)
+                    .then(data => resolve(data || {}))
+                    .catch(error => reject(error));
+            }
+        );
+
+        return Observable.fromPromise(promise);
+    }
+
+    delete(item: any): Observable < any > {
+        let promise: Promise < any > = new Promise(
+            (resolve, reject) => {
+                this._data
+                    .destroySingle(item)
                     .then(data => resolve(data || {}))
                     .catch(error => reject(error));
             }
