@@ -18,11 +18,6 @@
                         "DisplayFieldName":"DeliveryItem",
                         "Fields":[
                            {
-                              "Name":"DeliveryAddressLine2",
-                              "DataType":1,
-                              "Title":"DeliveryAddressLine2"
-                           },
-                           {
                               "Name":"DeliveryAddressPostcode",
                               "DataType":1,
                               "Title":"DeliveryAddressPostcode"
@@ -61,11 +56,6 @@
                               "Name":"Status",
                               "DataType":2,
                               "Title":"Status"
-                           },
-                           {
-                              "Name":"Image",
-                              "DataType":6,
-                              "Title":"Image"
                            }
                         ]
                      }
