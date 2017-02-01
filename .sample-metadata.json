@@ -1,0 +1,122 @@
+{
+    "services": {
+        "backendservices": {
+            "AppId": "${AppId}",
+            "Templates": [
+                {
+                    "BaseUrl": "${BaseUrl}",
+                    "Template": {
+                        "Sections": [
+                            "data",
+                            "users",
+                            "push",
+                            "cloud-code"
+                        ],
+                        "Types": [
+                            {
+                                "Id": "$guid:ActivitiesTypeId",
+                                "Name": "Activities",
+                                "Title": "Activities",
+                                "SecurityPolicy": "shared",
+                                "DisplayFieldName": "Text",
+                                "Fields": [
+                                    {
+                                        "Name": "Text",
+                                        "Title": "Text",
+                                        "DataType": "text",
+                                        "IsArray": false,
+                                        "TargetTypeId": null
+                                    },
+                                    {
+                                        "Name": "Picture",
+                                        "Title": "Picture",
+                                        "DataType": "file",
+                                        "IsArray": false,
+                                        "TargetTypeId": null
+                                    },
+                                    {
+                                        "Name": "Location",
+                                        "Title": "Location",
+                                        "DataType": "geopoint",
+                                        "IsArray": false,
+                                        "TargetTypeId": null
+                                    },
+                                    {
+                                        "Name": "Likes",
+                                        "Title": "Likes",
+                                        "DataType": "relation",
+                                        "IsArray": true,
+                                        "TargetTypeId": "$typeId:Users"
+                                    }
+                                ]
+                            },
+                            {
+                                "Id": "$guid:CommentsTypeId",
+                                "Name": "Comments",
+                                "Title": "Comments",
+                                "SecurityPolicy": "shared",
+                                "Fields": [
+                                    {
+                                        "Name": "Comment",
+                                        "Title": "Comment",
+                                        "DataType": "text",
+                                        "IsArray": false,
+                                        "TargetTypeId": null
+                                    },
+                                    {
+                                        "Name": "ActivityId",
+                                        "Title": "ActivityId",
+                                        "DataType": "relation",
+                                        "IsArray": false,
+                                        "TargetTypeId": "$var:ActivitiesTypeId"
+                                    }
+                                ]
+                            }
+                        ],
+                        "Data": {
+                            "Activities": [
+                                {
+                                    "Id": "$guid:ActivityId_Graduation",
+                                    "Text": "It is finally time for graduation! Good job everyone, we made it.",
+                                    "CreatedBy": "$var:UserId_Michael",
+                                    "Owner": "$var:UserId_Michael",
+                                    "Picture": "$var:ActivityImageId_Graduation",
+                                    "Likes": [
+                                        "$var:UserId_Seth"
+                                    ]
+                                },
+                                {
+                                    "Id": "$guid:ActivityId_Sunset",
+                                    "Text": "The most amazing sunset I have ever seen at Phuket, Thailand",
+                                    "CreatedBy": "$var:UserId_Seth",
+                                    "Owner": "$var:UserId_Seth",
+                                    "Picture": "$var:ActivityImageId_Sunset"
+                                }
+                            ],
+                            "Comments": [
+                                {
+                                    "Comment": "Congratulations!",
+                                    "ActivityId": "$var:ActivityId_Graduation",
+                                    "CreatedBy": "$var:UserId_Seth",
+                                    "Owner": "$var:UserId_Seth"
+                                },
+                                {
+                                    "Comment": "Thanks :)",
+                                    "ActivityId": "$var:ActivityId_Graduation",
+                                    "CreatedBy": "$var:UserId_Michael",
+                                    "Owner": "$var:UserId_Michael"
+                                },
+                                {
+                                    "Comment": "It is beautiful.",
+                                    "ActivityId": "$var:ActivityId_Sunset",
+                                    "CreatedBy": "$var:UserId_Andy",
+                                    "Owner": "$var:UserId_Andy"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
