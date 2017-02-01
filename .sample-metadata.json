@@ -1,122 +1,120 @@
 {
-    "services": {
-        "backendservices": {
-            "AppId": "${AppId}",
-            "Templates": [
-                {
-                    "BaseUrl": "${BaseUrl}",
-                    "Template": {
-                        "Sections": [
-                            "data",
-                            "users",
-                            "push",
-                            "cloud-code"
-                        ],
-                        "Types": [
-                            {
-                                "Id": "$guid:ActivitiesTypeId",
-                                "Name": "Activities",
-                                "Title": "Activities",
-                                "SecurityPolicy": "shared",
-                                "DisplayFieldName": "Text",
-                                "Fields": [
-                                    {
-                                        "Name": "Text",
-                                        "Title": "Text",
-                                        "DataType": "text",
-                                        "IsArray": false,
-                                        "TargetTypeId": null
-                                    },
-                                    {
-                                        "Name": "Picture",
-                                        "Title": "Picture",
-                                        "DataType": "file",
-                                        "IsArray": false,
-                                        "TargetTypeId": null
-                                    },
-                                    {
-                                        "Name": "Location",
-                                        "Title": "Location",
-                                        "DataType": "geopoint",
-                                        "IsArray": false,
-                                        "TargetTypeId": null
-                                    },
-                                    {
-                                        "Name": "Likes",
-                                        "Title": "Likes",
-                                        "DataType": "relation",
-                                        "IsArray": true,
-                                        "TargetTypeId": "$typeId:Users"
-                                    }
-                                ]
-                            },
-                            {
-                                "Id": "$guid:CommentsTypeId",
-                                "Name": "Comments",
-                                "Title": "Comments",
-                                "SecurityPolicy": "shared",
-                                "Fields": [
-                                    {
-                                        "Name": "Comment",
-                                        "Title": "Comment",
-                                        "DataType": "text",
-                                        "IsArray": false,
-                                        "TargetTypeId": null
-                                    },
-                                    {
-                                        "Name": "ActivityId",
-                                        "Title": "ActivityId",
-                                        "DataType": "relation",
-                                        "IsArray": false,
-                                        "TargetTypeId": "$var:ActivitiesTypeId"
-                                    }
-                                ]
-                            }
-                        ],
-                        "Data": {
-                            "Activities": [
-                                {
-                                    "Id": "$guid:ActivityId_Graduation",
-                                    "Text": "It is finally time for graduation! Good job everyone, we made it.",
-                                    "CreatedBy": "$var:UserId_Michael",
-                                    "Owner": "$var:UserId_Michael",
-                                    "Picture": "$var:ActivityImageId_Graduation",
-                                    "Likes": [
-                                        "$var:UserId_Seth"
-                                    ]
-                                },
-                                {
-                                    "Id": "$guid:ActivityId_Sunset",
-                                    "Text": "The most amazing sunset I have ever seen at Phuket, Thailand",
-                                    "CreatedBy": "$var:UserId_Seth",
-                                    "Owner": "$var:UserId_Seth",
-                                    "Picture": "$var:ActivityImageId_Sunset"
-                                }
-                            ],
-                            "Comments": [
-                                {
-                                    "Comment": "Congratulations!",
-                                    "ActivityId": "$var:ActivityId_Graduation",
-                                    "CreatedBy": "$var:UserId_Seth",
-                                    "Owner": "$var:UserId_Seth"
-                                },
-                                {
-                                    "Comment": "Thanks :)",
-                                    "ActivityId": "$var:ActivityId_Graduation",
-                                    "CreatedBy": "$var:UserId_Michael",
-                                    "Owner": "$var:UserId_Michael"
-                                },
-                                {
-                                    "Comment": "It is beautiful.",
-                                    "ActivityId": "$var:ActivityId_Sunset",
-                                    "CreatedBy": "$var:UserId_Andy",
-                                    "Owner": "$var:UserId_Andy"
-                                }
-                            ]
+   "services":{
+      "backendservices":{
+         "AppId":"${AppId}",
+         "Templates":[
+            {
+               "BaseUrl":"${BaseUrl}",
+               "Template":{
+                  "Sections":[
+                     "data"
+                  ],
+                  "Types":[
+                     {
+                        "Id":"$guid:DeliveryOrderTypeId",
+                        "Name":"DeliveryOrder",
+                        "Title":"DeliveryOrder",
+                        "SecurityPolicy":"shared",
+                        "DisplayFieldName":"DeliveryItem",
+                        "Fields":[
+                           {
+                              "Name":"DeliveryAddressLine2",
+                              "DataType":1,
+                              "Title":"DeliveryAddressLine2"
+                           },
+                           {
+                              "Name":"DeliveryAddressPostcode",
+                              "DataType":1,
+                              "Title":"DeliveryAddressPostcode"
+                           },
+                           {
+                              "Name":"DeliveryAddressLine1",
+                              "DataType":1,
+                              "Title":"DeliveryAddressLine1"
+                           },
+                           {
+                              "Name":"DeliveryAddressCity",
+                              "DataType":1,
+                              "Title":"DeliveryAddressCity"
+                           },
+                           {
+                              "Name":"DeliveryName",
+                              "DataType":1,
+                              "Title":"Delivery Name"
+                           },
+                           {
+                              "Name":"DeliveryItemType",
+                              "DataType":1,
+                              "Title":"Delivery Item Type"
+                           },
+                           {
+                              "Name":"DeliveryItem",
+                              "DataType":1,
+                              "Title":"Delivery Item"
+                           },
+                           {
+                              "Name":"Comments",
+                              "DataType":1,
+                              "Title":"Comments"
+                           },
+                           {
+                              "Name":"Status",
+                              "DataType":2,
+                              "Title":"Status"
+                           },
+                           {
+                              "Name":"Image",
+                              "DataType":6,
+                              "Title":"Image"
+                           }
+                        ]
+                     }
+                  ],
+                  "Data":{
+                     "DeliveryOrder":[
+                        {
+                           "DeliveryAddressCity":"Seattle",
+                           "DeliveryAddressLine1":"8904 Aurora Ave N",
+                           "DeliveryAddressPostcode":"WA 98103-3920",
+                           "DeliveryItemType":"Documents",
+                           "DeliveryName":"John Smith",
+                           "DeliveryItem":"Tax forms",
+                           "Image":"taxFormsImage",
+                           "Status":1
+                        },
+                        {
+                           "DeliveryAddressCity":"Seattle",
+                           "DeliveryAddressLine1":"4750 California Ave Sw",
+                           "DeliveryAddressPostcode":"WA 98116-4413",
+                           "DeliveryItemType":"Electronics",
+                           "DeliveryItem":"Kindle Paperwhite",
+                           "DeliveryName":"Sarah Williams",
+                           "Status":1
+                        },
+                        {
+                           "DeliveryItemType":"Books",
+                           "DeliveryAddressCity":"Seattle",
+                           "DeliveryAddressPostcode":"WA 98104",
+                           "DeliveryAddressLine1":"100 Main St",
+                           "DeliveryItem":"Game of Thrones",
+                           "DeliveryName":"Matrim Cauthon",
+                           "Image":"GoTImage",
+                           "Status":1
+                        },
+                        {
+                           "DeliveryAddressLine1":"122 Cherry St",
+                           "DeliveryAddressCity":"Seattle",
+                           "DeliveryAddressPostcode":"WA 98104-2206",
+                           "DeliveryItemType":"Electronics",
+                           "DeliveryItem":"Macbook Air",
+                           "DeliveryName":"Phil Johnson",
+                           "Status":2
                         }
-                    }
-                }
-            ]
-        }
-    }
+                     ]
+                  }
+               }
+            }
+         ]
+      }
+   }
 }
