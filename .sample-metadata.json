@@ -106,5 +106,8 @@
             }
          ]
       }
-   }
+   },
+   "templateFiles":[
+      "NativeScriptViewsAngular/app/shared/constants.ts"
+   ]
 }
