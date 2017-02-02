@@ -1,58 +1,18 @@
 "use strict";
 var core_1 = require('@angular/core');
 var everlive_sdk_1 = require('everlive-sdk');
+var shared_1 = require('../../shared');
 var backendServicesService = (function () {
     function backendServicesService() {
         this._options = {
-            appId: 'y1awicxxgmw0vtrc',
-            scheme: 'https',
+            appId: shared_1.constants.appId,
+            scheme: shared_1.constants.httpScheme,
             offline: {
                 storage: {
                     provider: everlive_sdk_1.default.Constants.StorageProvider.SQLite,
-                    storagePath: 'deliveries'
+                    storagePath: shared_1.constants.deliveriesStoragePathName
                 },
-                typeSettings: {
-                    'DeliveryOrder': {
-                        'Scheme': [
-                            {
-                                'Name': 'Status',
-                                'Type': 'INT'
-                            },
-                            {
-                                'Name': 'Comments',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryItem',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryItemType',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryName',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryAddressCity',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryAddressLine1',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryAddressPostcode',
-                                'Type': 'TEXT'
-                            },
-                            {
-                                'Name': 'DeliveryAddressLine2',
-                                'Type': 'TEXT'
-                            }
-                        ]
-                    }
-                }
+                typeSettings: shared_1.constants.deliveriesMappingScheme
             }
         };
         this._everlive = new everlive_sdk_1.default(this._options);

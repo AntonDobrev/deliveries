@@ -1,12 +1,8 @@
-import {
-	Injectable
-}
-	from '@angular/core';
-
+import { Injectable } from '@angular/core';
 import Everlive from 'everlive-sdk';
+import { constants } from '../../shared';
 
-@
-	Injectable()
+@Injectable()
 
 export class backendServicesService {
 	private _everlive: Everlive;
@@ -15,55 +11,14 @@ export class backendServicesService {
 
 	constructor() {
 		this._options = {
-			appId: 'y1awicxxgmw0vtrc',
-			scheme: 'https',
+			appId: constants.appId,
+			scheme: constants.httpScheme,
 			offline: {
 				storage: {
 					provider: Everlive.Constants.StorageProvider.SQLite,
-					storagePath: 'deliveries'
+					storagePath: constants.deliveriesStoragePathName
 				},
-				typeSettings: {
-					'DeliveryOrder': {
-						'Scheme': [
-							{
-								'Name': 'Status',
-								'Type': 'INT'
-							},
-							{
-								'Name': 'Comments',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryItem',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryItemType',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryName',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryAddressCity',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryAddressLine1',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryAddressPostcode',
-								'Type': 'TEXT'
-							},
-							{
-								'Name': 'DeliveryAddressLine2',
-								'Type': 'TEXT'
-							}
-						]
-					}
-				}
+				typeSettings:  constants.deliveriesMappingScheme
 			}
 		}
 
