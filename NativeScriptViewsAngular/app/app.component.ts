@@ -1,26 +1,17 @@
-import {
-	Component, OnInit
-}
-	from "@angular/core";
-
-// import { backendServicesService } from "./shared";
+import { Component, OnInit } from "@angular/core";
 import { DeliveriesService } from './shared/services';
-
 import * as connectivity from "connectivity";
-
 import { NotificationService } from "./shared/services";
-
 import * as Dialogs from "ui/dialogs";
-
 import * as shared from "./shared/providers";
 
-@
-	Component({
-		moduleId: module.id,
-		selector: "ns-main",
-		templateUrl: "app.component.html",
-		providers: [DeliveriesService]
-	})
+@Component({
+	moduleId: module.id,
+	selector: "ns-main",
+	templateUrl: "app.component.html",
+	providers: [DeliveriesService]
+})
+
 export class AppComponent implements OnInit {
 	public connectionType: string = "Connection Status";
 
@@ -31,7 +22,7 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log("onInit");
+		console.log("onInit"); // TODO
 		this.addConectivityListeners();
 		this.addSyncEventListeners();
 		this._deliveries.getItemsCount().then(itemsCount => {
@@ -57,24 +48,16 @@ export class AppComponent implements OnInit {
 					this.connectionType = "None"; //0
 					this._provider.instance.offline();
 					Dialogs.alert("Connection changed to " + this.connectionType);
-
-
 					break;
 				case connectivity.connectionType.wifi:
 					this.connectionType = "Wi-Fi"; // 1
-
-
 					this._provider.instance.online();
 					this._provider.instance.sync();
-
 					break;
 				case connectivity.connectionType.mobile:
 					this.connectionType = "Mobile";
 					this._provider.instance.online();
 					this._provider.instance.sync();
-
-
-
 					break;
 				default:
 					break;
@@ -84,6 +67,6 @@ export class AppComponent implements OnInit {
 
 	onCountError(err) {
 		console.log("Cannot retrieve items count");
-		// TODO - init logic here
+		// TODO - remove
 	}
 }

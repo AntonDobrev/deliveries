@@ -4,13 +4,14 @@ var providers_1 = require("../providers");
 var DeliveriesService = (function () {
     function DeliveriesService(_backendProvider) {
         this._backendProvider = _backendProvider;
-        this._deliveriesContentTypeName = "DeliveryOrder";
+        this._deliveriesContentTypeName = "DeliveryOrder"; // TODO - should this be a constant
         this._data = this._backendProvider.instance.data(this._deliveriesContentTypeName);
     }
     DeliveriesService.prototype.getItemsCount = function () {
         return this._data.count({}).then(function (r) { return r.result; });
     };
     DeliveriesService = __decorate([
+        // TODO manage the dependency in AB and NS
         core_1.Injectable(), 
         __metadata('design:paramtypes', [providers_1.backendServicesService])
     ], DeliveriesService);
