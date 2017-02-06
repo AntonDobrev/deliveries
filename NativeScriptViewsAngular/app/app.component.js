@@ -3,12 +3,15 @@ var core_1 = require("@angular/core");
 var services_1 = require('./shared/services');
 var connectivity = require("connectivity");
 var shared = require("./shared/providers");
+var onlineConnectionMessage = "You are working online";
+var offlineConnectionMessage = "You are working offline";
 var AppComponent = (function () {
     function AppComponent(_deliveriesService, _provider, zone) {
         this._deliveriesService = _deliveriesService;
         this._provider = _provider;
         this.zone = zone;
         this.connectionType = "Connection Status";
+        this.connectionMessage = "";
         this.synchronizationStatus = "Synchronization Status";
         this.synchronizationCompleted = false;
         this._deliveries = _deliveriesService;
@@ -21,13 +24,14 @@ var AppComponent = (function () {
     AppComponent.prototype.addSyncEventListeners = function () {
         var self = this;
         this._provider.instance.on('syncStart', function (syncStartInfo) {
-            self.synchronizationStatus = "Synchronization started successfully";
-            if (syncStartInfo.canceled) {
-                self.synchronizationStatus = "Synchronization canceled by user";
-            }
+            self.zone.run(function () {
+                self.synchronizationStatus = "Synchronization started successfully";
+                if (syncStartInfo.canceled) {
+                    self.synchronizationStatus = "Synchronization canceled by user";
+                }
+            });
         });
         this._provider.instance.on('syncEnd', function (syncEndInfo) {
-            console.log("Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer);
             self.zone.run(function () {
                 self.synchronizationCompleted = true;
                 self.synchronizationStatus = "Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer;
@@ -40,16 +44,16 @@ var AppComponent = (function () {
             _this.zone.run(function () {
                 switch (newConnectionType) {
                     case connectivity.connectionType.none:
-                        _this.connectionType = "None"; //0
+                        _this.connectionMessage = offlineConnectionMessage;
                         _this._provider.instance.offline();
                         break;
                     case connectivity.connectionType.wifi:
-                        _this.connectionType = "Wi-Fi"; // 1
+                        _this.connectionMessage = onlineConnectionMessage;
                         _this._provider.instance.online();
                         _this._provider.instance.sync();
                         break;
                     case connectivity.connectionType.mobile:
-                        _this.connectionType = "Mobile";
+                        _this.connectionMessage = onlineConnectionMessage;
                         _this._provider.instance.online();
                         _this._provider.instance.sync();
                         break;

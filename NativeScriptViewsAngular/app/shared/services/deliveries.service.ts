@@ -12,9 +12,4 @@ export class DeliveriesService {
 	constructor(private _backendProvider: backendServicesService) {
 		this._data = this._backendProvider.instance.data(this._deliveriesContentTypeName);
 	}
-
-	getItemsCount() {
-
-		return this._data.count({}).then(r => r.result);
-	}
 }

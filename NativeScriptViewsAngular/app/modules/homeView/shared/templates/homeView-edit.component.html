@@ -1,11 +1,11 @@
 <GridLayout rows="*, auto">
     <ScrollView>
-
         <StackLayout class="form">
             <GridLayout class="input-field" columns="*, *">
-    <Label class="h3 text-muted" text="Add a comment here"></Label>
-    <TextField class="input" col="1" [(ngModel)]="item.data.Comments" hint=""></TextField>
-</GridLayout><!--- editableListForm14 additional fields -->
+                <Label class="h3 text-muted" text="Add a comment here"></Label>
+                <TextField class="input" col="1" [(ngModel)]="item.data.Comments" hint="Add your comments" returnKeyType="go"></TextField>
+            </GridLayout>
+            <!--- editableListForm14 additional fields -->
         </StackLayout>
         <!--- master detail form -->
 

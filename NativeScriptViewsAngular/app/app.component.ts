@@ -5,6 +5,9 @@ import { NotificationService } from "./shared/services";
 import * as Dialogs from "ui/dialogs";
 import * as shared from "./shared/providers";
 
+const onlineConnectionMessage = "You are working online";
+const offlineConnectionMessage = "You are working offline";
+
 @Component({
 	moduleId: module.id,
 	selector: "ns-main",
@@ -14,8 +17,9 @@ import * as shared from "./shared/providers";
 
 export class AppComponent implements OnInit {
 	public connectionType: string = "Connection Status";
+	public connectionMessage: string = "";
 	public synchronizationStatus: string = "Synchronization Status";
-	public synchronizationCompleted: boolean = false; 
+	public synchronizationCompleted: boolean = false;
 
 	private _deliveries: DeliveriesService;
 
@@ -32,14 +36,15 @@ export class AppComponent implements OnInit {
 		var self = this;
 
 		this._provider.instance.on('syncStart', function (syncStartInfo) {
-			self.synchronizationStatus = "Synchronization started successfully";
-			if (syncStartInfo.canceled) {
-				self.synchronizationStatus = "Synchronization canceled by user";
-			}
+			self.zone.run(() => {
+				self.synchronizationStatus = "Synchronization started successfully";
+				if (syncStartInfo.canceled) {
+					self.synchronizationStatus = "Synchronization canceled by user";
+				}
+			});
 		});
 
 		this._provider.instance.on('syncEnd', function (syncEndInfo) {
-			console.log("Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer);
 			self.zone.run(() => {
 				self.synchronizationCompleted = true;
 				self.synchronizationStatus = "Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer;
@@ -53,16 +58,16 @@ export class AppComponent implements OnInit {
 			this.zone.run(() => {
 				switch (newConnectionType) {
 					case connectivity.connectionType.none:
-						this.connectionType = "None"; //0
+						this.connectionMessage = offlineConnectionMessage;
 						this._provider.instance.offline();
 						break;
 					case connectivity.connectionType.wifi:
-						this.connectionType = "Wi-Fi"; // 1
+						this.connectionMessage = onlineConnectionMessage;
 						this._provider.instance.online();
 						this._provider.instance.sync();
 						break;
 					case connectivity.connectionType.mobile:
-						this.connectionType = "Mobile";
+						this.connectionMessage = onlineConnectionMessage;
 						this._provider.instance.online();
 						this._provider.instance.sync();
 						break;
