@@ -1,8 +1,6 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 import { DeliveriesService } from './shared/services';
 import * as connectivity from "connectivity";
-import { NotificationService } from "./shared/services";
-import * as Dialogs from "ui/dialogs";
 import * as shared from "./shared/providers";
 
 const onlineConnectionMessage = "You are working online";
@@ -21,10 +19,7 @@ export class AppComponent implements OnInit {
 	public synchronizationStatus: string = "Synchronization Status";
 	public synchronizationCompleted: boolean = false;
 
-	private _deliveries: DeliveriesService;
-
-	constructor(private _deliveriesService: DeliveriesService, private _provider: shared.backendServicesService, private zone: NgZone) {
-		this._deliveries = _deliveriesService;
+	constructor(private _provider: shared.backendServicesService, private zone: NgZone) {
 	}
 
 	ngOnInit() {
@@ -47,7 +42,7 @@ export class AppComponent implements OnInit {
 		this._provider.instance.on('syncEnd', function (syncEndInfo) {
 			self.zone.run(() => {
 				self.synchronizationCompleted = true;
-				self.synchronizationStatus = "Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer;
+				self.synchronizationStatus = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
 			});
 		});
 	}

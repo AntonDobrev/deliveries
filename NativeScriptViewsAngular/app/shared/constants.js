@@ -1,6 +1,7 @@
 "use strict";
-exports.appId = 'kbzhrylqv9dp3ijj';
+exports.appId = 'kbzhrylqv9dp3ijj'; // TODO - set the placeholder here
 exports.httpScheme = 'https';
+exports.shouldSyncItemsFromServer = true;
 exports.deliveriesStoragePathName = "deliveries";
 exports.deliveriesMappingScheme = {
     "DeliveryOrder": {

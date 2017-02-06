@@ -1,5 +1,6 @@
-export const appId = 'kbzhrylqv9dp3ijj';
+export const appId = 'kbzhrylqv9dp3ijj'; // TODO - set the placeholder here
 export const httpScheme = 'https';
+export const shouldSyncItemsFromServer = true;
 export const deliveriesStoragePathName = "deliveries";
 export const deliveriesMappingScheme = {
 	"DeliveryOrder": {

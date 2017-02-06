@@ -6,15 +6,13 @@ var shared = require("./shared/providers");
 var onlineConnectionMessage = "You are working online";
 var offlineConnectionMessage = "You are working offline";
 var AppComponent = (function () {
-    function AppComponent(_deliveriesService, _provider, zone) {
-        this._deliveriesService = _deliveriesService;
+    function AppComponent(_provider, zone) {
         this._provider = _provider;
         this.zone = zone;
         this.connectionType = "Connection Status";
         this.connectionMessage = "";
         this.synchronizationStatus = "Synchronization Status";
         this.synchronizationCompleted = false;
-        this._deliveries = _deliveriesService;
     }
     AppComponent.prototype.ngOnInit = function () {
         this.addConectivityListeners();
@@ -34,7 +32,7 @@ var AppComponent = (function () {
         this._provider.instance.on('syncEnd', function (syncEndInfo) {
             self.zone.run(function () {
                 self.synchronizationCompleted = true;
-                self.synchronizationStatus = "Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer;
+                self.synchronizationStatus = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
             });
         });
     };
@@ -71,7 +69,7 @@ var AppComponent = (function () {
             templateUrl: "app.component.html",
             providers: [services_1.DeliveriesService]
         }), 
-        __metadata('design:paramtypes', [services_1.DeliveriesService, shared.backendServicesService, core_1.NgZone])
+        __metadata('design:paramtypes', [shared.backendServicesService, core_1.NgZone])
     ], AppComponent);
     return AppComponent;
 }());

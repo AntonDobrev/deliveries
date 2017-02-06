@@ -8,6 +8,10 @@ var backendServicesService = (function () {
             appId: shared_1.constants.appId,
             scheme: shared_1.constants.httpScheme,
             offline: {
+                syncUnmodified: shared_1.constants.shouldSyncItemsFromServer,
+                conflicts: {
+                    strategy: everlive_sdk_1.default.Constants.ConflictResolutionStrategy.ClientWins
+                },
                 storage: {
                     provider: everlive_sdk_1.default.Constants.StorageProvider.SQLite,
                     storagePath: shared_1.constants.deliveriesStoragePathName

@@ -10,11 +10,8 @@
                     <StackLayout col="2">
                         <Label class="list-group-item-heading" [text]="item.data.DeliveryItemType"></Label>
                     </StackLayout>
-
-
                     <Label class="list-group-item-text m-l-10 m-t-10" row="1" colSpan="3" [text]="item.data.DeliveryItem" textWrap="true">
                     </Label>
-
                 </GridLayout>
 
                 <GridLayout row="1">
@@ -24,11 +21,9 @@
         </StackLayout>
     </ScrollView>
 
-
     <GridLayout row="1">
         <Button class="btn btn-primary" text="Edit" (tap)="onEdit()"></Button>
     </GridLayout>
-
 
     <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
     </ActivityIndicator>

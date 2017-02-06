@@ -14,11 +14,15 @@ export class backendServicesService {
 			appId: constants.appId,
 			scheme: constants.httpScheme,
 			offline: {
+				syncUnmodified: constants.shouldSyncItemsFromServer,
+				conflicts: {
+					strategy: Everlive.Constants.ConflictResolutionStrategy.ClientWins
+				},
 				storage: {
 					provider: Everlive.Constants.StorageProvider.SQLite,
 					storagePath: constants.deliveriesStoragePathName
 				},
-				typeSettings:  constants.deliveriesMappingScheme
+				typeSettings: constants.deliveriesMappingScheme
 			}
 		}
 
