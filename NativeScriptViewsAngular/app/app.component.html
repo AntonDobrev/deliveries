@@ -1,4 +1,6 @@
 <StackLayout class="page">
 <Label class="h3 p-15" [text]="connectionType" textWrap="true"></Label>    
+<Label class="h3 p-15" [text]="synchronizationStatus" [visibility]="synchronizationCompleted ? 'visible' : 'collapsed'" textWrap="true"></Label>    
+
  <router-outlet></router-outlet>
 </StackLayout>

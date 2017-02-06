@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, NgZone } from "@angular/core";
 import { DeliveriesService } from './shared/services';
 import * as connectivity from "connectivity";
 import { NotificationService } from "./shared/services";
@@ -14,59 +14,62 @@ import * as shared from "./shared/providers";
 
 export class AppComponent implements OnInit {
 	public connectionType: string = "Connection Status";
+	public synchronizationStatus: string = "Synchronization Status";
+	public synchronizationCompleted: boolean = false; 
 
 	private _deliveries: DeliveriesService;
 
-	constructor(private _deliveriesService: DeliveriesService, private _provider: shared.backendServicesService) {
+	constructor(private _deliveriesService: DeliveriesService, private _provider: shared.backendServicesService, private zone: NgZone) {
 		this._deliveries = _deliveriesService;
 	}
 
 	ngOnInit() {
-		console.log("onInit"); // TODO
 		this.addConectivityListeners();
 		this.addSyncEventListeners();
-		this._deliveries.getItemsCount().then(itemsCount => {
-			console.log("OK items count");
-		}, this.onCountError);
-
 	};
 
 	addSyncEventListeners() {
-		this._provider.instance.on('syncStart', function () {
-			//	Dialogs.alert("Sync started");
+		var self = this;
+
+		this._provider.instance.on('syncStart', function (syncStartInfo) {
+			self.synchronizationStatus = "Synchronization started successfully";
+			if (syncStartInfo.canceled) {
+				self.synchronizationStatus = "Synchronization canceled by user";
+			}
 		});
 
-		this._provider.instance.on('syncEnd', function (syncInfo) {
-			Dialogs.alert("Sync ended" + JSON.stringify(syncInfo));
+		this._provider.instance.on('syncEnd', function (syncEndInfo) {
+			console.log("Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer);
+			self.zone.run(() => {
+				self.synchronizationCompleted = true;
+				self.synchronizationStatus = "Sync completed." + "Synced to server: " + syncEndInfo.syncedToServer;
+			});
 		});
 	}
 
 	addConectivityListeners() {
 		connectivity.startMonitoring((newConnectionType: number) => {
-			switch (newConnectionType) {
-				case connectivity.connectionType.none:
-					this.connectionType = "None"; //0
-					this._provider.instance.offline();
-					Dialogs.alert("Connection changed to " + this.connectionType);
-					break;
-				case connectivity.connectionType.wifi:
-					this.connectionType = "Wi-Fi"; // 1
-					this._provider.instance.online();
-					this._provider.instance.sync();
-					break;
-				case connectivity.connectionType.mobile:
-					this.connectionType = "Mobile";
-					this._provider.instance.online();
-					this._provider.instance.sync();
-					break;
-				default:
-					break;
-			}
+
+			this.zone.run(() => {
+				switch (newConnectionType) {
+					case connectivity.connectionType.none:
+						this.connectionType = "None"; //0
+						this._provider.instance.offline();
+						break;
+					case connectivity.connectionType.wifi:
+						this.connectionType = "Wi-Fi"; // 1
+						this._provider.instance.online();
+						this._provider.instance.sync();
+						break;
+					case connectivity.connectionType.mobile:
+						this.connectionType = "Mobile";
+						this._provider.instance.online();
+						this._provider.instance.sync();
+						break;
+					default:
+						break;
+				}
+			});
 		});
 	};
-
-	onCountError(err) {
-		console.log("Cannot retrieve items count");
-		// TODO - remove
-	}
 }
