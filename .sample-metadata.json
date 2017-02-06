@@ -14,7 +14,7 @@
                         "Id":"$guid:DeliveryOrderTypeId",
                         "Name":"DeliveryOrder",
                         "Title":"DeliveryOrder",
-                        "SecurityPolicy":"shared",
+                        "SecurityPolicy":"public",
                         "DisplayFieldName":"DeliveryItem",
                         "Fields":[
                            {
