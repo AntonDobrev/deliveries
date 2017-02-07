@@ -1,21 +1,12 @@
-import {
-    Injectable
-}
-from "@angular/core";
-
-import {
-    BehaviorSubject
-}
-from "rxjs";
-
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 import * as common from "./";
 import * as shared from "../../../shared";
 
-@
-Injectable()
+@Injectable()
 export class HomeViewStore {
-    private _items$: BehaviorSubject < shared.Item[] > ;
-    private _currentItem$: BehaviorSubject < shared.Item > ;
+    private _items$: BehaviorSubject<shared.Item[]>;
+    private _currentItem$: BehaviorSubject<shared.Item>;
 
     constructor(
         private _service: common.HomeViewService
@@ -42,22 +33,22 @@ export class HomeViewStore {
     loadAll() {
         this._service.getAll()
             .subscribe(
-                (data) => {
-                    let arr: shared.Item[] = [];
+            (data) => {
+                let arr: shared.Item[] = [];
 
-                    data.forEach(item => {
-                        let newItem: shared.Item = {
-                            "id": item.Id,
-                            "data": item
-                        };
+                data.forEach(item => {
+                    let newItem: shared.Item = {
+                        "id": item.Id,
+                        "data": item
+                    };
 
-                        arr.push(newItem);
-                    });
+                    arr.push(newItem);
+                });
 
-                    this._items$.next([...arr]);
-                }, (error) => {
-                    console.log(JSON.stringify(error));
-                }
+                this._items$.next([...arr]);
+            }, (error) => {
+                console.log(JSON.stringify(error));
+            }
             );
     }
 
@@ -77,64 +68,64 @@ export class HomeViewStore {
     add(item: shared.Item) {
         this._service.post(item.data)
             .subscribe(
-                (data) => {
-                    let arr: shared.Item[] = this._items$.getValue();
+            (data) => {
+                let arr: shared.Item[] = this._items$.getValue();
 
-                    if (!data.Id) {
-                        return;
-                    }
-                    item.id = data.Id;
-
-                    arr.push(item);
-                    this._items$.next([...arr]);
-                }, (error) => {
-                    console.log(JSON.stringify(error));
+                if (!data.Id) {
+                    return;
                 }
+                item.id = data.Id;
+
+                arr.push(item);
+                this._items$.next([...arr]);
+            }, (error) => {
+                console.log(JSON.stringify(error));
+            }
             );
     }
 
     update(item: shared.Item) {
         this._service.put(item.data)
             .subscribe(
-                (data) => {
-                    let arr: shared.Item[] = this._items$.getValue();
+            (data) => {
+                let arr: shared.Item[] = this._items$.getValue();
 
-                    arr.forEach((itm, idx) => {
-                        if (itm.id === item.id) {
-                            arr[idx] = item;
-                        }
-                    });
+                arr.forEach((itm, idx) => {
+                    if (itm.id === item.id) {
+                        arr[idx] = item;
+                    }
+                });
 
-                    this._items$.next([...arr]);
-                    this.select(item);
-                }, (error) => {
-                    console.log(JSON.stringify(error));
-                }
+                this._items$.next([...arr]);
+                this.select(item);
+            }, (error) => {
+                console.log(JSON.stringify(error));
+            }
             );
     }
 
     delete(item: shared.Item) {
         this._service.delete(item.data)
             .subscribe(
-                (data) => {
-                    let arr: shared.Item[] = this._items$.getValue();
+            (data) => {
+                let arr: shared.Item[] = this._items$.getValue();
 
-                    arr.forEach((itm, idx) => {
-                        if (itm.id === item.id) {
-                            arr.splice(idx, 1);
-                        }
-                    });
+                arr.forEach((itm, idx) => {
+                    if (itm.id === item.id) {
+                        arr.splice(idx, 1);
+                    }
+                });
 
-                    this._items$.next([...arr]);
-                    this.reset();
-                }, (error) => {
-                    console.log(JSON.stringify(error));
-                }
+                this._items$.next([...arr]);
+                this.reset();
+            }, (error) => {
+                console.log(JSON.stringify(error));
+            }
             );
     }
 
     save(item: shared.Item) {
-        (item.id) ? this.update(item): this.add(item);
+        (item.id) ? this.update(item) : this.add(item);
     }
 
 }
