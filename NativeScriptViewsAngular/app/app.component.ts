@@ -2,7 +2,7 @@ import { Component, OnInit, NgZone, EventEmitter } from "@angular/core";
 import { DeliveriesService } from './shared/services';
 import * as connectivity from "connectivity";
 import * as shared from "./shared";
-import { NotificationService, EventsService } from "./shared/services";
+import { NotificationService } from "./shared/services";
 import { constants } from './shared';
 
 import { HomeViewStore } from "./modules/homeView/shared";
@@ -14,7 +14,7 @@ const offlineConnectionMessage = "You are working offline";
 	moduleId: module.id,
 	selector: "ns-main",
 	templateUrl: "app.component.html",
-	providers: [DeliveriesService, EventsService]
+	providers: [DeliveriesService]
 })
 
 export class AppComponent implements OnInit {
@@ -23,10 +23,8 @@ export class AppComponent implements OnInit {
 	public connectionMessage: string = "";
 	public synchronizationStatus: string = "Synchronization Status";
 	public synchronizationCompleted: boolean = false;
-	private _eventsService: EventsService;
 
-	constructor(private _provider: shared.backendServicesService, private zone: NgZone, private _notificationService: NotificationService, private eventsService: EventsService, private _store: HomeViewStore) {
-		this._eventsService = eventsService;
+	constructor(private _provider: shared.backendServicesService, private zone: NgZone, private _notificationService: NotificationService, private _store: HomeViewStore) {
 	}
 
 	ngOnInit() {
