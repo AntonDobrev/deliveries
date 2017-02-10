@@ -2,24 +2,23 @@
 var core_1 = require("@angular/core");
 var common = require("./shared");
 var shared = require("../../shared");
-var services_1 = require("../../shared/services");
 var HomeViewComponent = (function () {
-    function HomeViewComponent(_store, _service, eventsService) {
+    function HomeViewComponent(_store, _service) {
         this._store = _store;
         this._service = _service;
-        this.eventsService = eventsService;
         this.modes = shared.Modes;
         this.mode = shared.Modes.LIST;
-        this._eventsService = eventsService;
-        this._eventsService.on('sync-completed', function (info) {
-            console.log("Sync completed" + info);
-        });
+        // this._eventsService = eventsService;
+        // this._eventsService.on('sync-completed', function (info) {
+        //     console.log("Sync completed" + info);
+        // })
     }
     HomeViewComponent.prototype.ngOnInit = function () {
+        console.log("In homeView.component");
         this._store.loadAll();
-        this._eventsService.on('sync-completed', function (info) {
-            console.log("Sync completed" + info);
-        });
+        // this._eventsService.on('sync-completed', function (info) {
+        //     console.log("Sync completed" + info);
+        // })
     };
     HomeViewComponent.prototype.onSelect = function (args) {
         this._store.select(args.item);
@@ -48,9 +47,9 @@ var HomeViewComponent = (function () {
             selector: "ns-homeView",
             templateUrl: "homeView.component.html",
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
-            providers: [services_1.EventsService]
+            providers: []
         }), 
-        __metadata('design:paramtypes', [common.HomeViewStore, common.HomeViewService, services_1.EventsService])
+        __metadata('design:paramtypes', [common.HomeViewStore, common.HomeViewService])
     ], HomeViewComponent);
     return HomeViewComponent;
 }());

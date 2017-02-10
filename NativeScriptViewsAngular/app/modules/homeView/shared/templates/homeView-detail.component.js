@@ -1,8 +1,10 @@
 "use strict";
 var core_1 = require("@angular/core");
 var shared = require("../../../../shared");
+var page_1 = require('ui/page');
 var HomeViewDetailComponent = (function () {
-    function HomeViewDetailComponent() {
+    function HomeViewDetailComponent(_page) {
+        this._page = _page;
         this.navigate = new core_1.EventEmitter();
     }
     Object.defineProperty(HomeViewDetailComponent.prototype, "current", {
@@ -12,6 +14,9 @@ var HomeViewDetailComponent = (function () {
         enumerable: true,
         configurable: true
     });
+    HomeViewDetailComponent.prototype.ngOnInit = function () {
+        this._page.actionBar.title = this.item.data.DeliveryItem;
+    };
     HomeViewDetailComponent.prototype.onEdit = function () {
         this.navigate.emit();
     };
@@ -35,7 +40,7 @@ var HomeViewDetailComponent = (function () {
             templateUrl: "homeView-detail.component.html",
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [page_1.Page])
     ], HomeViewDetailComponent);
     return HomeViewDetailComponent;
 }());

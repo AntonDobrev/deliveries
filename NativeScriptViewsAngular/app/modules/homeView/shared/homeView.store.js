@@ -43,7 +43,6 @@ var HomeViewStore = (function () {
                     "data": item
                 };
                 arr.push(newItem);
-                console.log(JSON.stringify("New item" + newItem));
             });
             _this._items$.next(arr.slice());
         }, function (error) {

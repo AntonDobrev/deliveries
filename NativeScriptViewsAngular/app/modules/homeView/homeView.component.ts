@@ -1,24 +1,19 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import * as common from "./shared";
 import * as shared from "../../shared";
-// import { EventsService } from "../../shared/services";
-
 
 @Component({
     moduleId: module.id,
     selector: "ns-homeView",
     templateUrl: "homeView.component.html",
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [EventsService]
+    providers: []
 })
-
 export class HomeViewComponent implements OnInit {
 
     modes = shared.Modes;
     mode: shared.Modes;
-    /// component additional properties
 
-    // private _eventsService: EventsService;
     constructor(private _store: common.HomeViewStore, private _service: common.HomeViewService) {
 
         this.mode = shared.Modes.LIST;
@@ -30,6 +25,8 @@ export class HomeViewComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log("In homeView.component");
+
         this._store.loadAll();
 
         // this._eventsService.on('sync-completed', function (info) {

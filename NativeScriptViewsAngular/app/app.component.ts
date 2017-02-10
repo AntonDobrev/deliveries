@@ -24,7 +24,12 @@ export class AppComponent implements OnInit {
 	public synchronizationStatus: string = "Synchronization Status";
 	public synchronizationCompleted: boolean = false;
 
-	constructor(private _provider: shared.backendServicesService, private zone: NgZone, private _notificationService: NotificationService, private _store: HomeViewStore) {
+	constructor(
+		private _provider: shared.backendServicesService,
+		private zone: NgZone,
+		private _notificationService: NotificationService,
+		private _store: HomeViewStore
+	) {
 	}
 
 	ngOnInit() {
@@ -52,7 +57,7 @@ export class AppComponent implements OnInit {
 
 			self._store.loadAll(); // TODO - use a better service for this // rebinds the UI
 
-		//	self._eventsService.broadcast('sync-completed', true);
+			//	self._eventsService.broadcast('sync-completed', true);
 
 			self.zone.run(() => {
 				self.synchronizationCompleted = true;
