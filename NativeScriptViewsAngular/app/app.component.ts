@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
 
 			self._store.loadAll(); // TODO - use a better service for this // rebinds the UI
 
-			self._eventsService.broadcast('sync-completed', true);
+		//	self._eventsService.broadcast('sync-completed', true);
 
 			self.zone.run(() => {
 				self.synchronizationCompleted = true;
