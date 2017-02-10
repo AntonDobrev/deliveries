@@ -1,5 +1,4 @@
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit } from "@angular/core";
-
 import * as common from "./";
 import * as shared from "../../../../shared";
 import { Page } from 'ui/page';
@@ -25,7 +24,7 @@ export class HomeViewDetailComponent implements OnInit {
     ngOnInit() {
         this._page.actionBar.title = this.item.data.DeliveryItem;
     }
-    
+
     onEdit() {
         this.navigate.emit();
     }

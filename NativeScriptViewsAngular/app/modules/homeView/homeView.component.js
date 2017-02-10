@@ -8,17 +8,9 @@ var HomeViewComponent = (function () {
         this._service = _service;
         this.modes = shared.Modes;
         this.mode = shared.Modes.LIST;
-        // this._eventsService = eventsService;
-        // this._eventsService.on('sync-completed', function (info) {
-        //     console.log("Sync completed" + info);
-        // })
     }
     HomeViewComponent.prototype.ngOnInit = function () {
-        console.log("In homeView.component");
         this._store.loadAll();
-        // this._eventsService.on('sync-completed', function (info) {
-        //     console.log("Sync completed" + info);
-        // })
     };
     HomeViewComponent.prototype.onSelect = function (args) {
         this._store.select(args.item);

@@ -30,4 +30,13 @@ export class NotificationService {
       message: message
     });
   }
+
+  confirm(message: string) {
+    return dialogsModule.confirm({
+      title: message,
+      message: "Please confirm",
+      okButtonText: "OK",
+      cancelButtonText: "Cancel"
+    });
+  }
 }

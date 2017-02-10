@@ -28,6 +28,14 @@ var NotificationService = (function () {
             message: message
         });
     };
+    NotificationService.prototype.confirm = function (message) {
+        return dialogsModule.confirm({
+            title: message,
+            message: "Please confirm",
+            okButtonText: "OK",
+            cancelButtonText: "Cancel"
+        });
+    };
     NotificationService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [])

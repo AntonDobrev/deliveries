@@ -1,8 +1,10 @@
 "use strict";
 var core_1 = require("@angular/core");
+var services_1 = require("../../../../shared/services");
 var shared = require("../../../../shared");
 var HomeViewEditComponent = (function () {
-    function HomeViewEditComponent() {
+    function HomeViewEditComponent(_notificationService) {
+        this._notificationService = _notificationService;
         this.update = new core_1.EventEmitter();
         this.delete = new core_1.EventEmitter();
     }
@@ -19,8 +21,13 @@ var HomeViewEditComponent = (function () {
         });
     };
     HomeViewEditComponent.prototype.onDelete = function () {
-        this.delete.emit({
-            item: this.item
+        var _this = this;
+        this._notificationService.confirm("Deleting an item").then(function (isConfirmed) {
+            if (isConfirmed) {
+                _this.delete.emit({
+                    item: _this.item
+                });
+            }
         });
     };
     __decorate([
@@ -43,7 +50,7 @@ var HomeViewEditComponent = (function () {
             templateUrl: "homeView-edit.component.html",
             changeDetection: core_1.ChangeDetectionStrategy.OnPush
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [services_1.NotificationService])
     ], HomeViewEditComponent);
     return HomeViewEditComponent;
 }());
