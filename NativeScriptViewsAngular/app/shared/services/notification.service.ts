@@ -4,8 +4,7 @@ import * as dialogsModule from "ui/dialogs";
 @Injectable()
 export class NotificationService {
 
-  constructor(
-  ) { }
+  constructor() { }
 
   error(message: string = "Message") {
     return dialogsModule.alert({
