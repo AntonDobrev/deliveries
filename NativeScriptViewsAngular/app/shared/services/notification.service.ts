@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
-
 import * as dialogsModule from "ui/dialogs";
 
 @Injectable()
 export class NotificationService {
 
   constructor(
-  ) {}
+  ) { }
 
   error(message: string = "Message") {
     return dialogsModule.alert({

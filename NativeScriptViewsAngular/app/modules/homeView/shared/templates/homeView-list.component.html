@@ -1,35 +1,42 @@
 <GridLayout rows="*, auto">
-    <ListView class="list-group" [items]="items">
-        <template let-item="item">
-            <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
-                <GridLayout columns="auto, 10, *" rows="auto, auto">
+    <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc"
+        selectedColor="#eee">
+        <StackLayout *tabItem="{ title: 'All' }" class="main-container">
+            <ListView class="list-group" [items]="items">
+                <template let-item="item">
+                    <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
+                        <GridLayout columns="auto, 10, *" rows="auto, auto">
+                            <StackLayout col="2">
+                                <Label class="list-group-item-heading" [text]="item.data.DeliveryItem"></Label>
+                                <Label class="list-group-item-text" [text]="item.data.DeliveryName"></Label>
+                            </StackLayout>
+                        </GridLayout>
+                        <GridLayout row="1">
+                            <!--- master detail form -->
+                        </GridLayout>
+                    </GridLayout>
+                </template>
+            </ListView>
+        </StackLayout>
 
-                    <!--<Image class="image" width="40" height="40" [src]="item.data.ImageProperty"></Image>
-          <Label class="list-group-item-heading fa"></Label>-->
+        <StackLayout *tabItem="{ title: 'Failed' }" class="main-container">
+            <Label text="Failed orders here" [textWrap]="true" class="title"></Label>
+        </StackLayout>
 
-                    <StackLayout col="2">
+        <StackLayout *tabItem="{ title: 'Pending' }" class="main-container">
+            <Label text="Pending orders here" [textWrap]="true" class="title"></Label>
+        </StackLayout>
 
-                        <Label class="list-group-item-heading" [text]="item.data.DeliveryItem"></Label>
+        <StackLayout *tabItem="{ title: 'Delivered' }" class="main-container">
+            <Label text="Delivered orders here" [textWrap]="true" class="title"></Label>
+        </StackLayout>
 
+        </TabView>
 
-                        <Label class="list-group-item-text" [text]="item.data.DeliveryName"></Label>
+        <GridLayout row="1">
+            <Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
+        </GridLayout>
 
-                    </StackLayout>
-                </GridLayout>
-
-                <GridLayout row="1">
-                    <!--- master detail form -->
-                </GridLayout>
-            </GridLayout>
-        </template>
-    </ListView>
-
-
-    <GridLayout row="1">
-        <Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
-    </GridLayout>
-
-
-    <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!items.length" [visibility]="items.length ? 'collapse' : 'visible'">
-    </ActivityIndicator>
+        <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!items.length" [visibility]="items.length ? 'collapse' : 'visible'">
+        </ActivityIndicator>
 </GridLayout>

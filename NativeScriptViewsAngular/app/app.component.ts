@@ -1,7 +1,11 @@
-import { Component, OnInit, NgZone } from "@angular/core";
+import { Component, OnInit, NgZone, EventEmitter } from "@angular/core";
 import { DeliveriesService } from './shared/services';
 import * as connectivity from "connectivity";
-import * as shared from "./shared/providers";
+import * as shared from "./shared";
+import { NotificationService, EventsService } from "./shared/services";
+import { constants } from './shared';
+
+import { HomeViewStore } from "./modules/homeView/shared";
 
 const onlineConnectionMessage = "You are working online";
 const offlineConnectionMessage = "You are working offline";
@@ -10,16 +14,19 @@ const offlineConnectionMessage = "You are working offline";
 	moduleId: module.id,
 	selector: "ns-main",
 	templateUrl: "app.component.html",
-	providers: [DeliveriesService]
+	providers: [DeliveriesService, EventsService]
 })
 
 export class AppComponent implements OnInit {
+
 	public connectionType: string = "Connection Status";
 	public connectionMessage: string = "";
 	public synchronizationStatus: string = "Synchronization Status";
 	public synchronizationCompleted: boolean = false;
+	private _eventsService: EventsService;
 
-	constructor(private _provider: shared.backendServicesService, private zone: NgZone) {
+	constructor(private _provider: shared.backendServicesService, private zone: NgZone, private _notificationService: NotificationService, private eventsService: EventsService, private _store: HomeViewStore) {
+		this._eventsService = eventsService;
 	}
 
 	ngOnInit() {
@@ -40,9 +47,25 @@ export class AppComponent implements OnInit {
 		});
 
 		this._provider.instance.on('syncEnd', function (syncEndInfo) {
+
+			// self._eventsService.on('sync-completed', function (info) {
+			// 	console.log("Sync completed from app component" + info);
+			// })
+
+			self._store.loadAll(); // TODO - use a better service for this // rebinds the UI
+
+			self._eventsService.broadcast('sync-completed', true);
+
 			self.zone.run(() => {
 				self.synchronizationCompleted = true;
-				self.synchronizationStatus = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
+				var synchronizationStatusMessage = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
+
+				if (syncEndInfo.failedItems[constants.deliveriesContentTypeName]) {
+					// TODO // see the error property too 
+				}
+
+				self._notificationService.success(synchronizationStatusMessage);
+
 			});
 		});
 	}

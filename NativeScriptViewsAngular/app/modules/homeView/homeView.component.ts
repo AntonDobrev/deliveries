@@ -1,58 +1,42 @@
-import {
-    Component
-
-    , OnInit, ChangeDetectionStrategy
-    /// component core modules
-
-}
-from "@angular/core";
-
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import * as common from "./shared";
 import * as shared from "../../shared";
+// import { EventsService } from "../../shared/services";
 
-@
-Component({
+
+@Component({
     moduleId: module.id,
     selector: "ns-homeView",
-    templateUrl: "homeView.component.html"
-
-    ,
-    changeDetection: ChangeDetectionStrategy.OnPush
-        /// component definitions
-
+    templateUrl: "homeView.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [EventsService]
 })
 
-// START_CUSTOM_CODE_homeView
-// Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes
-
-// END_CUSTOM_CODE_homeView
-export class HomeViewComponent
-
-implements OnInit
-/// component inheritance
-
-{
+export class HomeViewComponent implements OnInit {
 
     modes = shared.Modes;
     mode: shared.Modes;
     /// component additional properties
 
-    constructor(
-
-        private _store: common.HomeViewStore,
-        /// component constructor dependencies
-
-        private _service: common.HomeViewService
-    ) {
+    // private _eventsService: EventsService;
+    constructor(private _store: common.HomeViewStore, private _service: common.HomeViewService) {
 
         this.mode = shared.Modes.LIST;
-        /// component constructor method
+        // this._eventsService = eventsService;
 
+        // this._eventsService.on('sync-completed', function (info) {
+        //     console.log("Sync completed" + info);
+        // })
     }
 
     ngOnInit() {
         this._store.loadAll();
+
+        // this._eventsService.on('sync-completed', function (info) {
+        //     console.log("Sync completed" + info);
+        // })
     }
+
 
     onSelect(args) {
         this._store.select(args.item);
@@ -74,12 +58,12 @@ implements OnInit
     }
 
     onNavigate(mode: shared.Modes) {
-            if (mode === shared.Modes.ADD) {
-                this._store.reset();
-            }
-
-            this.mode = mode;
+        if (mode === shared.Modes.ADD) {
+            this._store.reset();
         }
-        /// component additional methods
+
+        this.mode = mode;
+    }
+    /// component additional methods
 
 }

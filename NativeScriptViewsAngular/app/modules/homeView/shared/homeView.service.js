@@ -1,12 +1,12 @@
 "use strict";
 var core_1 = require("@angular/core");
 var Observable_1 = require("rxjs/Observable");
-/// service imports
 var shared = require("../../../shared");
+var shared_1 = require('../../../shared');
 var HomeViewService = (function () {
     function HomeViewService(_provider) {
         this._provider = _provider;
-        this._data = _provider.instance.data("DeliveryOrder");
+        this._data = _provider.instance.data(shared_1.constants.deliveriesContentTypeName);
     }
     Object.defineProperty(HomeViewService.prototype, "provider", {
         get: function () {

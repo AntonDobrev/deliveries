@@ -2,19 +2,24 @@
 var core_1 = require("@angular/core");
 var common = require("./shared");
 var shared = require("../../shared");
+var services_1 = require("../../shared/services");
 var HomeViewComponent = (function () {
-    /// component additional properties
-    function HomeViewComponent(_store, 
-        /// component constructor dependencies
-        _service) {
+    function HomeViewComponent(_store, _service, eventsService) {
         this._store = _store;
         this._service = _service;
+        this.eventsService = eventsService;
         this.modes = shared.Modes;
         this.mode = shared.Modes.LIST;
-        /// component constructor method
+        this._eventsService = eventsService;
+        this._eventsService.on('sync-completed', function (info) {
+            console.log("Sync completed" + info);
+        });
     }
     HomeViewComponent.prototype.ngOnInit = function () {
         this._store.loadAll();
+        this._eventsService.on('sync-completed', function (info) {
+            console.log("Sync completed" + info);
+        });
     };
     HomeViewComponent.prototype.onSelect = function (args) {
         this._store.select(args.item);
@@ -42,9 +47,10 @@ var HomeViewComponent = (function () {
             moduleId: module.id,
             selector: "ns-homeView",
             templateUrl: "homeView.component.html",
-            changeDetection: core_1.ChangeDetectionStrategy.OnPush
+            changeDetection: core_1.ChangeDetectionStrategy.OnPush,
+            providers: [services_1.EventsService]
         }), 
-        __metadata('design:paramtypes', [common.HomeViewStore, common.HomeViewService])
+        __metadata('design:paramtypes', [common.HomeViewStore, common.HomeViewService, services_1.EventsService])
     ], HomeViewComponent);
     return HomeViewComponent;
 }());

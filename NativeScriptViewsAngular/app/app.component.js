@@ -2,17 +2,24 @@
 var core_1 = require("@angular/core");
 var services_1 = require('./shared/services');
 var connectivity = require("connectivity");
-var shared = require("./shared/providers");
+var shared = require("./shared");
+var services_2 = require("./shared/services");
+var shared_1 = require('./shared');
+var shared_2 = require("./modules/homeView/shared");
 var onlineConnectionMessage = "You are working online";
 var offlineConnectionMessage = "You are working offline";
 var AppComponent = (function () {
-    function AppComponent(_provider, zone) {
+    function AppComponent(_provider, zone, _notificationService, eventsService, _store) {
         this._provider = _provider;
         this.zone = zone;
+        this._notificationService = _notificationService;
+        this.eventsService = eventsService;
+        this._store = _store;
         this.connectionType = "Connection Status";
         this.connectionMessage = "";
         this.synchronizationStatus = "Synchronization Status";
         this.synchronizationCompleted = false;
+        this._eventsService = eventsService;
     }
     AppComponent.prototype.ngOnInit = function () {
         this.addConectivityListeners();
@@ -30,9 +37,18 @@ var AppComponent = (function () {
             });
         });
         this._provider.instance.on('syncEnd', function (syncEndInfo) {
+            self._eventsService.on('sync-completed', function (info) {
+                console.log("Sync completed from app component" + info);
+            });
+            self._store.loadAll();
+            self._eventsService.broadcast('sync-completed', true);
             self.zone.run(function () {
                 self.synchronizationCompleted = true;
-                self.synchronizationStatus = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
+                console.log(JSON.stringify(syncEndInfo));
+                var synchronizationStatusMessage = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
+                if (syncEndInfo.failedItems[shared_1.constants.deliveriesContentTypeName]) {
+                }
+                self._notificationService.success(synchronizationStatusMessage);
             });
         });
     };
@@ -67,9 +83,9 @@ var AppComponent = (function () {
             moduleId: module.id,
             selector: "ns-main",
             templateUrl: "app.component.html",
-            providers: [services_1.DeliveriesService]
+            providers: [services_1.DeliveriesService, services_2.EventsService]
         }), 
-        __metadata('design:paramtypes', [shared.backendServicesService, core_1.NgZone])
+        __metadata('design:paramtypes', [shared.backendServicesService, core_1.NgZone, services_2.NotificationService, services_2.EventsService, shared_2.HomeViewStore])
     ], AppComponent);
     return AppComponent;
 }());

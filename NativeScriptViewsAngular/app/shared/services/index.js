@@ -6,4 +6,5 @@ __export(require("./navigation.service"));
 __export(require("./notification.service"));
 /// placeholder for other services
 __export(require("./deliveries.service"));
+__export(require("./events.service"));
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,4 @@
-<ns-action-bar title="Delivery Orders" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)" <!--- component view navigation directive --->
-
-    ></ns-action-bar>
-
+<ns-action-bar title="Delivery Orders" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)"></ns-action-bar>
 
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
@@ -27,9 +24,3 @@
     </GridLayout>
 
 </GridLayout>
-<!-- additional view content -->
-
-<!-- START_CUSTOM_CODE_homeView -->
-<!-- Add custom code here. For more information about custom code, see http://docs.telerik.com/platform/screenbuilder/troubleshooting/how-to-keep-custom-code-changes -->
-
-<!-- END_CUSTOM_CODE_homeView -->
