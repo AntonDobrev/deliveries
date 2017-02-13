@@ -1,30 +1,21 @@
 <GridLayout rows="*, auto">
+    <ActionBarExtension>
+        <ActionItem (tap)="onEdit()" ios.position="right">
+            <StackLayout>
+                <Label text="Edit"></Label>
+            </StackLayout>
+        </ActionItem>
+    </ActionBarExtension>
     <ScrollView>
         <StackLayout class="list-group">
-            <GridLayout class="list-group-item" rows="auto, auto">
-                <GridLayout columns="auto, 10, *" rows="auto, auto">
-                    <!-- TODO: insert properties of editableList here -->
-
-                    <!--<Label class="list-group-item-heading fa"></Label>-->
-
-                    <StackLayout col="2">
-                        <Label class="list-group-item-heading" [text]="item.data.DeliveryItemType"></Label>
-                    </StackLayout>
-                    <Label class="list-group-item-text m-l-10 m-t-10" row="1" colSpan="3" [text]="item.data.DeliveryItem" textWrap="true">
-                    </Label>
-                </GridLayout>
-
-                <GridLayout row="1">
-                    <!--- master detail form -->
-                </GridLayout>
-            </GridLayout>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.DeliveryItem"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.DeliveryItemType" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.Status" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.DeliveryName" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.DeliveryAddressLine1" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.DeliveryAddressCity" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.DeliveryAddressPostcode" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.data.Comments" textWrap="true"></Label>
         </StackLayout>
     </ScrollView>
-
-    <GridLayout row="1">
-        <Button class="btn btn-primary" text="Edit" (tap)="onEdit()"></Button>
-    </GridLayout>
-
-    <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
-    </ActivityIndicator>
 </GridLayout>
