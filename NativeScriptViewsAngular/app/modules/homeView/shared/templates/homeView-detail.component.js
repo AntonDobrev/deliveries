@@ -2,6 +2,7 @@
 var core_1 = require("@angular/core");
 var shared = require("../../../../shared");
 var page_1 = require('ui/page');
+var enums_1 = require("../../../../shared/enums");
 var HomeViewDetailComponent = (function () {
     function HomeViewDetailComponent(_page) {
         this._page = _page;
@@ -16,6 +17,7 @@ var HomeViewDetailComponent = (function () {
     });
     HomeViewDetailComponent.prototype.ngOnInit = function () {
         this._page.actionBar.title = this.item.data.DeliveryItem;
+        this.itemStatus = enums_1.OrderStatus[this.item.data.Status];
     };
     HomeViewDetailComponent.prototype.onEdit = function () {
         this.navigate.emit();
