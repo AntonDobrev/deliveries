@@ -3,6 +3,10 @@ import * as common from "./";
 import * as shared from "../../../../shared";
 import { Page } from 'ui/page';
 
+
+
+
+
 @Component({
     moduleId: module.id,
     selector: "ns-homeView-detail",
@@ -10,6 +14,7 @@ import { Page } from 'ui/page';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeViewDetailComponent implements OnInit {
+
     @Input() provider: any;
     @Input() set current(value: shared.Item) {
         this.item = (<any>Object).assign({}, value);

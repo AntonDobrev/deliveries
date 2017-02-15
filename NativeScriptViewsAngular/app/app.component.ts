@@ -75,7 +75,6 @@ export class AppComponent implements OnInit {
 
 	addConectivityListeners() {
 		connectivity.startMonitoring((newConnectionType: number) => {
-
 			this.zone.run(() => {
 				switch (newConnectionType) {
 					case connectivity.connectionType.none:
@@ -83,10 +82,6 @@ export class AppComponent implements OnInit {
 						this._provider.instance.offline();
 						break;
 					case connectivity.connectionType.wifi:
-						this.connectionMessage = onlineConnectionMessage;
-						this._provider.instance.online();
-						this._provider.instance.sync();
-						break;
 					case connectivity.connectionType.mobile:
 						this.connectionMessage = onlineConnectionMessage;
 						this._provider.instance.online();
