@@ -17,14 +17,16 @@ var SharedModule = (function () {
                 common.ActionBarComponent,
                 common.IfAndroidDirective,
                 common.IfIosDirective,
-                common.HyperlinkDirective
+                common.HyperlinkDirective,
+                common.FilteredItemsPipe
             ],
             exports: [
                 /// additional exports
                 common.ActionBarComponent,
                 common.IfAndroidDirective,
                 common.IfIosDirective,
-                common.HyperlinkDirective
+                common.HyperlinkDirective,
+                common.FilteredItemsPipe
             ],
             providers: [
                 /// start additional data provider services
