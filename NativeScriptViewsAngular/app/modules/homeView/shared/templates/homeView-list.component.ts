@@ -6,7 +6,7 @@ import * as shared from "../../../../shared";
 
 @Component({
     moduleId: module.id,
-    selector: "ns-homeView-list",
+    selector: ".main-container",
     templateUrl: "homeView-list.component.html",
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -17,13 +17,11 @@ export class HomeViewListComponent implements OnInit {
     @Output() select = new EventEmitter();
     @Output() navigate = new EventEmitter();
 
-
     constructor(private _page: Page) {
 
     }
     ngOnInit() {
         this._page.actionBar.title = "Delivery Orders";
-
     }
     onSelect(item: shared.Item) {
         this.select.emit({

@@ -1,4 +1,15 @@
 {
+    "name": "Deliveries",
+    "version": "1.0.0",
+    "description": "A NativeScript-built iOS and Android app for working with Everlive SDK and offline storage with SQLite",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AntonDobrev/deliveries.git"
+    },
+    "keywords": [
+        "NativeScript"
+    ],
+    "license": "MIT",
     "nativescript": {},
     "dependencies": {
         "@angular/common": "2.1.2",

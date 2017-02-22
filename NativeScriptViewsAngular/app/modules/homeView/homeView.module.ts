@@ -30,8 +30,7 @@ from "nativescript-angular/forms";
 import * as common from "./shared";
 import * as shared from "../../shared";
 
-@
-NgModule({
+@NgModule({
     imports: [
 
         NativeScriptRouterModule,

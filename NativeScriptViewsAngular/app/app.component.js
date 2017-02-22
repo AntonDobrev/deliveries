@@ -59,10 +59,6 @@ var AppComponent = (function () {
                         _this._provider.instance.offline();
                         break;
                     case connectivity.connectionType.wifi:
-                        _this.connectionMessage = onlineConnectionMessage;
-                        _this._provider.instance.online();
-                        _this._provider.instance.sync();
-                        break;
                     case connectivity.connectionType.mobile:
                         _this.connectionMessage = onlineConnectionMessage;
                         _this._provider.instance.online();

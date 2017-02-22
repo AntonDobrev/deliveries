@@ -9,5 +9,6 @@ __export(require("./directives"));
 __export(require("./components"));
 __export(require("./services"));
 __export(require("./constants"));
+__export(require("./pipes"));
 exports.constants = appConstants;
 //# sourceMappingURL=index.js.map
