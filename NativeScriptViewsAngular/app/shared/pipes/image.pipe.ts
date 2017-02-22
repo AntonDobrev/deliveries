@@ -9,7 +9,7 @@ export class ImagePipe implements PipeTransform {
   transform(value: any, args: any[]): string {
     let img: string, type: string, provider: any;
 
-    if (typeof(value) === "undefined") {
+    if (typeof (value) === "undefined") {
       return empty1x1png;
     }
 

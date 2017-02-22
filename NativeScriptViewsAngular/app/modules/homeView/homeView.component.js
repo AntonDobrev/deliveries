@@ -3,14 +3,22 @@ var core_1 = require("@angular/core");
 var common = require("./shared");
 var shared = require("../../shared");
 var HomeViewComponent = (function () {
-    function HomeViewComponent(_store, _service) {
+    function HomeViewComponent(_store, _service, zone) {
         this._store = _store;
         this._service = _service;
+        this.zone = zone;
         this.modes = shared.Modes;
         this.mode = shared.Modes.LIST;
     }
     HomeViewComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this._store.loadAll();
+        this.zone.run(function () {
+            _this._store.items$.count().subscribe(function (number) {
+                var title = this.pageTitle.nativeElement;
+                title.title = "new value";
+            });
+        });
     };
     HomeViewComponent.prototype.onSelect = function (args) {
         this._store.select(args.item);
@@ -33,6 +41,10 @@ var HomeViewComponent = (function () {
         }
         this.mode = mode;
     };
+    __decorate([
+        core_1.ViewChild("pageTitle"), 
+        __metadata('design:type', core_1.ElementRef)
+    ], HomeViewComponent.prototype, "pageTitle", void 0);
     HomeViewComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -41,7 +53,7 @@ var HomeViewComponent = (function () {
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             providers: []
         }), 
-        __metadata('design:paramtypes', [common.HomeViewStore, common.HomeViewService])
+        __metadata('design:paramtypes', [common.HomeViewStore, common.HomeViewService, core_1.NgZone])
     ], HomeViewComponent);
     return HomeViewComponent;
 }());

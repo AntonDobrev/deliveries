@@ -1,7 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy, ElementRef, ViewChild, NgZone } from "@angular/core";
 import * as common from "./shared";
 import * as shared from "../../shared";
-
+import { ActionBar } from "ui/action-bar";
 
 @Component({
     moduleId: module.id,
@@ -10,18 +10,29 @@ import * as shared from "../../shared";
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: []
 })
+
 export class HomeViewComponent implements OnInit {
 
     modes = shared.Modes;
     mode: shared.Modes;
 
-    constructor(private _store: common.HomeViewStore, private _service: common.HomeViewService) {
+    @ViewChild("pageTitle") pageTitle: ElementRef;
+
+    constructor(private _store: common.HomeViewStore, private _service: common.HomeViewService, private zone: NgZone, ) {
 
         this.mode = shared.Modes.LIST;
     }
 
     ngOnInit() {
         this._store.loadAll();
+        this.zone.run(() => {
+            this._store.items$.count().subscribe(
+                function (number) {
+                    let title = <ActionBar> this.pageTitle.nativeElement;
+                    title.title = "new value";
+                }
+            )
+        });
     }
 
 

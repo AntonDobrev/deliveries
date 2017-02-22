@@ -19,7 +19,5 @@ import { HomeViewModule as NavigationModule } from "./modules/homeView/homeView.
 		AppComponent
 	]
 })
-
 export class AppModule {
-
 }

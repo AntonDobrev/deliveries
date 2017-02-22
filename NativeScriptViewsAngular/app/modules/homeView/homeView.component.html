@@ -1,9 +1,29 @@
-<ns-action-bar title="Delivery Orders" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)"></ns-action-bar>
-
+<ns-action-bar #pageTitle title="Delivery Orders" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)"></ns-action-bar>
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
-        <ns-homeView-list [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
-        </ns-homeView-list>
+            <GridLayout rows="*, auto">
+                <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc"
+                    selectedColor="#eee">
+
+                    <StackLayout *tabItem="{ title: 'All' }" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    </StackLayout>
+
+                    <StackLayout *tabItem="{ title: 'Pending' }" class="main-container" [items]="_store.items$ | async | filterItems:2" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    </StackLayout>
+
+                    <StackLayout *tabItem="{ title: 'Failed' }" class="main-container" [items]="_store.items$ | async | filterItems:3" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    </StackLayout>
+
+                    <StackLayout *tabItem="{ title: 'Delivered' }" class="main-container" [items]="_store.items$ | async | filterItems:1" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    </StackLayout>
+
+                </TabView>
+                <GridLayout row="1">
+                    <Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
+                </GridLayout>
+                <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!_store.items$.length" [visibility]="!_store.items$.length ? 'collapse' : 'visible'" [provider]="_store.provider">
+                </ActivityIndicator>
+            </GridLayout>
     </GridLayout>
 
     <GridLayout *ngIf="mode == modes.DETAIL">
@@ -11,12 +31,10 @@
         </ns-homeView-detail>
     </GridLayout>
 
-
     <GridLayout *ngIf="mode == modes.ADD">
         <ns-homeView-add [current]="_store.currentItem$ | async" [provider]="_store.provider" (add)="onSave($event)">
         </ns-homeView-add>
     </GridLayout>
-
 
     <GridLayout *ngIf="mode == modes.EDIT">
         <ns-homeView-edit [current]="_store.currentItem$ | async" [provider]="_store.provider" (update)="onSave($event)" (delete)="onDelete($event)">

@@ -16,22 +16,24 @@ import * as common from "./";
     common.ActionBarComponent,
     common.IfAndroidDirective,
     common.IfIosDirective,
-    common.HyperlinkDirective
+    common.HyperlinkDirective,
+    common.FilteredItemsPipe
   ],
   exports: [
     /// additional exports
     common.ActionBarComponent,
     common.IfAndroidDirective,
     common.IfIosDirective,
-    common.HyperlinkDirective
+    common.HyperlinkDirective,
+    common.FilteredItemsPipe
   ],
   providers: [
     /// start additional data provider services
-	common.backendServicesService,
+    common.backendServicesService,
     /// end additional data provider services
     common.NavigationService,
     common.NotificationService
 
   ]
 })
-export class SharedModule {}
+export class SharedModule { }
