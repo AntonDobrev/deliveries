@@ -1,3 +1,2 @@
 "use strict";
-/// placeholder for other models
-//# sourceMappingURL=index.js.map
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSBcIi4vbmF2aWdhdGlvbi1pdGVtLm1vZGVsXCI7XG4vLy8gcGxhY2Vob2xkZXIgZm9yIG90aGVyIG1vZGVsc1xuZXhwb3J0ICogZnJvbSBcIi4vaXRlbS5tb2RlbFwiO1xuIl19

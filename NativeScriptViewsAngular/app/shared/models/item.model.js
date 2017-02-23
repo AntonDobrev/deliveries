@@ -1,2 +1,2 @@
 "use strict";
-//# sourceMappingURL=item.model.js.map
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaXRlbS5tb2RlbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIml0ZW0ubW9kZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBpbnRlcmZhY2UgSXRlbSB7XG4gIGlkOiBzdHJpbmc7XG4gIGRhdGE6IGFueTtcbn1cbiJdfQ==
