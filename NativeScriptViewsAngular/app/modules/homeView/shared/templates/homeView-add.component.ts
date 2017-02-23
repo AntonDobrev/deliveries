@@ -17,6 +17,7 @@ export class HomeViewAddComponent {@
     Input() provider: any;@
     Input() set current(value: shared.Item) {
         this.item = ( < any > Object).assign({}, value);
+        this.item.data.Status = shared.OrderStatus.Pending;
     }
 
     @
