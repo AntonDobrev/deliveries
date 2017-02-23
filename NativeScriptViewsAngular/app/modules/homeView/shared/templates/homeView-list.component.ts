@@ -15,7 +15,6 @@ export class HomeViewListComponent implements OnInit {
     @Input() items: any;
 
     @Output() select = new EventEmitter();
-    @Output() navigate = new EventEmitter();
 
     constructor(private _page: Page) {
 
@@ -27,9 +26,5 @@ export class HomeViewListComponent implements OnInit {
         this.select.emit({
             item: item
         });
-    }
-
-    onAdd() {
-        this.navigate.emit();
     }
 }

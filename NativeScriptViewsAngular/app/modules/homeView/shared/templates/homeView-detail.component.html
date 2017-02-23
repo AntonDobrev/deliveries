@@ -1,10 +1,6 @@
 <GridLayout rows="*, auto">
     <ActionBarExtension>
-        <ActionItem (tap)="onEdit()" ios.position="right">
-            <StackLayout>
-                <Label text="Edit"></Label>
-            </StackLayout>
-        </ActionItem>
+        <ActionItem text="Edit" (tap)="onEdit()" ios.position="right"></ActionItem>
     </ActionBarExtension>
     <ScrollView>
         <StackLayout class="list-group">

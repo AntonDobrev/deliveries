@@ -1,7 +1,6 @@
-<ns-action-bar #pageTitle title="Delivery Orders" [showBack]="mode != modes.LIST" (back)="onNavigateBack($event)"></ns-action-bar>
+<ns-action-bar #pageTitle title="Delivery Orders" [showBack]="mode != modes.LIST" [showAdd]="mode == modes.LIST" (back)="onNavigateBack($event)" (navigate)="onNavigate(modes.ADD)"></ns-action-bar>
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
-            <GridLayout rows="*, auto">
                 <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc"
                     selectedColor="#eee">
 
@@ -18,12 +17,9 @@
                     </StackLayout>
 
                 </TabView>
-                <GridLayout row="1">
-                    <Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
-                </GridLayout>
+
                 <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!_store.items$.length" [visibility]="!_store.items$.length ? 'collapse' : 'visible'" [provider]="_store.provider">
                 </ActivityIndicator>
-            </GridLayout>
     </GridLayout>
 
     <GridLayout *ngIf="mode == modes.DETAIL">

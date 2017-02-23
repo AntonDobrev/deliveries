@@ -56,6 +56,8 @@ export class HomeViewComponent implements OnInit {
     }
 
     onNavigate(mode: shared.Modes) {
+
+        console.log('navigate to: '+ mode);
         if (mode === shared.Modes.ADD) {
             this._store.reset();
         }

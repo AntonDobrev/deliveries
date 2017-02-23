@@ -7,6 +7,7 @@
 
 <ActionBar [title]="title" *nsIfAndroid>
   <NavigationButton *ngIf="showBack" android.systemIcon="ic_menu_back" (tap)="onBack()"></NavigationButton>
+  <ActionItem *ngIf="showAdd" text="Add" (tap)="onAdd()"></ActionItem>
   <ActionItem *ngIf="showIndex" ios.position="center" text="Index" (tap)="onIndex()"></ActionItem>
   <ActionItem *ngIf="showDrawer" ios.position="center" text="Menu" (tap)="onDrawer()"></ActionItem>
 </ActionBar>

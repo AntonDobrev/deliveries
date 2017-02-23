@@ -1,3 +1,4 @@
+import { empty } from './../../../platforms/android/build/intermediates/assets/F0F1/debug/app/tns_modules/rxjs/src/observable/empty';
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 import { NavigationModes } from "../enums";
@@ -11,10 +12,12 @@ import { NavigationService } from "../services";
 export class ActionBarComponent {
     @Input() title: string;
     @Input() showBack: boolean;
+    @Input() showAdd: boolean;
     @Input() showDrawer: boolean;
     @Input() showIndex: boolean;
 
     @Output() back = new EventEmitter();
+    @Output() navigate = new EventEmitter();
 
     private _modes = NavigationModes;
     private _mode: NavigationModes;
@@ -46,5 +49,8 @@ export class ActionBarComponent {
 
     onBack() {
         this.back.emit();
+    }
+    onAdd() {
+        this.navigate.emit();
     }
 }

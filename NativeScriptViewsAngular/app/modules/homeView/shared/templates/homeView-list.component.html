@@ -1,17 +1,17 @@
-    <ListView class="list-group" [items]="items">
-        <template let-item="item">
-            <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
-                <GridLayout columns="auto, 10, *" rows="auto, auto">
-                    <StackLayout col="2">
-                        <Label class="list-group-item-heading" [text]="item.data.DeliveryItem + ' (' + item.data.DeliveryItemType + ')'"></Label>
-                        <Label class="list-group-item-text" [text]="item.data.DeliveryName"></Label>
-                        <Label class="list-group-item-text" [text]="item.data.DeliveryAddressLine1"></Label>
-                        <Label class="list-group-item-text" [text]="item.data.DeliveryAddressPostcode + ', ' + item.data.DeliveryAddressCity"></Label>
-                    </StackLayout>
-                </GridLayout>
-                <GridLayout row="1">
-                    <!--- master detail form -->
-                </GridLayout>
+<ListView class="list-group" [items]="items">
+    <template let-item="item">
+        <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
+            <GridLayout columns="auto, 10, *" rows="auto, auto">
+                <StackLayout col="2">
+                    <Label class="list-group-item-heading" [text]="item.data.DeliveryItem + ' (' + item.data.DeliveryItemType + ')'"></Label>
+                    <Label class="list-group-item-text" [text]="item.data.DeliveryName"></Label>
+                    <Label class="list-group-item-text" [text]="item.data.DeliveryAddressLine1"></Label>
+                    <Label class="list-group-item-text" [text]="item.data.DeliveryAddressPostcode + ', ' + item.data.DeliveryAddressCity"></Label>
+                </StackLayout>
             </GridLayout>
-        </template>
-    </ListView>
+            <GridLayout row="1">
+                <!--- master detail form -->
+            </GridLayout>
+        </GridLayout>
+    </template>
+</ListView>
