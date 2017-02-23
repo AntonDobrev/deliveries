@@ -3,8 +3,7 @@ import * as common from "./";
 import * as shared from "../../../../shared";
 import { Page } from 'ui/page';
 
-
-
+import { OrderStatus } from "../../../../shared/enums";
 
 
 @Component({
@@ -24,10 +23,13 @@ export class HomeViewDetailComponent implements OnInit {
 
     item: shared.Item;
 
+    itemStatus: string;
+
     constructor(private _page: Page) { }
 
     ngOnInit() {
         this._page.actionBar.title = this.item.data.DeliveryItem;
+        this.itemStatus = OrderStatus[this.item.data.Status];
     }
 
     onEdit() {
