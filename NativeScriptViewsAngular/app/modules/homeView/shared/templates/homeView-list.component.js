@@ -4,31 +4,11 @@ var page_1 = require('ui/page');
 var HomeViewListComponent = (function () {
     function HomeViewListComponent(_page) {
         this._page = _page;
-        this.itemsFailed = [];
-        this.itemsPending = [];
-        this.itemsDelivered = [];
         this.select = new core_1.EventEmitter();
         this.navigate = new core_1.EventEmitter();
     }
     HomeViewListComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this._page.actionBar.title = "Delivery Orders";
-        this.items.forEach(function (item) {
-            switch (item.data.Status) {
-                case 1:
-                    _this.itemsFailed.push(item);
-                    break;
-                case 2:
-                    _this.itemsPending.push(item);
-                    break;
-                case 3:
-                    _this.itemsDelivered.push(item);
-                    break;
-                default:
-                    break;
-            }
-        });
-        console.log(this.itemsFailed);
     };
     HomeViewListComponent.prototype.onSelect = function (item) {
         this.select.emit({

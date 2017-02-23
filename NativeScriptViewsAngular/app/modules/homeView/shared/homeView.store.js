@@ -37,7 +37,6 @@ var HomeViewStore = (function () {
         this._service.getAll()
             .subscribe(function (data) {
             var arr = [];
-            var arrFailed = [];
             data.forEach(function (item) {
                 var newItem = {
                     "id": item.Id,
