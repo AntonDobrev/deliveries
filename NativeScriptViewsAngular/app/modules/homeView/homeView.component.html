@@ -8,13 +8,13 @@
                     <StackLayout *tabItem="{ title: 'All' }" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
-                    <StackLayout *tabItem="{ title: 'Pending' }" class="main-container" [items]="_store.items$ | async | filterItems:2" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'Pending' }" class="main-container" [items]="_store.items$ | async | filterItems:['Pending', 'Current']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
-                    <StackLayout *tabItem="{ title: 'Failed' }" class="main-container" [items]="_store.items$ | async | filterItems:3" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'Refused' }" class="main-container" [items]="_store.items$ | async | filterItems:['Refused', 'Problem']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
-                    <StackLayout *tabItem="{ title: 'Delivered' }" class="main-container" [items]="_store.items$ | async | filterItems:1" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'Delivered' }" class="main-container" [items]="_store.items$ | async | filterItems:['Delivered']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
                 </TabView>
