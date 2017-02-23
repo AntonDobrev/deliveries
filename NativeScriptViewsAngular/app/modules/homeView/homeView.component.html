@@ -2,8 +2,7 @@
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
             <GridLayout rows="*, auto">
-                <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc"
-                    selectedColor="#eee">
+                <TabView #tabview [selectedIndex]="0" class="tab-view">
 
                     <StackLayout *tabItem="{ title: 'All' }" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
@@ -18,9 +17,7 @@
                     </StackLayout>
 
                 </TabView>
-                <GridLayout row="1">
-                    <Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>
-                </GridLayout>
+              
                 <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!_store.items$.length" [visibility]="!_store.items$.length ? 'collapse' : 'visible'" [provider]="_store.provider">
                 </ActivityIndicator>
             </GridLayout>

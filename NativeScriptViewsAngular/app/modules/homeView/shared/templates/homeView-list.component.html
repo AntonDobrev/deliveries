@@ -1,7 +1,8 @@
-    <ListView class="list-group" [items]="items">
+  <GridLayout columns="auto, auto, *" rows="auto, auto, *">
+        <ListView class="list-group" [items]="items">
         <template let-item="item">
             <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
-                <GridLayout columns="auto, 10, *" rows="auto, auto">
+                <GridLayout columns="auto, auto, *" rows="auto, auto">
                     <StackLayout col="2">
                         <Label class="list-group-item-heading" [text]="item.data.DeliveryItem + ' (' + item.data.DeliveryItemType + ')'"></Label>
                         <Label class="list-group-item-text" [text]="item.data.DeliveryName"></Label>
@@ -15,3 +16,5 @@
             </GridLayout>
         </template>
     </ListView>
+   
+    <GridLayout>

@@ -11,3 +11,5 @@
 *.gitignore
 .*
 !/.gitignore
+app/**/*.map
+app/**/*.js

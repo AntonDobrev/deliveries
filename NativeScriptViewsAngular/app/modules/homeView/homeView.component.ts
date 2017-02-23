@@ -25,7 +25,7 @@ export class HomeViewComponent implements OnInit {
 
     ngOnInit() {
         this._store.loadAll();
-        this.zone.run(() => {
+        this.zone.run(() => { // TODO????
             this._store.items$.count().subscribe(
                 function (number) {
                     let title = <ActionBar> this.pageTitle.nativeElement;
