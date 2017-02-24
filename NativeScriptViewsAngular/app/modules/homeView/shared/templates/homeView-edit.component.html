@@ -7,7 +7,7 @@
             </GridLayout>
             <GridLayout class="input-field" rows="*, *" columns="*, *">
                 <Label class="h3 text-muted" text="Change status" row="0"></Label>
-                <ListPicker #picker class="p-15" [items]="directions" [selectedIndex]="currentItemStatus" verticalAlignment="center" horizontalAlignment="center"
+                <ListPicker #picker class="p-15" [items]="statusNamesArray" [selectedIndex]="currentItemStatusIndex" verticalAlignment="center" horizontalAlignment="center"
                     (selectedIndexChange)="selectedIndexChanged(picker)">
                     </ListPicker>
             </GridLayout>
