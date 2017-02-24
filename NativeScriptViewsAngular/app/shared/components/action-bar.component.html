@@ -1,6 +1,7 @@
 <ActionBar [title]="title" *nsIfIos>
   <NavigationButton *ngIf="false"></NavigationButton>
   <ActionItem [visibility]="showBack ? 'visible' : 'collapsed'" text="< Back" ios.position="left" (tap)="onBack()"></ActionItem>
+   <ActionItem *ngIf="showAdd" ios.position="right" text="Add" (tap)="onAdd()"></ActionItem>
   <ActionItem *ngIf="showIndex" ios.position="center" text="Index" (tap)="onIndex()"></ActionItem>
   <ActionItem *ngIf="showDrawer" ios.position="center" text="Menu" (tap)="onDrawer()"></ActionItem>
 </ActionBar>

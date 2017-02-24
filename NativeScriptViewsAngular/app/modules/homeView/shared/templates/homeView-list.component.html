@@ -1,4 +1,6 @@
-<ListView class="list-group" [items]="items">
+<StackLayout>
+    <SearchBar #sb hint="Search" [text]="" (propertyChange)="onChange(sb.text)" (clear)="onClear()" (loaded)="onSearchBarLoaded()"></SearchBar>
+<ListView class="list-group" [items]="items | searchFor:sb.text">
     <template let-item="item">
         <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
             <GridLayout columns="auto, 10, *" rows="auto, auto">
@@ -15,3 +17,4 @@
         </GridLayout>
     </template>
 </ListView>
+</StackLayout>

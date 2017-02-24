@@ -16,25 +16,23 @@ export class HomeViewComponent implements OnInit {
     modes = shared.Modes;
     mode: shared.Modes;
 
-    @ViewChild("pageTitle") pageTitle: ElementRef;
 
-    constructor(private _store: common.HomeViewStore, private _service: common.HomeViewService, private zone: NgZone, ) {
+
+    @ViewChild("tabview") tabTitle: ElementRef;
+    @ViewChild("tabview1") tabTitle1: ElementRef;
+
+    constructor(
+        private _store: common.HomeViewStore,
+        private _service: common.HomeViewService,
+        private zone: NgZone
+    ) {
 
         this.mode = shared.Modes.LIST;
     }
 
     ngOnInit() {
         this._store.loadAll();
-        this.zone.run(() => {
-            this._store.items$.count().subscribe(
-                function (number) {
-                    let title = <ActionBar> this.pageTitle.nativeElement;
-                    title.title = "new value";
-                }
-            )
-        });
     }
-
 
     onSelect(args) {
         this._store.select(args.item);
@@ -56,8 +54,6 @@ export class HomeViewComponent implements OnInit {
     }
 
     onNavigate(mode: shared.Modes) {
-
-        console.log('navigate to: '+ mode);
         if (mode === shared.Modes.ADD) {
             this._store.reset();
         }

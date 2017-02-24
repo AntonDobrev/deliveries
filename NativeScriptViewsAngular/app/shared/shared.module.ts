@@ -17,7 +17,8 @@ import * as common from "./";
     common.IfAndroidDirective,
     common.IfIosDirective,
     common.HyperlinkDirective,
-    common.FilteredItemsPipe
+    common.FilteredItemsPipe,
+    common.SearchPipe
   ],
   exports: [
     /// additional exports
@@ -25,7 +26,8 @@ import * as common from "./";
     common.IfAndroidDirective,
     common.IfIosDirective,
     common.HyperlinkDirective,
-    common.FilteredItemsPipe
+    common.FilteredItemsPipe,
+    common.SearchPipe
   ],
   providers: [
     /// start additional data provider services

@@ -1,10 +1,10 @@
-<ns-action-bar #pageTitle title="Delivery Orders" [showBack]="mode != modes.LIST" [showAdd]="mode == modes.LIST" (back)="onNavigateBack($event)" (navigate)="onNavigate(modes.ADD)"></ns-action-bar>
+<ns-action-bar title="Delivery Orders" [showBack]="mode != modes.LIST" [showAdd]="mode == modes.LIST" (back)="onNavigateBack($event)" (navigate)="onNavigate(modes.ADD)"></ns-action-bar>
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
                 <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc"
                     selectedColor="#eee">
 
-                    <StackLayout *tabItem="{ title: 'All' }" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'All'}" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
                     <StackLayout *tabItem="{ title: 'Pending' }" class="main-container" [items]="_store.items$ | async | filterItems:['Pending', 'Current']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">

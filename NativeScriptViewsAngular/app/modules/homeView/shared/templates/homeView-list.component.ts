@@ -1,8 +1,11 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit } from "@angular/core";
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, ElementRef , ViewChild} from "@angular/core";
 import { Page } from 'ui/page';
 
 import * as common from "./";
 import * as shared from "../../../../shared";
+
+import { SearchBar } from "ui/search-bar";
+import { isAndroid } from "platform";
 
 @Component({
     moduleId: module.id,
@@ -16,6 +19,13 @@ export class HomeViewListComponent implements OnInit {
 
     @Output() select = new EventEmitter();
 
+    @ViewChild("sb") _searchBar: ElementRef;
+
+
+
+
+    public searchPhrase: string;
+
     constructor(private _page: Page) {
 
     }
@@ -26,5 +36,20 @@ export class HomeViewListComponent implements OnInit {
         this.select.emit({
             item: item
         });
+    }
+
+    public onChange(value) {
+    }
+
+    public onClear() {
+        this.searchPhrase = "";
+    }
+
+    public onSearchBarLoaded() {
+        if (isAndroid) {
+            this._searchBar.nativeElement.android.setQuery("", false);
+            this._searchBar.nativeElement.android.clearFocus();
+            this._searchBar.nativeElement.android.onActionViewCollapsed();
+        }
     }
 }

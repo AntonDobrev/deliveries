@@ -1,31 +1,25 @@
-import {
-    Component, ChangeDetectionStrategy, Input, Output, EventEmitter
-}
-from "@angular/core";
-
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from "@angular/core";
 import * as common from "./";
 import * as shared from "../../../../shared";
 
-@
-Component({
+@Component({
     moduleId: module.id,
     selector: "ns-homeView-add",
     templateUrl: "homeView-add.component.html",
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeViewAddComponent {@
-    Input() provider: any;@
-    Input() set current(value: shared.Item) {
-        this.item = ( < any > Object).assign({}, value);
+export class HomeViewAddComponent {
+    @Input() provider: any;
+    @Input() set current(value: shared.Item) {
+        this.item = (<any>Object).assign({}, value);
         this.item.data.Status = shared.OrderStatus.Pending;
     }
 
-    @
-    Output() add = new EventEmitter();
+    @Output() add = new EventEmitter();
 
     item: shared.Item;
 
-    constructor() {}
+    constructor() { }
 
     onAdd() {
         this.add.emit({
