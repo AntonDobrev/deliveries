@@ -8,10 +8,10 @@ import { OrderStatus } from "../../../../shared/enums";
 
 const orderStatusNames = {
     "Pending": OrderStatus.Pending,
-    "Current": OrderStatus.Current,
+    "In Progress": OrderStatus['In Progress'],
     "Delivered": OrderStatus.Delivered,
     "Refused": OrderStatus.Refused,
-    "Problem": OrderStatus.Problem
+    "Lost": OrderStatus.Lost
 };
 
 
@@ -23,7 +23,7 @@ const orderStatusNames = {
 })
 export class HomeViewEditComponent {
     
-    statusNamesArray:string[] = ["Pending", "Current", "Delivered", "Refused", "Problem"];
+    statusNamesArray:string[] = ["Pending", "In Progress", "Delivered", "Refused", "Lost"];
 
     @Input() set current(value: Delivery) {
         this.item = (<any>Object).assign({}, value);

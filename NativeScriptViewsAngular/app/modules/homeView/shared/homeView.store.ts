@@ -62,7 +62,7 @@ export class HomeViewStore {
                 }
                 item.Id = data.result.Id;
 
-                arr.push(item);
+                arr.unshift(item);
                 this._items$.next([...arr]);
             },
             (error) => {

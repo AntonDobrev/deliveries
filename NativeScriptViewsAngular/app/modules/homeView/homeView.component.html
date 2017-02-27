@@ -7,13 +7,13 @@
                     <StackLayout *tabItem="{ title: 'All'}" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
-                    <StackLayout *tabItem="{ title: 'Pending' }" class="main-container" [items]="_store.items$ | async | filterItems:['Pending', 'Current']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'Current' }" class="main-container" [items]="_store.items$ | async | filterItems:['Pending', 'In Progress']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
-                    <StackLayout *tabItem="{ title: 'Refused' }" class="main-container" [items]="_store.items$ | async | filterItems:['Refused', 'Problem']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'Problem' }" class="main-container" [items]="_store.items$ | async | filterItems:['Refused', 'Lost']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
-                    <StackLayout *tabItem="{ title: 'Delivered' }" class="main-container" [items]="_store.items$ | async | filterItems:['Delivered']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                    <StackLayout *tabItem="{ title: 'Done' }" class="main-container" [items]="_store.items$ | async | filterItems:['Delivered']" [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
                     </StackLayout>
 
                 </TabView>
