@@ -16,8 +16,6 @@ export class HomeViewAddComponent {
     @Input() set current(value: Delivery) {
         this.item = new Delivery;
         this.item.Status = shared.OrderStatus.Pending;
-
-        console.log(JSON.stringify(this.item));
     }
 
     @Output() add = new EventEmitter();

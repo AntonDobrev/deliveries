@@ -5,7 +5,7 @@
         <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
             <GridLayout columns="auto, 10, *" rows="auto, auto">
                 <StackLayout col="2">
-                    <GridLayout columns="*, 70">
+                    <GridLayout columns="*, 50">
                         <Label col="0" class="list-group-item-heading" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
                         <Label col="1" class="list-item-status" [text]="item.Status | toStringStatus"></Label>
                         </GridLayout>
