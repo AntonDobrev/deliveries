@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { Item } from './../../../shared/models/item.model';
+import { Delivery } from './../../../shared/models/delivery.model';
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 import * as common from "./";
@@ -7,17 +7,14 @@ import * as shared from "../../../shared";
 
 @Injectable()
 export class HomeViewStore {
-    private _items$: BehaviorSubject<shared.Item[]>;
-    private _currentItem$: BehaviorSubject<shared.Item>;
+    private _items$: BehaviorSubject<Delivery[]>;
+    private _currentItem$: BehaviorSubject<Delivery>;
 
     constructor(
         private _service: common.HomeViewService
     ) {
         this._items$ = new BehaviorSubject([]);
-        this._currentItem$ = new BehaviorSubject({
-            id: "",
-            data: {}
-        });
+        this._currentItem$ = new BehaviorSubject(new Delivery);
     }
 
     get provider() {
@@ -36,17 +33,13 @@ export class HomeViewStore {
         this._service.getAll()
             .subscribe(
             (data) => {
-                let arr: shared.Item[] = [];
+                let arr: Delivery[] = [];
 
                 data.forEach(item => {
-                    let newItem: shared.Item = {
-                        "id": item.Id,
-                        "data": item
-                    };
+                    let newItem: Delivery = item;
 
                     arr.push(newItem);
                 });
-
                 this._items$.next([...arr]);
             }, (error) => {
                 console.log(JSON.stringify(error));
@@ -55,28 +48,25 @@ export class HomeViewStore {
     }
 
     reset() {
-        let item: shared.Item = {
-            id: "",
-            data: {}
-        };
+        let item: Delivery = new Delivery;
 
         this._currentItem$.next(item);
     }
 
-    select(item: shared.Item) {
+    select(item: Delivery) {
         this._currentItem$.next(item);
     }
 
-    add(item: shared.Item) {
-        this._service.post(item.data)
+    add(item: Delivery) {
+        this._service.post(item)
             .subscribe(
             (data) => {
-                let arr: shared.Item[] = this._items$.getValue();
+                let arr: Delivery[] = this._items$.getValue();
 
                 if (!data.Id) {
                     return;
                 }
-                item.id = data.Id;
+                item.Id = data.Id;
 
                 arr.push(item);
                 this._items$.next([...arr]);
@@ -86,14 +76,14 @@ export class HomeViewStore {
             );
     }
 
-    update(item: shared.Item) {
-        this._service.put(item.data)
+    update(item: Delivery) {
+        this._service.put(item)
             .subscribe(
             (data) => {
-                let arr: shared.Item[] = this._items$.getValue();
+                let arr: Delivery[] = this._items$.getValue();
 
                 arr.forEach((itm, idx) => {
-                    if (itm.id === item.id) {
+                    if (itm.Id === item.Id) {
                         arr[idx] = item;
                     }
                 });
@@ -106,14 +96,14 @@ export class HomeViewStore {
             );
     }
 
-    delete(item: shared.Item) {
-        this._service.delete(item.data)
+    delete(item: Delivery) {
+        this._service.delete(item)
             .subscribe(
             (data) => {
-                let arr: shared.Item[] = this._items$.getValue();
+                let arr: Delivery[] = this._items$.getValue();
 
                 arr.forEach((itm, idx) => {
-                    if (itm.id === item.id) {
+                    if (itm.Id === item.Id) {
                         arr.splice(idx, 1);
                     }
                 });
@@ -126,8 +116,8 @@ export class HomeViewStore {
             );
     }
 
-    save(item: shared.Item) {
-        (item.id) ? this.update(item) : this.add(item);
+    save(item: Delivery) {
+        (item.Id) ? this.update(item) : this.add(item);
     }
 
 }

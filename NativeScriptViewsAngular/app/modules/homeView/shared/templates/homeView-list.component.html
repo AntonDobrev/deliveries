@@ -5,10 +5,13 @@
         <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
             <GridLayout columns="auto, 10, *" rows="auto, auto">
                 <StackLayout col="2">
-                    <Label class="list-group-item-heading" [text]="item.data.DeliveryItem + ' (' + item.data.DeliveryItemType + ')'"></Label>
-                    <Label class="list-group-item-text" [text]="item.data.DeliveryName"></Label>
-                    <Label class="list-group-item-text" [text]="item.data.DeliveryAddressLine1"></Label>
-                    <Label class="list-group-item-text" [text]="item.data.DeliveryAddressPostcode + ', ' + item.data.DeliveryAddressCity"></Label>
+                    <GridLayout columns="*, 20">
+                        <Label col="0" class="list-group-item-heading" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
+                        <Label col="1" class="list-group-item-heading" [text]="item.Status"></Label>
+                        </GridLayout>
+                    <Label class="list-group-item-text" [text]="'Deliver to: ' + item.DeliveryName"></Label>
+                    <Label class="list-group-item-text" [text]="item.DeliveryAddressLine1"></Label>
+                    <Label class="list-group-item-text" [text]="item.DeliveryAddressPostcode + ', ' + item.DeliveryAddressCity"></Label>
                 </StackLayout>
             </GridLayout>
             <GridLayout row="1">

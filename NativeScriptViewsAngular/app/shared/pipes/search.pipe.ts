@@ -8,12 +8,12 @@ export class SearchPipe implements PipeTransform {
   transform(arr: any[], value: string): any[] {
     return arr.filter(
       function (item) {
-        let itemName = item.data.DeliveryItem.toLowerCase();
-        let itemType = item.data.DeliveryItemType.toLowerCase();
-        let itemDeliveryName = item.data.DeliveryName.toLowerCase();
-        let itemDeliveryCity = item.data.DeliveryAddressCity.toLowerCase();
-        let itemDeliveryAddress = item.data.DeliveryAddressLine1.toLowerCase();
-        let itemPostcode = item.data.DeliveryAddressPostcode.toLowerCase();
+        let itemName = item.DeliveryItem.toLowerCase();
+        let itemType = item.DeliveryItemType.toLowerCase();
+        let itemDeliveryName = item.DeliveryName.toLowerCase();
+        let itemDeliveryCity = item.DeliveryAddressCity.toLowerCase();
+        let itemDeliveryAddress = item.DeliveryAddressLine1.toLowerCase();
+        let itemPostcode = item.DeliveryAddressPostcode.toLowerCase();
 
         let found = (itemName.search(value) >= 0) ||
                     (itemType.search(value) >= 0) ||

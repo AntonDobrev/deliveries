@@ -1,3 +1,4 @@
+import { Delivery } from './../../../../shared/models/delivery.model';
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, ElementRef , ViewChild} from "@angular/core";
 import { Page } from 'ui/page';
 
@@ -22,8 +23,6 @@ export class HomeViewListComponent implements OnInit {
     @ViewChild("sb") _searchBar: ElementRef;
 
 
-
-
     public searchPhrase: string;
 
     constructor(private _page: Page) {
@@ -32,7 +31,7 @@ export class HomeViewListComponent implements OnInit {
     ngOnInit() {
         this._page.actionBar.title = "Delivery Orders";
     }
-    onSelect(item: shared.Item) {
+    onSelect(item: Delivery) {
         this.select.emit({
             item: item
         });

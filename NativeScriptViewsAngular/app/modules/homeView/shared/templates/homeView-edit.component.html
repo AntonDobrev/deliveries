@@ -1,9 +1,9 @@
 <GridLayout rows="*, auto">
-    <ScrollView>
+    <ScrollView >
         <StackLayout class="form">
             <GridLayout class="input-field" rows="*, *" columns="*, *">
                 <Label class="h3 text-muted" text="Add a comment here" row="0"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.data.Comments" hint="Add your comments" returnKeyType="go" row="1"></TextField>
+                <TextField class="input" col="1" [(ngModel)]="item.Comments" hint="Add your comments" returnKeyType="go" row="1"></TextField>
             </GridLayout>
             <GridLayout class="input-field" rows="*, *" columns="*, *">
                 <Label class="h3 text-muted" text="Change status" row="0"></Label>

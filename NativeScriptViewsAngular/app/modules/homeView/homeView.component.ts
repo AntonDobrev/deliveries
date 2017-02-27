@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, ElementRef, ViewChild, NgZone } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy, ElementRef, ViewChild } from "@angular/core";
 import * as common from "./shared";
 import * as shared from "../../shared";
 import { ActionBar } from "ui/action-bar";
@@ -17,14 +17,12 @@ export class HomeViewComponent implements OnInit {
     mode: shared.Modes;
 
 
-
     @ViewChild("tabview") tabTitle: ElementRef;
     @ViewChild("tabview1") tabTitle1: ElementRef;
 
     constructor(
         private _store: common.HomeViewStore,
-        private _service: common.HomeViewService,
-        private zone: NgZone
+        private _service: common.HomeViewService
     ) {
 
         this.mode = shared.Modes.LIST;
