@@ -5,9 +5,9 @@
         <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
             <GridLayout columns="auto, 10, *" rows="auto, auto">
                 <StackLayout col="2">
-                    <GridLayout columns="*, 20">
+                    <GridLayout columns="*, 70">
                         <Label col="0" class="list-group-item-heading" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
-                        <Label col="1" class="list-group-item-heading" [text]="item.Status"></Label>
+                        <Label col="1" class="list-item-status" [text]="item.Status | toStringStatus"></Label>
                         </GridLayout>
                     <Label class="list-group-item-text" [text]="'Deliver to: ' + item.DeliveryName"></Label>
                     <Label class="list-group-item-text" [text]="item.DeliveryAddressLine1"></Label>

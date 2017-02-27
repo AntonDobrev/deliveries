@@ -12,3 +12,8 @@
 .form .input-field .h4 {
     vertical-align: top;
 }
+
+.list-item-status{
+    font-size: 12;
+    color: lightslategray;
+}

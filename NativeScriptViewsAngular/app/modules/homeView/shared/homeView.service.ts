@@ -1,3 +1,4 @@
+import { Delivery } from './../../../shared/models/delivery.model';
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import * as common from "./";
@@ -20,55 +21,19 @@ export class HomeViewService {
         return this._provider.instance;
     }
 
-    getAll(): Observable<any> {
-        let promise: Promise<any> = new Promise(
-            (resolve, reject) => {
-                this._data
-                    .get()
-                    .then(data => resolve(data.result || []))
-                    .catch(error => reject(error));
-            }
-        );
-
-        return Observable.fromPromise(promise);
+    getAll(): Promise<any> {
+        return this._data.get();
     }
 
-    post(item: any): Observable<any> {
-        let promise: Promise<any> = new Promise(
-            (resolve, reject) => {
-                this._data
-                    .create(item)
-                    .then(data => resolve(data.result || {}))
-                    .catch(error => reject(error));
-            }
-        );
-
-        return Observable.fromPromise(promise);
+    post(item: any): Promise<any> {
+        return this._data.create(item);
     }
 
-    put(item: any): Observable<any> {
-        let promise: Promise<any> = new Promise(
-            (resolve, reject) => {
-                this._data
-                    .updateSingle(item)
-                    .then(data => resolve(data || {}))
-                    .catch(error => reject(error));
-            }
-        );
-
-        return Observable.fromPromise(promise);
+    put(item: any): Promise<any> {
+        return this._data.updateSingle(item);
     }
 
-    delete(item: any): Observable<any> {
-        let promise: Promise<any> = new Promise(
-            (resolve, reject) => {
-                this._data
-                    .destroySingle(item)
-                    .then(data => resolve(data || {}))
-                    .catch(error => reject(error));
-            }
-        );
-
-        return Observable.fromPromise(promise);
+    delete(item: any): Promise<any> {
+        return this._data.destroySingle(item);
     }
 }

@@ -18,7 +18,8 @@ import * as common from "./";
     common.IfIosDirective,
     common.HyperlinkDirective,
     common.FilteredItemsPipe,
-    common.SearchPipe
+    common.SearchPipe,
+    common.ToStringStatusPipe
   ],
   exports: [
     /// additional exports
@@ -27,7 +28,8 @@ import * as common from "./";
     common.IfIosDirective,
     common.HyperlinkDirective,
     common.FilteredItemsPipe,
-    common.SearchPipe
+    common.SearchPipe,
+    common.ToStringStatusPipe
   ],
   providers: [
     /// start additional data provider services

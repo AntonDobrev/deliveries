@@ -31,17 +31,11 @@ export class HomeViewStore {
 
     loadAll() {
         this._service.getAll()
-            .subscribe(
-            (data) => {
-                let arr: Delivery[] = [];
-
-                data.forEach(item => {
-                    let newItem: Delivery = item;
-
-                    arr.push(newItem);
-                });
-                this._items$.next([...arr]);
-            }, (error) => {
+            .then(
+            data => {
+                this._items$.next([...data.result]);
+            },
+            error => {
                 console.log(JSON.stringify(error));
             }
             );
@@ -59,18 +53,19 @@ export class HomeViewStore {
 
     add(item: Delivery) {
         this._service.post(item)
-            .subscribe(
+            .then(
             (data) => {
                 let arr: Delivery[] = this._items$.getValue();
 
-                if (!data.Id) {
+                if (!data.result.Id) {
                     return;
                 }
-                item.Id = data.Id;
+                item.Id = data.result.Id;
 
                 arr.push(item);
                 this._items$.next([...arr]);
-            }, (error) => {
+            },
+            (error) => {
                 console.log(JSON.stringify(error));
             }
             );
@@ -78,8 +73,8 @@ export class HomeViewStore {
 
     update(item: Delivery) {
         this._service.put(item)
-            .subscribe(
-            (data) => {
+            .then(
+            data => {
                 let arr: Delivery[] = this._items$.getValue();
 
                 arr.forEach((itm, idx) => {
@@ -90,16 +85,16 @@ export class HomeViewStore {
 
                 this._items$.next([...arr]);
                 this.select(item);
-            }, (error) => {
+            },
+            error => {
                 console.log(JSON.stringify(error));
-            }
-            );
+            });
     }
 
     delete(item: Delivery) {
         this._service.delete(item)
-            .subscribe(
-            (data) => {
+            .then(
+            data => {
                 let arr: Delivery[] = this._items$.getValue();
 
                 arr.forEach((itm, idx) => {
@@ -110,10 +105,10 @@ export class HomeViewStore {
 
                 this._items$.next([...arr]);
                 this.reset();
-            }, (error) => {
+            }, 
+            error => {
                 console.log(JSON.stringify(error));
-            }
-            );
+            });
     }
 
     save(item: Delivery) {

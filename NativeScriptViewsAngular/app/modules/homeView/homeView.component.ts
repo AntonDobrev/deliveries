@@ -17,9 +17,6 @@ export class HomeViewComponent implements OnInit {
     mode: shared.Modes;
 
 
-    @ViewChild("tabview") tabTitle: ElementRef;
-    @ViewChild("tabview1") tabTitle1: ElementRef;
-
     constructor(
         private _store: common.HomeViewStore,
         private _service: common.HomeViewService
