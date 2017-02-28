@@ -4,6 +4,7 @@ import * as connectivity from "connectivity";
 import * as shared from "./shared";
 import { NotificationService } from "./shared/services";
 import { constants } from './shared';
+import { Page } from 'ui/page';
 
 import { HomeViewStore } from "./modules/homeView/shared";
 
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
 
 	constructor(
 		private _provider: shared.backendServicesService,
+		private _page: Page,
 		private zone: NgZone,
 		private _notificationService: NotificationService,
 		private _store: HomeViewStore
@@ -34,6 +36,17 @@ export class AppComponent implements OnInit {
 	ngOnInit() {
 		this.addConectivityListeners();
 		this.addSyncEventListeners();
+
+		var message = this._page.getViewById("message");
+		console.log(message);
+
+		message.animate({
+			opacity: 0,
+			duration: 3000
+		})
+		.then(
+			function(){message.visibility = 'collapsed';
+		});
 	};
 
 	addSyncEventListeners() {

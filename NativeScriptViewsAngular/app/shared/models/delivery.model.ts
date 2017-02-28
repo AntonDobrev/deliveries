@@ -1,5 +1,4 @@
 import { ItemModel } from './item.model';
-import * as shared from '../enums';
 
 export class Delivery extends ItemModel {
     DeliveryAddressCity: string;

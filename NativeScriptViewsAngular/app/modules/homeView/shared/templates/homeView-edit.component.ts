@@ -2,8 +2,6 @@ import { Delivery } from './../../../../shared/models/delivery.model';
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from "@angular/core";
 import { NotificationService } from "../../../../shared/services"
 
-import * as common from "./";
-import * as shared from "../../../../shared";
 import { OrderStatus } from "../../../../shared/enums";
 
 const orderStatusNames = {
@@ -34,12 +32,11 @@ export class HomeViewEditComponent {
     @Output() delete = new EventEmitter();
 
     item: Delivery;
+    currentItemStatusIndex: number;
 
     constructor(private _notificationService: NotificationService) {
 
     }
-
-    currentItemStatusIndex: number;
 
     selectedIndexChanged(picker) {
         var selectedStatusName: string = this.statusNamesArray[picker.selectedIndex].toString();

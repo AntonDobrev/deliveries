@@ -13,7 +13,21 @@
     vertical-align: top;
 }
 
-.list-item-status{
+.list-item-status-problem{
     font-size: 12;
-    color: lightslategray;
+    /*color: lightslategray;*/
+    color: red;
+    text-align: right
+}
+
+.list-item-status-done{
+    font-size: 12;
+    color: limegreen;
+    text-align: right
+}
+
+.list-item-status-current{
+    font-size: 12;
+    color: dodgerblue;
+    text-align: right
 }

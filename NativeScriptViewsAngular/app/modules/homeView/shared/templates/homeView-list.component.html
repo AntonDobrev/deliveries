@@ -5,9 +5,11 @@
         <GridLayout class="list-group-item" rows="auto, auto" (tap)="onSelect(item)">
             <GridLayout columns="auto, 10, *" rows="auto, auto">
                 <StackLayout col="2">
-                    <GridLayout columns="*, 50">
+                    <GridLayout columns="*, 70">
                         <Label col="0" class="list-group-item-heading" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
-                        <Label col="1" class="list-item-status" [text]="item.Status | toStringStatus"></Label>
+                        <Label col="1" *ngIf="item.Status == 3" class="list-item-status-done" [text]="item.Status | toStringStatus"></Label>
+                        <Label col="1" *ngIf="item.Status == 4 || item.Status == 10" class="list-item-status-problem" [text]="item.Status | toStringStatus"></Label>
+                        <Label col="1" *ngIf="item.Status == 1 || item.Status == 2" class="list-item-status-current" [text]="item.Status | toStringStatus"></Label>
                         </GridLayout>
                     <Label class="list-group-item-text" [text]="'Deliver to: ' + item.DeliveryName"></Label>
                     <Label class="list-group-item-text" [text]="item.DeliveryAddressLine1"></Label>
