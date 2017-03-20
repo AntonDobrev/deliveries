@@ -1,0 +1,131 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "everlive-sdk@1.9.2",
+        "scope": null,
+        "escapedName": "everlive-sdk",
+        "name": "everlive-sdk",
+        "rawSpec": "1.9.2",
+        "spec": "1.9.2",
+        "type": "version"
+      },
+      "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular"
+    ]
+  ],
+  "_from": "everlive-sdk@1.9.2",
+  "_id": "everlive-sdk@1.9.2",
+  "_inCache": true,
+  "_location": "/everlive-sdk",
+  "_nodeVersion": "4.4.3",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/everlive-sdk-1.9.2.tgz_1485259242429_0.0916517882142216"
+  },
+  "_npmUser": {
+    "name": "everlive-system",
+    "email": "alexander.filipov@telerik.com"
+  },
+  "_npmVersion": "3.10.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "everlive-sdk@1.9.2",
+    "scope": null,
+    "escapedName": "everlive-sdk",
+    "name": "everlive-sdk",
+    "rawSpec": "1.9.2",
+    "spec": "1.9.2",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/everlive-sdk/-/everlive-sdk-1.9.2.tgz",
+  "_shasum": "38aed61c3fc5584e9c15dcaf14e182c681904239",
+  "_shrinkwrap": null,
+  "_spec": "everlive-sdk@1.9.2",
+  "_where": "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular",
+  "author": {
+    "name": "Telerik"
+  },
+  "dependencies": {
+    "async": "^2.1.2",
+    "debug": "2.3.3",
+    "json-sql": "github:telerik/json-sql",
+    "json-stable-stringify": "1.0.0",
+    "jstimezonedetect": "1.0.5",
+    "mingo": "github:telerik/mingo",
+    "mongo-query": "0.5.7",
+    "node-cryptojs-aes": "0.4.0",
+    "node-localstorage": "0.5.1",
+    "reqwest": "2.0.5",
+    "underscore": "1.8.2"
+  },
+  "description": "Backend Services SDK",
+  "devDependencies": {
+    "awesome-typescript-loader": "2.2.4",
+    "cheerio": "^0.19.0",
+    "es6-promise": "git+https://github.com/telerik/es6-promise.git#0d30a55a2157caaa0aaef8cdfdbfc215dae61bf6",
+    "fs-extra": "^0.18.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.5.1",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "0.10.1",
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-contrib-uglify": "^0.8.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-env": "0.4.4",
+    "grunt-exorcise": "^2.0.0",
+    "grunt-file-append": "0.0.6",
+    "grunt-shell-spawn": "^0.3.2",
+    "in-publish": "^2.0.0",
+    "optimist": "^0.6.1",
+    "phantomjs": "^1.9.15",
+    "request": "2.21.0",
+    "simple-git": "^1.43.0",
+    "typescript": "2.0.10",
+    "uglify-save-license": "^0.4.1",
+    "underscore.string": "^3.3.4",
+    "upath": "^0.1.5",
+    "walkdir": "0.0.11",
+    "webpack": "1.13.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "38aed61c3fc5584e9c15dcaf14e182c681904239",
+    "tarball": "https://registry.npmjs.org/everlive-sdk/-/everlive-sdk-1.9.2.tgz"
+  },
+  "engines": {
+    "node": ">=0.8.1"
+  },
+  "gitHead": "6d0e871de75105125436abdeaa96392137bc09eb",
+  "homepage": "http://www.telerik.com/everlive",
+  "license": "Telerik",
+  "main": "./dist/everlive.all.js",
+  "maintainers": [
+    {
+      "name": "everlive-system",
+      "email": "ivan.pelovski@telerik.com"
+    }
+  ],
+  "name": "everlive-sdk",
+  "nativescript": {
+    "platforms": {
+      "android": "1.3.0",
+      "ios": "1.3.0"
+    }
+  },
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": "",
+  "scripts": {
+    "build": "node Gruntfile.js build",
+    "prepublish": "(in-publish && npm start) || true",
+    "start": "node Gruntfile.js",
+    "watch": "node Gruntfile.js build --watch"
+  },
+  "typings": "./dist/declarations/index.d.ts",
+  "version": "1.9.2"
+}

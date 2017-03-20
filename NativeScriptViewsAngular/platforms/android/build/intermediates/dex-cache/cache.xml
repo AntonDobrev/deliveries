@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-compat-25.1.1_f11a06e290885480a5bb73d428926553c34cb0b0.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\Primitives-2016.3.1118-dev-release\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="acf956a9e525bfe0596e189d99c0e59a41c0f525">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\intermediates-exploded-aar-Primitives-2016.3.1118-dev-release_71e094c25fe74bd526ddbee89f4eeea4410cc10c.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-core-utils-25.1.1_88046d54c2b7c0a45e5a95404daa80e3d4954130.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\design\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="cd7951e04cfb9a8bf008d544a478d9a8d8192d38">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-design-25.1.1_8ce93475c7be72d58f7dde7a1e2793b10caacd80.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-media-compat-25.1.1_b166b1efe2af0f5bb0f99bba1863cd713edc7fec.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-appcompat-v7-25.1.1_784e4da3e2f9d979d99a615b76ca17ed9ade301b.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-animated-vector-drawable-25.1.1_2399aae1e6067055c1b8a17e485c0eaad3a21428.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-recyclerview-v7-25.1.1_f410b8c9ca636374cad9dfca42d05b35921aa50d.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.1\support-annotations-25.1.1.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\support-annotations-25.1.1_bb567da23bfe9c28b1543b5126fa4a9e01734da7.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-fragment-25.1.1_af40d68936357bb8c94d45941aa41f0728b2c834.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\Common-2016.3.1118-dev-release\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="8763df494a4176b8d7acedbf60ebc9b5483f6629">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\intermediates-exploded-aar-Common-2016.3.1118-dev-release_42745b4fa563bab8a5189e2ce5ee3787f9765bbc.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\widgets-release\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="8a73b09319cc3945912970487ced4c7724acc97d">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\intermediates-exploded-aar-widgets-release_e358231ee34a7af73f687154a63d44e25f6f6a9d.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-v4-25.1.1_0b3a5498b978ded5a8b2a520ca730e3417b39508.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\Deliveries\runtime\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="632bf39700c28ba66c117628dab343126ef89551">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\Deliveries-runtime-unspecified_1d0191fd459b0cd2c0539a2c88cfe8bd3dff1320.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\transition\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="15b049fedbd8e3926bf99d9e45dfc9b2a1043bb9">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-transition-25.1.1_de571c432cbd02a2d85a699c2a40e2a82c623813.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-core-ui-25.1.1_7be1657738f7a37f78d6e246dc7587376977e036.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\List-2016.3.1118-dev-release\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="a1733921f8567f06df140d8a53a802669b62bb16">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\intermediates-exploded-aar-List-2016.3.1118-dev-release_ed3bccfc3947eb99d1119d2619f9022f64471b88.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\Data-2016.3.1118-dev-release\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="7b14109d2464707646a7e61667b939f3c285f627">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\intermediates-exploded-aar-Data-2016.3.1118-dev-release_f3511536bbf5bdc48e60efd6f58b7b52654cc26f.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\Deliveries\runtime\unspecified\jars\libs\binding-generator.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="d82f3ca98719f09b65db6aeaf450ad3bafc46e81">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\binding-generator_52520f0af91310ac5e38d0a0af2d33b8ffce91ae.jar" />
+    </item>
+    <item
+        jar="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="25.0.2"
+        sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
+        <dex dex="C:\Users\adobrev\Documents\GitHub\deliveries\NativeScriptViewsAngular\platforms\android\build\intermediates\pre-dexed\F0F1\debug\com.android.support-support-vector-drawable-25.1.1_015c73d0ab5157e2a73f13e464fc7631b786bb73.jar" />
+    </item>
+
+</items>

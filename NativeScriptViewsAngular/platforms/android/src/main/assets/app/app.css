@@ -1,0 +1,33 @@
+@import "nativescript-theme-core/css/core.light.css";
+.fa {
+    font-family: "FontAwesome", "fontawesome-webfont";
+    vertical-align: center;
+}
+
+.switch {
+    margin: 0;
+}
+
+.form .input-field .h3,
+.form .input-field .h4 {
+    vertical-align: top;
+}
+
+.list-item-status-problem{
+    font-size: 12;
+    /*color: lightslategray;*/
+    color: red;
+    text-align: right
+}
+
+.list-item-status-done{
+    font-size: 12;
+    color: limegreen;
+    text-align: right
+}
+
+.list-item-status-current{
+    font-size: 12;
+    color: dodgerblue;
+    text-align: right
+}

@@ -1,0 +1,17 @@
+<GridLayout rows="*, auto">
+    <ActionBarExtension>
+        <ActionItem text="Edit" (tap)="onEdit()" ios.position="right"></ActionItem>
+    </ActionBarExtension>
+    <ScrollView>
+        <StackLayout class="list-group">
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryItem"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryItemType" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="itemStatus" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryName" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryAddressLine1" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryAddressCity" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryAddressPostcode" textWrap="true"></Label>
+            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.Comments" textWrap="true"></Label>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

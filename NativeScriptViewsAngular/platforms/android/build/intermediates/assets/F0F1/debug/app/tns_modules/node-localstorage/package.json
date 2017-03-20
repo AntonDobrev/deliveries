@@ -1,0 +1,100 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "node-localstorage@0.5.1",
+        "scope": null,
+        "escapedName": "node-localstorage",
+        "name": "node-localstorage",
+        "rawSpec": "0.5.1",
+        "spec": "0.5.1",
+        "type": "version"
+      },
+      "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular\\node_modules\\everlive-sdk"
+    ]
+  ],
+  "_from": "node-localstorage@0.5.1",
+  "_id": "node-localstorage@0.5.1",
+  "_inCache": true,
+  "_location": "/node-localstorage",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "lmaccherone",
+    "email": "Larry@Maccherone.com"
+  },
+  "_npmVersion": "2.7.4",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "node-localstorage@0.5.1",
+    "scope": null,
+    "escapedName": "node-localstorage",
+    "name": "node-localstorage",
+    "rawSpec": "0.5.1",
+    "spec": "0.5.1",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/everlive-sdk"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-localstorage/-/node-localstorage-0.5.1.tgz",
+  "_shasum": "5ceb41ade8e4ac512ae6ad7a3d9caf62bd58051a",
+  "_shrinkwrap": null,
+  "_spec": "node-localstorage@0.5.1",
+  "_where": "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular\\node_modules\\everlive-sdk",
+  "author": {
+    "name": "Larry Maccherone",
+    "url": "http://maccherone.com"
+  },
+  "bugs": {
+    "url": "https://github.com/lmaccherone/node-localstorage/issues"
+  },
+  "dependencies": {},
+  "description": "A drop-in substitute for the browser native localStorage API that runs on node.js.",
+  "devDependencies": {
+    "coffee-script": "^1.9.0",
+    "gulp-run": "^1.6.8",
+    "nodeunit": "~0.9.0",
+    "runsync": "~0.1.6"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "5ceb41ade8e4ac512ae6ad7a3d9caf62bd58051a",
+    "tarball": "https://registry.npmjs.org/node-localstorage/-/node-localstorage-0.5.1.tgz"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "gitHead": "860b954327506823530502966c3dd12496941b5b",
+  "homepage": "https://github.com/lmaccherone/node-localstorage",
+  "keywords": [
+    "localStorage",
+    "Web Storage",
+    "node.js"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./LocalStorage",
+  "maintainers": [
+    {
+      "name": "lmaccherone",
+      "email": "Larry@Maccherone.com"
+    }
+  ],
+  "name": "node-localstorage",
+  "optionalDependencies": {},
+  "preferGlobal": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/lmaccherone/node-localstorage.git"
+  },
+  "scripts": {
+    "docompile": "cake compile",
+    "test": "cake test"
+  },
+  "version": "0.5.1"
+}

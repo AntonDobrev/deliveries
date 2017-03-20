@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-ldpi-v4\\icon.png",
+        "source": "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular\\platforms\\android\\src\\main\\res\\drawable-ldpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular\\platforms\\android\\build\\intermediates\\res\\merged\\F0F1\\debug\\drawable-ldpi-v4\\splashscreen.png",
+        "source": "C:\\Users\\adobrev\\Documents\\GitHub\\deliveries\\NativeScriptViewsAngular\\platforms\\android\\src\\main\\res\\drawable-ldpi\\splashscreen.png"
+    }
+]
