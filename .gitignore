@@ -1,17 +1,3 @@
-*/bin
-*/obj
-NativeScriptViewsAngular/platforms
-*.user-settings.xml
 *.vscode
-NativeScriptViewsAngular/node_modules
-/.bin
 */.ab
-*.apk
-*/hooks
-*.gitignore
-.*
-!/.gitignore
-
-NativeScriptViewsAngular/app/**/*.js
-NativeScriptViewsAngular/app/**/*.js.map
 !app/platform-sheet-loader.js
