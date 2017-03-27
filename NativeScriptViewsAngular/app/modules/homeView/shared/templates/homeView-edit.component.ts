@@ -4,15 +4,6 @@ import { NotificationService } from "../../../../shared/services"
 
 import { OrderStatus } from "../../../../shared/enums";
 
-const orderStatusNames = {
-    "Pending": OrderStatus.Pending,
-    "In Progress": OrderStatus['In Progress'],
-    "Delivered": OrderStatus.Delivered,
-    "Refused": OrderStatus.Refused,
-    "Lost": OrderStatus.Lost
-};
-
-
 @Component({
     moduleId: module.id,
     selector: "ns-homeView-edit",
@@ -21,7 +12,7 @@ const orderStatusNames = {
 })
 export class HomeViewEditComponent {
     
-    statusNamesArray:string[] = ["Pending", "In Progress", "Delivered", "Refused", "Lost"];
+    statusNamesArray: string[] = ["Pending", "In Progress", "Delivered", "Refused", "Lost"];
 
     @Input() set current(value: Delivery) {
         this.item = (<any>Object).assign({}, value);
@@ -39,11 +30,11 @@ export class HomeViewEditComponent {
     }
 
     selectedIndexChanged(picker) {
-        var selectedStatusName: string = this.statusNamesArray[picker.selectedIndex].toString();
-        var statusIndex = OrderStatus[selectedStatusName]; // 1, 2, , 10 
+        let selectedStatusName: string = this.statusNamesArray[picker.selectedIndex].toString();
+        let statusIndex = OrderStatus[selectedStatusName]; // 1, 2, , 10 
         this.item.Status = statusIndex;
-
     }
+
     onUpdate() {
         this.update.emit({
             item: this.item

@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone, EventEmitter } from "@angular/core";
 import { DeliveriesService } from './shared/services';
 import * as connectivity from "connectivity";
-import * as shared from "./shared";
+import { BackendServicesService } from "./shared";
 import { NotificationService } from "./shared/services";
 import { constants } from './shared';
 import { Page } from 'ui/page';
@@ -25,56 +25,53 @@ export class AppComponent implements OnInit {
 	public synchronizationCompleted: boolean = false;
 
 	constructor(
-		private _provider: shared.backendServicesService,
+		private _provider: BackendServicesService,
 		private _page: Page,
 		private zone: NgZone,
 		private _notificationService: NotificationService,
 		private _store: HomeViewStore
-	) {
-	}
+	) {}
 
 	ngOnInit() {
 		this.addConectivityListeners();
 		this.addSyncEventListeners();
 
-		var message = this._page.getViewById("message");
-		console.log(message);
+		let message = this._page.getViewById("message");
+		// console.log(message);
 
 		message.animate({
 			opacity: 0,
 			duration: 3000
 		})
-		.then(
-			function(){message.visibility = 'collapsed';
+		.then(() => {
+			message.visibility = 'collapsed';
 		});
 	};
 
 	addSyncEventListeners() {
-		var self = this;
-
-		this._provider.instance.on('syncStart', function (syncStartInfo) {
-			self.zone.run(() => {
-				self.synchronizationStatus = "Synchronization started.";
+		this._provider.instance.on('syncStart', (syncStartInfo) => {
+			this.zone.run(() => {
+				this.synchronizationStatus = "Synchronization started.";
 				if (syncStartInfo.canceled) {
-					self.synchronizationStatus = "Synchronization canceled by user";
+					this.synchronizationStatus = "Synchronization canceled by user";
 				}
 			});
 		});
 
-		this._provider.instance.on('syncEnd', function (syncEndInfo) {
-			self._store.loadAll(); // TODO - use a better service for this // rebinds the UI
+		this._provider.instance.on('syncEnd', (syncEndInfo) => {
+			this._store.loadAll(); // TODO - use a better service for this // rebinds the UI
 
-			self.zone.run(() => {
-				self.synchronizationCompleted = true;
-				self.synchronizationStatus = "Synchronization completed."; // TODO - is this needed?
+			this.zone.run(() => {
+				this.synchronizationCompleted = true;
+				this.synchronizationStatus = "Synchronization completed."; // TODO - is this needed?
 
 				if (syncEndInfo.failedItems[constants.deliveriesContentTypeName]) {
-					self._notificationService.error(syncEndInfo.error.message);
+					this._notificationService.error(syncEndInfo.error.message);
 				} else if (syncEndInfo.error) {
-					self._notificationService.error(syncEndInfo.error.message);
+					this._notificationService.error(syncEndInfo.error.message);
 				} else {
-					var synchronizationStatusMessage = "Sync completed." + "To server: " + syncEndInfo.syncedToServer + " From server: " + syncEndInfo.syncedToClient;
-					self._notificationService.success(synchronizationStatusMessage);
+					let synchronizationStatusMessage = "Sync completed. To server: " + syncEndInfo.syncedToServer + ". From server: " + syncEndInfo.syncedToClient;
+					this._notificationService.success(synchronizationStatusMessage);
 				}
 			});
 		});

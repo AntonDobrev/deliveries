@@ -2,7 +2,7 @@ import { Delivery } from './../../../shared/models/delivery.model';
 import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import * as common from "./";
-import * as shared from "../../../shared";
+import { BackendServicesService } from "../../../shared";
 import { constants } from '../../../shared';
 
 @Injectable()
@@ -11,10 +11,9 @@ export class HomeViewService {
     private _data: any;
 
     constructor(
-        private _provider: shared.backendServicesService,
+        private _provider: BackendServicesService,
     ) {
         this._data = _provider.instance.data(constants.deliveriesContentTypeName);
-        
     }
 
     get provider() {

@@ -1,6 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy, ElementRef, ViewChild } from "@angular/core";
-import * as common from "./shared";
-import * as shared from "../../shared";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
+import { HomeViewStore, HomeViewService } from "./shared";
+import { Modes } from "../../shared";
 import { ActionBar } from "ui/action-bar";
 
 @Component({
@@ -13,16 +13,14 @@ import { ActionBar } from "ui/action-bar";
 
 export class HomeViewComponent implements OnInit {
 
-    modes = shared.Modes;
-    mode: shared.Modes;
-
+    modes = Modes;
+    mode: Modes;
 
     constructor(
-        private _store: common.HomeViewStore,
-        private _service: common.HomeViewService
+        private _store: HomeViewStore,
+        private _service: HomeViewService
     ) {
-
-        this.mode = shared.Modes.LIST;
+        this.mode = Modes.LIST;
     }
 
     ngOnInit() {
@@ -31,30 +29,29 @@ export class HomeViewComponent implements OnInit {
 
     onSelect(args) {
         this._store.select(args.item);
-        this.onNavigate(shared.Modes.DETAIL);
+        this.onNavigate(Modes.DETAIL);
     }
 
     onSave(args) {
         this._store.save(args.item);
-        this.onNavigate(this.mode === shared.Modes.ADD ? shared.Modes.LIST : shared.Modes.DETAIL);
+        this.onNavigate(this.mode === Modes.ADD ? Modes.LIST : Modes.DETAIL);
     }
 
     onDelete(args) {
         this._store.delete(args.item);
-        this.onNavigate(shared.Modes.LIST);
+        this.onNavigate(Modes.LIST);
     }
 
     onNavigateBack() {
-        this.onNavigate(this.mode === shared.Modes.EDIT ? shared.Modes.DETAIL : shared.Modes.LIST);
+        this.onNavigate(this.mode === Modes.EDIT ? Modes.DETAIL : Modes.LIST);
     }
 
-    onNavigate(mode: shared.Modes) {
-        if (mode === shared.Modes.ADD) {
+    onNavigate(mode: Modes) {
+        if (mode === Modes.ADD) {
             this._store.reset();
         }
 
         this.mode = mode;
     }
     /// component additional methods
-
 }

@@ -3,8 +3,7 @@ import Everlive from 'everlive-sdk';
 import { constants } from '../../shared';
 
 @Injectable()
-
-export class backendServicesService {
+export class BackendServicesService {
 	private _everlive: Everlive;
 	private _everliveQuery: any;
 	private _options: {};
