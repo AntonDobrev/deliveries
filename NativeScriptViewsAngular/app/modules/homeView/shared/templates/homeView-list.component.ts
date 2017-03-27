@@ -2,9 +2,6 @@ import { Delivery } from './../../../../shared/models/delivery.model';
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, OnInit, ElementRef , ViewChild} from "@angular/core";
 import { Page } from 'ui/page';
 
-import * as common from "./";
-import * as shared from "../../../../shared";
-
 import { SearchBar } from "ui/search-bar";
 import { isAndroid } from "platform";
 
@@ -15,36 +12,29 @@ import { isAndroid } from "platform";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeViewListComponent implements OnInit {
-    @Input() provider: any;
-    @Input() items: any;
-
-    @Output() select = new EventEmitter();
-
-    @ViewChild("sb") _searchBar: ElementRef;
-
-
     public searchPhrase: string;
 
-    constructor(private _page: Page) {
+    @Input() items: Delivery[];
+    @Output() select = new EventEmitter();
+    @ViewChild("sb") _searchBar: ElementRef;
 
-    }
+    constructor(private _page: Page) {}
+
     ngOnInit() {
         this._page.actionBar.title = "Delivery Orders";
     }
-    onSelect(item: Delivery) {
+
+    onSelect(delivery: Delivery) {
         this.select.emit({
-            item: item
+            item: delivery
         });
     }
 
-    public onChange(value) {
-    }
-
-    public onClear() {
+    onClear() {
         this.searchPhrase = "";
     }
 
-    public onSearchBarLoaded() {
+    onSearchBarLoaded() {
         if (isAndroid) {
             this._searchBar.nativeElement.android.setQuery("", false);
             this._searchBar.nativeElement.android.clearFocus();

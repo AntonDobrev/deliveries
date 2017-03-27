@@ -1,14 +1,14 @@
-import { Delivery } from './../../../shared/models/delivery.model';
-import { Inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from "@angular/core";
 import * as common from "./";
 import { BackendServicesService } from "../../../shared";
 import { constants } from '../../../shared';
+import { Delivery } from './../../../shared/models/delivery.model';
+import { Data } from '../../../../node_modules/everlive-sdk/dist/declarations/everlive/types/Data';
 
 @Injectable()
 export class HomeViewService {
 
-    private _data: any;
+    private _data: Data<Delivery>;
 
     constructor(
         private _provider: BackendServicesService,
@@ -20,19 +20,19 @@ export class HomeViewService {
         return this._provider.instance;
     }
 
-    getAll(): Promise<any> {
+    getAll() {
         return this._data.get();
     }
 
-    post(item: any): Promise<any> {
+    post(item: Delivery) {
         return this._data.create(item);
     }
 
-    put(item: any): Promise<any> {
+    put(item: { Id: string }) {
         return this._data.updateSingle(item);
     }
 
-    delete(item: any): Promise<any> {
+    delete(item: { Id: string }) {
         return this._data.destroySingle(item);
     }
 }

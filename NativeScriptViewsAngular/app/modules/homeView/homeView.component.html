@@ -29,7 +29,7 @@
     </GridLayout>
 
     <GridLayout *ngIf="mode == modes.DETAIL">
-        <ns-homeView-detail [current]="_store.currentItem$ | async" [provider]="_store.provider" (navigate)="onNavigate(modes.EDIT)">
+        <ns-homeView-detail [current]="_store.currentItem$ | async" (navigate)="onNavigate(modes.EDIT)">
         </ns-homeView-detail>
     </GridLayout>
 

@@ -5,11 +5,9 @@ import { constants } from '../../shared';
 @Injectable()
 export class BackendServicesService {
 	private _everlive: Everlive;
-	private _everliveQuery: any;
-	private _options: {};
 
 	constructor() {
-		this._options = {
+		const options = {
 			appId: constants.appId,
 			scheme: constants.httpScheme,
 			offline: {
@@ -25,8 +23,7 @@ export class BackendServicesService {
 			}
 		}
 
-		this._everlive = new Everlive(this._options);
-		this._everliveQuery = new Everlive.Query();
+		this._everlive = new Everlive(options);
 	}
 
 	get instance() {
@@ -34,7 +31,7 @@ export class BackendServicesService {
 	}
 
 	get query() {
-		return this._everliveQuery;
+		return new Everlive.Query();
 	}
 }
 

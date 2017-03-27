@@ -12,6 +12,8 @@ import { OrderStatus } from "../../../../shared/enums";
 })
 export class HomeViewEditComponent {
     
+    item: Delivery;
+    currentItemStatusIndex: number;
     statusNamesArray: string[] = ["Pending", "In Progress", "Delivered", "Refused", "Lost"];
 
     @Input() set current(value: Delivery) {
@@ -22,12 +24,7 @@ export class HomeViewEditComponent {
     @Output() update = new EventEmitter();
     @Output() delete = new EventEmitter();
 
-    item: Delivery;
-    currentItemStatusIndex: number;
-
-    constructor(private _notificationService: NotificationService) {
-
-    }
+    constructor(private _notificationService: NotificationService) {}
 
     selectedIndexChanged(picker) {
         let selectedStatusName: string = this.statusNamesArray[picker.selectedIndex].toString();

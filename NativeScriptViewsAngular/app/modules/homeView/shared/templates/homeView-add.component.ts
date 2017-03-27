@@ -1,7 +1,6 @@
 import { Delivery } from './../../../../shared/models/delivery.model';
 import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from "@angular/core";
-import * as common from "./";
-import * as shared from "../../../../shared";
+import { OrderStatus } from "../../../../shared";
 
 @Component({
     moduleId: module.id,
@@ -15,7 +14,7 @@ export class HomeViewAddComponent {
 
     @Input() set current(value: Delivery) {
         this.item = new Delivery;
-        this.item.Status = shared.OrderStatus.Pending;
+        this.item.Status = OrderStatus.Pending;
     }
 
     @Output() add = new EventEmitter();

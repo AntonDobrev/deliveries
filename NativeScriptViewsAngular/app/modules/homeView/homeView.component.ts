@@ -7,8 +7,7 @@ import { ActionBar } from "ui/action-bar";
     moduleId: module.id,
     selector: "ns-homeView",
     templateUrl: "homeView.component.html",
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: []
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class HomeViewComponent implements OnInit {

@@ -14,19 +14,16 @@ import { OrderStatus } from "../../../../shared/enums";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeViewDetailComponent implements OnInit {
-
-    @Input() provider: any;
+    item: Delivery;
+    itemStatus: string;
+    
     @Input() set current(value: Delivery) {
         this.item = (<any>Object).assign({}, value);
     }
 
     @Output() navigate = new EventEmitter();
 
-    item: Delivery;
-
-    itemStatus: string;
-
-    constructor(private _page: Page) { }
+    constructor(private _page: Page) {}
 
     ngOnInit() {
         this._page.actionBar.title = this.item.DeliveryItem;
