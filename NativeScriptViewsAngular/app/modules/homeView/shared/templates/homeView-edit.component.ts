@@ -27,7 +27,7 @@ export class HomeViewEditComponent {
     constructor(private _notificationService: NotificationService) {}
 
     selectedIndexChanged(picker) {
-        let selectedStatusName: string = this.statusNamesArray[picker.selectedIndex].toString();
+        let selectedStatusName = this.statusNamesArray[picker.selectedIndex];
         let statusIndex = OrderStatus[selectedStatusName]; // 1, 2, , 10 
         this.item.Status = statusIndex;
     }

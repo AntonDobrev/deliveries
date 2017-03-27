@@ -1,3 +1,4 @@
+.idea
 *.vscode
 */.ab
 !app/platform-sheet-loader.js

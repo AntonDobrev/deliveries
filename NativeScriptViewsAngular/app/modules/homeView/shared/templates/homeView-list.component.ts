@@ -30,8 +30,8 @@ export class HomeViewListComponent implements OnInit {
         });
     }
 
-    onClear() {
-        this.searchPhrase = "";
+    onChange(searchText: string) {
+        this.searchPhrase = searchText;
     }
 
     onSearchBarLoaded() {

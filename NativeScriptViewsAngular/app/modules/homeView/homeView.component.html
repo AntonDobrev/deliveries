@@ -2,23 +2,22 @@
     (navigate)="onNavigate(modes.ADD)"></ns-action-bar>
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
-        <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc"
-            selectedColor="#eee">
+        <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc" selectedColor="#eee">
 
             <StackLayout *tabItem="{ title: 'All'}" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider"
                 (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
             </StackLayout>
 
             <StackLayout *tabItem="{ title: 'Current' }" class="main-container" [items]="_store.items$ | async | filterItems:['Pending', 'In Progress']"
-                [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
             </StackLayout>
 
             <StackLayout *tabItem="{ title: 'Problem' }" class="main-container" [items]="_store.items$ | async | filterItems:['Refused', 'Lost']"
-                [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
             </StackLayout>
 
             <StackLayout *tabItem="{ title: 'Done' }" class="main-container" [items]="_store.items$ | async | filterItems:['Delivered']"
-                [provider]="_store.provider" (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
+                (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">
             </StackLayout>
 
         </TabView>
@@ -34,12 +33,12 @@
     </GridLayout>
 
     <GridLayout *ngIf="mode == modes.ADD">
-        <ns-homeView-add [current]="_store.currentItem$ | async" [provider]="_store.provider" (add)="onSave($event)">
+        <ns-homeView-add [current]="_store.currentItem$ | async" (add)="onSave($event)">
         </ns-homeView-add>
     </GridLayout>
 
     <GridLayout *ngIf="mode == modes.EDIT">
-        <ns-homeView-edit [current]="_store.currentItem$ | async" [provider]="_store.provider" (update)="onSave($event)" (delete)="onDelete($event)">
+        <ns-homeView-edit [current]="_store.currentItem$ | async" (update)="onSave($event)" (delete)="onDelete($event)">
         </ns-homeView-edit>
     </GridLayout>
 
