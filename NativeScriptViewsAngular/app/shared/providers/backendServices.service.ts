@@ -3,14 +3,11 @@ import Everlive from 'everlive-sdk';
 import { constants } from '../../shared';
 
 @Injectable()
-
-export class backendServicesService {
+export class BackendServicesService {
 	private _everlive: Everlive;
-	private _everliveQuery: any;
-	private _options: {};
 
 	constructor() {
-		this._options = {
+		const options = {
 			appId: constants.appId,
 			scheme: constants.httpScheme,
 			offline: {
@@ -26,8 +23,7 @@ export class backendServicesService {
 			}
 		}
 
-		this._everlive = new Everlive(this._options);
-		this._everliveQuery = new Everlive.Query();
+		this._everlive = new Everlive(options);
 	}
 
 	get instance() {
@@ -35,7 +31,7 @@ export class backendServicesService {
 	}
 
 	get query() {
-		return this._everliveQuery;
+		return new Everlive.Query();
 	}
 }
 

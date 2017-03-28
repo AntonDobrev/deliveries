@@ -1,34 +1,22 @@
-import {
-    NgModule
-}
-from "@angular/core";
+import { NgModule } from "@angular/core";
 
-import {
-    NativeScriptModule
-}
-from "nativescript-angular/platform";
+import { NativeScriptModule } from "nativescript-angular/platform";
 
-import {
-    SharedModule
-}
-from "../../shared/shared.module";
-import {
-    HomeViewComponent
-}
-from "./homeView.component";
+import { SharedModule } from "../../shared/shared.module";
+import { HomeViewComponent } from "./homeView.component";
 
-import {
-    NativeScriptRouterModule
-}
-from "nativescript-angular";
-import {
-    NativeScriptFormsModule
-}
-from "nativescript-angular/forms";
+import { NativeScriptRouterModule } from "nativescript-angular";
+import { NativeScriptFormsModule } from "nativescript-angular/forms";
 /// module additional imports
 
-import * as common from "./shared";
-import * as shared from "../../shared";
+import {
+    HomeViewListComponent,
+    HomeViewDetailComponent,
+    HomeViewAddComponent,
+    HomeViewEditComponent,
+    HomeViewStore,
+    HomeViewService
+} from "./shared";
 
 @NgModule({
     imports: [
@@ -42,12 +30,12 @@ import * as shared from "../../shared";
     ],
     declarations: [
 
-        common.HomeViewListComponent,
-        common.HomeViewDetailComponent,
+        HomeViewListComponent,
+        HomeViewDetailComponent,
 
-        common.HomeViewAddComponent,
+        HomeViewAddComponent,
 
-        common.HomeViewEditComponent,
+        HomeViewEditComponent,
 
         /// module declarations
 
@@ -55,12 +43,12 @@ import * as shared from "../../shared";
     ],
     exports: [
 
-        common.HomeViewListComponent,
-        common.HomeViewDetailComponent,
+        HomeViewListComponent,
+        HomeViewDetailComponent,
 
-        common.HomeViewAddComponent,
+        HomeViewAddComponent,
 
-        common.HomeViewEditComponent,
+        HomeViewEditComponent,
 
         /// module exports
 
@@ -68,10 +56,10 @@ import * as shared from "../../shared";
     ],
     providers: [
 
-        common.HomeViewStore,
+        HomeViewStore,
         /// module providers
 
-        common.HomeViewService
+        HomeViewService
     ]
 })
 

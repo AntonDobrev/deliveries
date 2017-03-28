@@ -4,7 +4,18 @@ import { FormsModule } from "@angular/forms";
 import { NativeScriptModule } from "nativescript-angular/platform";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
-import * as common from "./";
+import {
+  ActionBarComponent,
+  IfAndroidDirective,
+  IfIosDirective,
+  HyperlinkDirective,
+  FilteredItemsPipe,
+  SearchPipe,
+  ToStringStatusPipe,
+  BackendServicesService,
+  NavigationService,
+  NotificationService
+} from "./";
 
 @NgModule({
   imports: [
@@ -13,30 +24,30 @@ import * as common from "./";
   ],
   declarations: [
     /// additional declarations
-    common.ActionBarComponent,
-    common.IfAndroidDirective,
-    common.IfIosDirective,
-    common.HyperlinkDirective,
-    common.FilteredItemsPipe,
-    common.SearchPipe,
-    common.ToStringStatusPipe
+    ActionBarComponent,
+    IfAndroidDirective,
+    IfIosDirective,
+    HyperlinkDirective,
+    FilteredItemsPipe,
+    SearchPipe,
+    ToStringStatusPipe
   ],
   exports: [
     /// additional exports
-    common.ActionBarComponent,
-    common.IfAndroidDirective,
-    common.IfIosDirective,
-    common.HyperlinkDirective,
-    common.FilteredItemsPipe,
-    common.SearchPipe,
-    common.ToStringStatusPipe
+    ActionBarComponent,
+    IfAndroidDirective,
+    IfIosDirective,
+    HyperlinkDirective,
+    FilteredItemsPipe,
+    SearchPipe,
+    ToStringStatusPipe
   ],
   providers: [
     /// start additional data provider services
-    common.backendServicesService,
+    BackendServicesService,
     /// end additional data provider services
-    common.NavigationService,
-    common.NotificationService
+    NavigationService,
+    NotificationService
 
   ]
 })

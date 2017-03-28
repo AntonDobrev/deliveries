@@ -1,34 +1,16 @@
-import {
-    Injectable
-}
-from "@angular/core";
-import {
-    Router
-}
-from "@angular/router";
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { NavigationModes } from "../enums";
+import { NavigationItem } from "../models";
 
-import {
-    BehaviorSubject
-}
-from "rxjs";
-
-import {
-    NavigationModes
-}
-from "../enums";
-import {
-    NavigationItem
-}
-from "../models";
-
-@
-Injectable()
+@Injectable()
 export class NavigationService {
     private _modes = NavigationModes;
     private _mode: NavigationModes;
     private _routes: NavigationItem[];
 
-    private _openDrawer$: BehaviorSubject < boolean > ;
+    private _openDrawer$: BehaviorSubject<boolean>;
 
     constructor(
         private _router: Router
@@ -36,13 +18,13 @@ export class NavigationService {
         this._mode = this._modes.NONE;
         this._routes = [
             /// start navigation routes
-           			{ path: "homeView", title: "Delivery Orders", icon: "\uf015" },
-			{ path: "home", title: "Deliveries Home", icon: "\uf015" },
-			{ path: "aboutView", title: "About this app", icon: "\uf015" },
- /// end navigation routes
+            { path: "homeView", title: "Delivery Orders", icon: "\uf015" },
+            { path: "home", title: "Deliveries Home", icon: "\uf015" },
+            { path: "aboutView", title: "About this app", icon: "\uf015" },
+            /// end navigation routes
         ];
 
-        this._openDrawer$ = new BehaviorSubject < boolean > (false);
+        this._openDrawer$ = new BehaviorSubject<boolean>(false);
     }
 
     get mode(): NavigationModes {

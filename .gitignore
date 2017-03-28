@@ -1,13 +1,4 @@
-*/bin
-*/obj
-*/platform
-*.user-settings.xml
+.idea
 *.vscode
-**/node_modules
-/.bin
 */.ab
-*.apk
-*/hooks
-*.gitignore
-.*
-!/.gitignore
+!app/platform-sheet-loader.js

@@ -1,0 +1,28 @@
+	cause of SB
+structure; .store files?
+navigation
+
+	medium
+connectivity and sync stuff - in a service
+enums - TS mapping from name to value
+getData(contentTypeName) on EverliveService
+validation on create/update
+confirmation on edit
+placeholders/labels for all inputs
+services/events.service.ts - not used
+nsHyperlink.directive - not used
+notifications.service.ts - lots of repetition
+item in many places can be renamed to something more specific
+i believe there are more unused Input/Output properties on various components
+.main-container is a strange selector for a component with a view - better use an element
+details not updated cause of cloning and not using observable in details screen
+HomeViewService - mixes HTTP verbs with data verbs.
+
+i believe app logic should be structured the following way:
+component (only presentation logic) > (Deliveries)Service (logic for content type) > optional data access abstraction (CRUD for type) > EverliveService (concrete data access implementation)
+goes for other app logic as well - a layer between the app usage of Everlive or NS functionality should be present - for example listening for sync events platform type (android or ios) or device connectivity
+
+	minor
+empty states?
+filter not per tab?
+mixture of single and double quotes

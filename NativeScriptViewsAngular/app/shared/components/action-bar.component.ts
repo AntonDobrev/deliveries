@@ -1,4 +1,3 @@
-import { empty } from './../../../platforms/android/build/intermediates/assets/F0F1/debug/app/tns_modules/rxjs/src/observable/empty';
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 import { NavigationModes } from "../enums";
@@ -26,17 +25,8 @@ export class ActionBarComponent {
         private _navigationService: NavigationService
     ) {
         this._mode = _navigationService.mode;
-
-        if (this._mode === this._modes.DRAWER) {
-            this.showDrawer = true;
-            this.showIndex = false;
-        } else if (this._mode === this._modes.LISTMENU) {
-            this.showDrawer = false;
-            this.showIndex = true;
-        } else {
-            this.showDrawer = false;
-            this.showIndex = false;
-        }
+        this.showDrawer = this._mode === this._modes.DRAWER;
+        this.showIndex = this._mode === this._modes.LISTMENU;
     }
 
     onIndex() {
