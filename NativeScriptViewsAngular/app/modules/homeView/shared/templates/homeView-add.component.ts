@@ -13,7 +13,7 @@ import { OrderStatus } from "../../../../shared";
 export class HomeViewAddComponent implements AfterViewChecked {
     // @Input() provider: any;
     //  @Input() item: Delivery;
-    isValid: false
+    isValid: Boolean = false;
 
     @Input() set current(value: Delivery) {
         this.item = new Delivery;
@@ -21,10 +21,21 @@ export class HomeViewAddComponent implements AfterViewChecked {
     }
 
   ngAfterViewChecked() {
-      // TODO - check form validity here and set the isValid flag
-    console.log("  ngAfterViewChecked() " + JSON.stringify(this.itemElement));
+      // TODO - check form validity here and set the isValid flag // perhaps with the min lenght property
+      var item = this.item;
+      if(item.DeliveryName && item.DeliveryItem && item.DeliveryItemType && item.DeliveryAddressCity && item.DeliveryAddressLine1 && item.DeliveryAddressPostcode) {
+        this.isValid = true;
+      } else {
+          // TODO - handle the case to hide the button when a valid form is deactivated
+          this.isValid = false;
+      }
+
 }
-    deliveryName: TextField;
+
+// iterrate over properties and check them 
+// isDeliveryItemValid(item:Delivery) {
+//     return item.DeliveryName && item.DeliveryItem && item.DeliveryItemType && item.DeliveryAddressCity && item.DeliveryAddressLine1 && item.DeliveryAddressPostcode; 
+// }
     @ViewChild('deliveryItemElement') itemElement: TextField;
 
     @Output() add = new EventEmitter();
