@@ -11,7 +11,8 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 		NativeScriptModule,
 		NativeScriptRouterModule,
 		NativeScriptRouterModule.forRoot(appRoutes),
-		NavigationModule
+		NavigationModule,
+		NativeScriptFormsModule
 	],
 	declarations: [
 		AppComponent

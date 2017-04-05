@@ -7,7 +7,7 @@ import { ActionBar } from "ui/action-bar";
     moduleId: module.id,
     selector: "ns-homeView",
     templateUrl: "homeView.component.html",
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class HomeViewComponent implements OnInit {
@@ -23,6 +23,7 @@ export class HomeViewComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log("HomeViewComponent ngOnInit");
         this._store.loadAll();
     }
 

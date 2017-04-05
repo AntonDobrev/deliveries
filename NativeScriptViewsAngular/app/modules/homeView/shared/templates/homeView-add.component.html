@@ -1,6 +1,7 @@
 <GridLayout rows="*, auto">
     <ActionBarExtension>
-        <ActionItem text="Save" (tap)="onSave()" ios.position="right" [visibility]="isValid ? 'visible' : 'collapse'">
+        <ActionItem text="Save" (tap)="onSave()" ios.position="right">
+            
         </ActionItem>
     </ActionBarExtension>
     <ScrollView>
@@ -39,7 +40,7 @@
     </ScrollView>
 
     <GridLayout row="1">
-        <!--<Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>-->
+        <Button class="btn btn-primary" text="Add" (tap)="onSave()" [visibility]="isValid ? 'visible' : 'collapse'"></Button>
     </GridLayout>
 
     <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
