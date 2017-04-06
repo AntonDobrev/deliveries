@@ -41,4 +41,8 @@ export class HomeViewListComponent implements OnInit {
             this._searchBar.nativeElement.android.onActionViewCollapsed();
         }
     }
+
+    getStatusClassName(status: string) {
+      return status.replace(/\s+/g, '-').toLowerCase();
+    }
 }

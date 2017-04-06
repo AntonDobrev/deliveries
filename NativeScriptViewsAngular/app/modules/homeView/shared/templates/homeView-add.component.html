@@ -4,30 +4,30 @@
     </ActionBarExtension>
     <ScrollView>
         <StackLayout class="form">
-            <GridLayout class="input-field" columns="*, *">
-                <Label class="h3 text-muted" text="Item for Delivery"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.DeliveryItem" hint="" returnKeyType="next"></TextField>
-            </GridLayout>
-            <GridLayout class="input-field" columns="*, *">
-                <Label class="h3 text-muted" text="Deliver To"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.DeliveryName" hint="" returnKeyType="next"></TextField>
-            </GridLayout>
-            <GridLayout class="input-field" columns="*, *">
-                <Label class="h3 text-muted" text="Item type"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.DeliveryItemType" hint="" returnKeyType="next"></TextField>
-            </GridLayout>
-            <GridLayout class="input-field" columns="*, *">
-                <Label class="h3 text-muted" text="City"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.DeliveryAddressCity" hint="" returnKeyType="next"></TextField>
-            </GridLayout>
-            <GridLayout class="input-field" columns="*, *">
-                <Label class="h3 text-muted" text="Address"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.DeliveryAddressLine1" hint="" returnKeyType="next"></TextField>
-            </GridLayout>
-            <GridLayout class="input-field" columns="*, *">
-                <Label class="h3 text-muted" text="ZIP code"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.DeliveryAddressPostcode" hint="" returnKeyType="go" keyboardType="number"></TextField>
-            </GridLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="Item for Delivery"></Label>
+                <TextField class="input" [(ngModel)]="item.DeliveryItem" hint="" returnKeyType="next"></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="Deliver To"></Label>
+                <TextField class="input" [(ngModel)]="item.DeliveryName" hint="" returnKeyType="next"></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="Item type"></Label>
+                <TextField class="input" [(ngModel)]="item.DeliveryItemType" hint="" returnKeyType="next"></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="City"></Label>
+                <TextField class="input" [(ngModel)]="item.DeliveryAddressCity" hint="" returnKeyType="next"></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="Address"></Label>
+                <TextField class="input" [(ngModel)]="item.DeliveryAddressLine1" hint="" returnKeyType="next"></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="ZIP code"></Label>
+                <TextField class="input" [(ngModel)]="item.DeliveryAddressPostcode" hint="" returnKeyType="go" keyboardType="number"></TextField>
+            </StackLayout>
             <!--- editableListForm16 additional fields -->
         </StackLayout>
         <!--- master detail form -->
