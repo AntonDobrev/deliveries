@@ -1,10 +1,14 @@
 <StackLayout>
-    <SearchBar #sb hint="Search" [text]="" (textChange)="onChange(sb.text)" (loaded)="onSearchBarLoaded()"></SearchBar>
+    <StackLayout class="">
+        <SearchBar #sb hint="Search" [text]="" (textChange)="onChange(sb.text)" (loaded)="onSearchBarLoaded()"></SearchBar>
+    </StackLayout>
     <ListView class="list-group" [items]="items | searchFor:searchPhrase">
         <template let-item="item">
             <StackLayout class="list-group-item" (tap)="onSelect(item)">
-                <Label class="delivery-status done" [text]="item.Status | toStringStatus" [ngClass]="getStatusClassName(item.Status | toStringStatus)"></Label>
-                <Label col="0" class="list-group-item-heading m-b-5" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
+                <StackLayout class="delivery-status" [ngClass]="getStatusClassName(item.Status | toStringStatus)">
+                    <Label [text]="item.Status | toStringStatus"></Label>
+                </StackLayout>
+                <Label class="list-group-item-heading m-b-5" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
                 <Label class="list-group-item-text" [text]="item.DeliveryName"></Label>
                 <Label class="list-group-item-text" [text]="item.DeliveryAddressLine1"></Label>
                 <Label class="list-group-item-text" [text]="item.DeliveryAddressPostcode + ', ' + item.DeliveryAddressCity"></Label>

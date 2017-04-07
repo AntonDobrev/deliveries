@@ -1,4 +1,7 @@
 <GridLayout rows="*, auto">
+    <ActionBarExtension>
+        <ActionItem text="Save" (tap)="onUpdate()" ios.position="right"></ActionItem>
+    </ActionBarExtension>
     <ScrollView >
         <StackLayout class="form">
             <StackLayout class="input-field">
@@ -10,17 +13,13 @@
                 <ListPicker #picker width="100%" [items]="statusNamesArray" [selectedIndex]="currentItemStatusIndex" verticalAlignment="center" horizontalAlignment="center"
                     (selectedIndexChange)="selectedIndexChanged(picker)">
                 </ListPicker>
+                <Button class="btn btn-remove" col="1" text="Delete" (tap)="onDelete()"></Button>
             </StackLayout>
             <!--- editableListForm14 additional fields -->
         </StackLayout>
         <!--- master detail form -->
 
     </ScrollView>
-
-    <GridLayout row="1" columns="*, *" class="m-b-10 p-r-5 p-l-5">
-        <Button class="btn btn-primary" col="0" text="Update" (tap)="onUpdate()"></Button>
-        <Button class="btn btn-remove" col="1" text="Delete" (tap)="onDelete()"></Button>
-    </GridLayout>
 
     <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
     </ActivityIndicator>

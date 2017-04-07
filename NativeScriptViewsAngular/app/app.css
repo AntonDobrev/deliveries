@@ -45,7 +45,7 @@
 .label,
 .form .input-field .label {
   margin: 0 0 3;
-  font-size: 11;
+  font-size: 12;
   color: #3277d5;
 }
 
@@ -53,29 +53,36 @@
   color: #000;
 }
 
-.delivery-status {
+.delivery-status Label {
   font-size: 10;
   text-transform: uppercase;
 }
 
 .delivery-status.pending {
-  color: #ffa500;
+  color: #f5d240;
 }
 
 .delivery-status.in-progress {
-  color: #00f;
+  color: #00a5fc;
 }
 
 .delivery-status.delivered {
-  color: #008000;
+  color: #25a880;
 }
 
-.delivery-status.refused,
+.delivery-status.refused {
+  color: #eb4e29;
+}
+
 .delivery-status.lost {
-  color: #f00;
+  color: #ff8900;
+}
+
+.search-wrp {
+  border-width: 0 0 1 0;
+  border-color: #ebebed;
 }
 
 SearchBar {
-  border-width: 0 0 1 0;
-  border-color: #ebebed;
+  border-width: 0;
 }
