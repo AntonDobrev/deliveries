@@ -1,8 +1,8 @@
 @import "nativescript-theme-core/css/core.light.css";
 
-.fa {
-  font-family: "FontAwesome", "fontawesome-webfont";
-  vertical-align: center;
+.if {
+  font-family: "deliveries-icon-font";
+  vertical-align: middle;
 }
 
 .switch {
@@ -53,9 +53,19 @@
   color: #000;
 }
 
-.delivery-status Label {
+.delivery-status {
+  margin: 0 0 5;
+}
+
+.delivery-status .icon {
+  margin-right: 5;
+  font-size: 18;
+}
+
+.delivery-status .status {
   font-size: 10;
   text-transform: uppercase;
+  vertical-align: middle;
 }
 
 .delivery-status.pending {

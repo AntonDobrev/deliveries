@@ -5,8 +5,9 @@
     <ListView class="list-group" [items]="items | searchFor:searchPhrase">
         <template let-item="item">
             <StackLayout class="list-group-item" (tap)="onSelect(item)">
-                <StackLayout class="delivery-status" [ngClass]="getStatusClassName(item.Status | toStringStatus)">
-                    <Label [text]="item.Status | toStringStatus"></Label>
+                <StackLayout class="delivery-status" orientation="horizontal" [ngClass]="getStatusClassName(item.Status | toStringStatus)">
+                    <Label class="if icon" [text]="getStatusIcon(item.Status)"></Label>
+                    <Label class="status" [text]="item.Status | toStringStatus"></Label>
                 </StackLayout>
                 <Label class="list-group-item-heading m-b-5" [text]="item.DeliveryItem + ' (' + item.DeliveryItemType + ')'"></Label>
                 <Label class="list-group-item-text" [text]="item.DeliveryName"></Label>
