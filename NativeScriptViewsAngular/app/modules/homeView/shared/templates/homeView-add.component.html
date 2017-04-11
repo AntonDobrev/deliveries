@@ -44,6 +44,7 @@
                 <TextField required class="input" col="1" [(ngModel)]="item.DeliveryAddressPostcode" hint="ZIP code" returnKeyType="go" keyboardType="number" #deliveryAddressPostCodeElementModel="ngModel"></TextField>
                 <Label class="validation" [visibility]="deliveryAddressPostCodeElementModel.dirty && deliveryAddressPostCodeElementModel.invalid ? 'visible' : 'collapse'"
                     text="Postcode is required"></Label>
+            </StackLayout>
 
             <!--- editableListForm16 additional fields -->
         </StackLayout>
