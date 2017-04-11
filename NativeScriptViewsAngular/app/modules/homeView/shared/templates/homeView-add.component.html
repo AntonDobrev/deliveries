@@ -1,40 +1,57 @@
 <GridLayout rows="*, auto">
     <ActionBarExtension>
-        <ActionItem text="Save" (tap)="onSave()" ios.position="right"></ActionItem>
+        <ActionItem text="Save" (tap)="onSave()" ios.position="right">
+
+        </ActionItem>
     </ActionBarExtension>
     <ScrollView>
         <StackLayout class="form">
             <StackLayout class="input-field">
                 <Label class="label" text="Item for Delivery"></Label>
-                <TextField class="input" [(ngModel)]="item.DeliveryItem" hint="" returnKeyType="next"></TextField>
+                <TextField required class="input" col="1" [(ngModel)]="item.DeliveryItem" hint="Delivery item description" returnKeyType="next"
+                    #deliveryItemElement #deliveryItemElementModel="ngModel"></TextField>
+                <Label class="validation" [visibility]="deliveryItemElementModel.dirty && deliveryItemElementModel.invalid ? 'visible' : 'collapse'"
+                    text="Item is required"></Label>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label class="label" text="Deliver To"></Label>
-                <TextField class="input" [(ngModel)]="item.DeliveryName" hint="" returnKeyType="next"></TextField>
+                <TextField required class="input" col="1" [(ngModel)]="item.DeliveryName" hint="Recipient name" returnKeyType="next" #deliveryNameElement
+                    #deliveryNameElementModel="ngModel"></TextField>
+                <Label class="validation" [visibility]="deliveryNameElementModel.dirty && !deliveryNameElementModel.valid ? 'visible' : 'collapse'"
+                    text="Name is required"></Label>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label class="label" text="Item type"></Label>
-                <TextField class="input" [(ngModel)]="item.DeliveryItemType" hint="" returnKeyType="next"></TextField>
+                <TextField required class="input" col="1" [(ngModel)]="item.DeliveryItemType" hint="Delivery item type" returnKeyType="next"
+                    #deliveryTypeElementModel="ngModel"></TextField>
+                <Label class="validation" [visibility]="deliveryTypeElementModel.dirty && !deliveryTypeElementModel.valid ? 'visible' : 'collapse'"
+                    text="Type is required"></Label>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label class="label" text="City"></Label>
-                <TextField class="input" [(ngModel)]="item.DeliveryAddressCity" hint="" returnKeyType="next"></TextField>
+                <TextField required class="input" col="1" [(ngModel)]="item.DeliveryAddressCity" hint="City" returnKeyType="next" #deliveryAddressCityElementModel="ngModel"></TextField>
+                <Label class="validation" [visibility]="deliveryAddressCityElementModel.dirty && deliveryAddressCityElementModel.invalid ? 'visible' : 'collapse'"
+                    text="City is required"></Label>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label class="label" text="Address"></Label>
-                <TextField class="input" [(ngModel)]="item.DeliveryAddressLine1" hint="" returnKeyType="next"></TextField>
+                <TextField required class="input" col="1" [(ngModel)]="item.DeliveryAddressLine1" hint="Address Line 1" returnKeyType="next" #deliveryAddressLine1ElementModel="ngModel"></TextField>
+                <Label class="validation" [visibility]="deliveryAddressLine1ElementModel.dirty && deliveryAddressLine1ElementModel.invalid ? 'visible' : 'collapse'"
+                    text="Address is required"></Label>
             </StackLayout>
             <StackLayout class="input-field">
                 <Label class="label" text="ZIP code"></Label>
-                <TextField class="input" [(ngModel)]="item.DeliveryAddressPostcode" hint="" returnKeyType="go" keyboardType="number"></TextField>
-            </StackLayout>
+                <TextField required class="input" col="1" [(ngModel)]="item.DeliveryAddressPostcode" hint="ZIP code" returnKeyType="go" keyboardType="number" #deliveryAddressPostCodeElementModel="ngModel"></TextField>
+                <Label class="validation" [visibility]="deliveryAddressPostCodeElementModel.dirty && deliveryAddressPostCodeElementModel.invalid ? 'visible' : 'collapse'"
+                    text="Postcode is required"></Label>
+
             <!--- editableListForm16 additional fields -->
         </StackLayout>
         <!--- master detail form -->
     </ScrollView>
 
     <GridLayout row="1">
-        <!--<Button class="btn btn-primary" text="Add" (tap)="onAdd()"></Button>-->
+        <Button class="btn btn-primary" text="Add" (tap)="onSave()" [visibility]="isValid ? 'visible' : 'collapse'"></Button>
     </GridLayout>
 
     <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
