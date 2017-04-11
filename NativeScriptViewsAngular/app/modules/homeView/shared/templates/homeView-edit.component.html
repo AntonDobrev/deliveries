@@ -1,26 +1,25 @@
 <GridLayout rows="*, auto">
+    <ActionBarExtension>
+        <ActionItem text="Save" (tap)="onUpdate()" ios.position="right"></ActionItem>
+    </ActionBarExtension>
     <ScrollView >
         <StackLayout class="form">
-            <GridLayout class="input-field" rows="*, *" columns="*, *">
-                <Label class="h3 text-muted" text="Add a comment here" row="0"></Label>
-                <TextField class="input" col="1" [(ngModel)]="item.Comments" hint="Add your comments" returnKeyType="go" row="1"></TextField>
-            </GridLayout>
-            <GridLayout class="input-field" rows="*, *" columns="*, *">
-                <Label class="h3 text-muted" text="Change status" row="0"></Label>
-                <ListPicker #picker class="p-15" [items]="statusNamesArray" [selectedIndex]="currentItemStatusIndex" verticalAlignment="center" horizontalAlignment="center"
+            <StackLayout class="input-field">
+                <Label class="label" text="Add a comment here"></Label>
+                <TextField class="input" [(ngModel)]="item.Comments" hint="Add your comments" returnKeyType="go" row="1"></TextField>
+            </StackLayout>
+            <StackLayout class="input-field">
+                <Label class="label" text="Change status"></Label>
+                <ListPicker #picker width="100%" [items]="statusNamesArray" [selectedIndex]="currentItemStatusIndex" verticalAlignment="center" horizontalAlignment="center"
                     (selectedIndexChange)="selectedIndexChanged(picker)">
-                    </ListPicker>
-            </GridLayout>
+                </ListPicker>
+                <Button class="btn btn-remove" col="1" text="Delete" (tap)="onDelete()"></Button>
+            </StackLayout>
             <!--- editableListForm14 additional fields -->
         </StackLayout>
         <!--- master detail form -->
 
     </ScrollView>
-
-    <GridLayout row="1" columns="*, *">
-        <Button class="btn btn-primary" text="Update" (tap)="onUpdate()"></Button>
-        <Button class="btn btn-outline" col="1" text="Delete" (tap)="onDelete()"></Button>
-    </GridLayout>
 
     <ActivityIndicator class="activity-indicator" rowSpan="2" [busy]="!item" [visibility]="item ? 'collapse' : 'visible'">
     </ActivityIndicator>

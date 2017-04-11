@@ -6,7 +6,8 @@ import { NavigationService } from "../services";
 @Component({
     moduleId: module.id,
     selector: "ns-action-bar",
-    templateUrl: "action-bar.component.html"
+    templateUrl: "action-bar.component.html",
+    styleUrls: [ 'action-bar.component.css' ]
 })
 export class ActionBarComponent {
     @Input() title: string;

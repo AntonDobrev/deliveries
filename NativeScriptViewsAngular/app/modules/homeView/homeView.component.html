@@ -2,7 +2,7 @@
     (navigate)="onNavigate(modes.ADD)"></ns-action-bar>
 <GridLayout>
     <GridLayout *ngIf="mode == modes.LIST">
-        <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#F4550F" selectedTabTextColor="#fff" tabTextColor="#ccc" selectedColor="#eee">
+        <TabView #tabview [selectedIndex]="0" class="tab-view" tabsBackgroundColor="#3277d5" selectedTabTextColor="#fff" tabTextColor="#99bbea" selectedColor="#99bbea">
 
             <StackLayout *tabItem="{ title: 'All'}" class="main-container" [items]="_store.items$ | async" [provider]="_store.provider"
                 (select)="onSelect($event)" (navigate)="onNavigate(modes.ADD)">

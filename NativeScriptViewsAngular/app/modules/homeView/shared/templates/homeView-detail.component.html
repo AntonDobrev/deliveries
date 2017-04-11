@@ -3,15 +3,39 @@
         <ActionItem text="Edit" (tap)="onEdit()" ios.position="right"></ActionItem>
     </ActionBarExtension>
     <ScrollView>
-        <StackLayout class="list-group">
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryItem"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryItemType" textWrap="true"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="itemStatus" textWrap="true"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryName" textWrap="true"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryAddressLine1" textWrap="true"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryAddressCity" textWrap="true"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.DeliveryAddressPostcode" textWrap="true"></Label>
-            <Label class="list-group-item-text m-l-10 m-t-10" [text]="item.Comments" textWrap="true"></Label>
+        <StackLayout class="container">
+            <StackLayout class="item">
+                <Label class="label" text="Item"></Label>
+                <Label class="field" [text]="item.DeliveryItem"></Label>
+            </StackLayout>
+            <StackLayout class="item">
+                <Label class="label" text="Item type" textWrap="true"></Label>
+                <Label class="field" [text]="item.DeliveryItemType" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout class="item">
+                <Label class="label" text="Status" textWrap="true"></Label>
+                <Label class="field" [text]="itemStatus" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout class="item">
+                <Label class="label" text="Consignee" textWrap="true"></Label>
+                <Label class="field" [text]="item.DeliveryName" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout class="item">
+                <Label class="label" text="City" textWrap="true"></Label>
+                <Label class="field" [text]="item.DeliveryAddressCity" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout class="item">
+                <Label class="label" text="Address" textWrap="true"></Label>
+                <Label class="field" [text]="item.DeliveryAddressLine1" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout class="item">
+                <Label class="label" text="ZIP code" textWrap="true"></Label>
+                <Label class="field" [text]="item.DeliveryAddressPostcode" textWrap="true"></Label>
+            </StackLayout>
+            <StackLayout class="item" *ngIf="item.Comments">
+                <Label class="label" text="Comments" textWrap="true"></Label>
+                <Label class="field" [text]="item.Comments" textWrap="true"></Label>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </GridLayout>

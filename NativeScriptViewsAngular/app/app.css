@@ -1,35 +1,100 @@
 @import "nativescript-theme-core/css/core.light.css";
-.fa {
-    font-family: "FontAwesome", "fontawesome-webfont";
-    vertical-align: center;
+
+.if {
+  font-family: "deliveries-icon-font";
+  vertical-align: middle;
 }
 
 .switch {
-    margin: 0;
+  margin: 0;
 }
 
-.form .input-field .h3,
-.form .input-field .h4 {
-    vertical-align: top;
+.form {
+  padding: 15;
 }
 
-.list-item-status-problem{
-    font-size: 12;
-    /*color: lightslategray;*/
-    color: red;
-    text-align: right
+.btn {
+  border-radius: 1;
+  color: #fff;
 }
 
-.list-item-status-done{
-    font-size: 12;
-    color: limegreen;
-    text-align: right
+.btn-primary {
+  background-color: #3277d5;
 }
 
-.list-item-status-current{
-    font-size: 12;
-    color: dodgerblue;
-    text-align: right
+.btn-remove {
+  background-color: #c22500;
+}
+
+.container {
+  padding: 0 15 15;
+}
+
+.item,
+.input-field {
+  margin: 20 0 0;
+  padding-bottom: 7;
+  border-bottom-width: 1;
+  border-color: #ebebed;
+}
+
+.input-field {
+  padding: 0;
+}
+
+.label,
+.form .input-field .label {
+  margin: 0 0 3;
+  font-size: 12;
+  color: #3277d5;
+}
+
+.field {
+  color: #000;
+}
+
+.delivery-status {
+  margin: 0 0 5;
+}
+
+.delivery-status .icon {
+  margin-right: 5;
+  font-size: 18;
+}
+
+.delivery-status .status {
+  font-size: 10;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.delivery-status.pending {
+  color: #f5d240;
+}
+
+.delivery-status.in-progress {
+  color: #00a5fc;
+}
+
+.delivery-status.delivered {
+  color: #25a880;
+}
+
+.delivery-status.refused {
+  color: #eb4e29;
+}
+
+.delivery-status.lost {
+  color: #ff8900;
+}
+
+.search-wrp {
+  border-width: 0 0 1 0;
+  border-color: #ebebed;
+}
+
+SearchBar {
+  border-width: 0;
 }
 
 .ng-valid[required] {

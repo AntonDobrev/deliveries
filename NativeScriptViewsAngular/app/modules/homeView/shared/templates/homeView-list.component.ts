@@ -41,4 +41,30 @@ export class HomeViewListComponent implements OnInit {
             this._searchBar.nativeElement.android.onActionViewCollapsed();
         }
     }
+
+    getStatusClassName(status: string) {
+      return status.replace(/\s+/g, '-').toLowerCase();
+    }
+
+    getStatusIcon(status: number) {
+        switch (status) {
+            case 1:
+                return String.fromCharCode(parseInt('62', 16)); // Pending
+
+            case 2:
+                return String.fromCharCode(parseInt('65', 16)); // In Progress
+
+            case 3:
+                return String.fromCharCode(parseInt('61', 16)); // Delivered
+
+            case 4:
+                return String.fromCharCode(parseInt('63', 16)); // Refused
+
+            case 10:
+                return String.fromCharCode(parseInt('64', 16)); // Lost
+
+            default:
+                break;
+        }
+    }
 }
