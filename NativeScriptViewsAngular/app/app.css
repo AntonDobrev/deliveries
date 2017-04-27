@@ -1,6 +1,10 @@
 @import "nativescript-theme-core/css/core.light.css";
 
-TextField {
+.form .input-field .input {
+  margin: 0;
+  padding-bottom: 7;
+  border-bottom-width: 1;
+  border-color: #ebebed;
   placeholder-color: #9b9b9b;
 }
 
@@ -39,8 +43,7 @@ TextField {
   padding: 0 15 15;
 }
 
-.item,
-.input-field {
+.item {
   margin: 20 0 0;
   padding-bottom: 7;
   border-bottom-width: 1;
@@ -106,15 +109,12 @@ SearchBar {
   border-width: 0;
 }
 
-.ng-valid[required] {
-    border-left-color: #42A948;
-    border-left-width: 3;
+.form .input-field .ng-invalid.ng-dirty {
+  border-bottom-color: #f44335;
+  border-bottom-width: 2;
 }
-.ng-invalid {
-    border-left-color: #a94442;
-    border-left-width: 3;
-}
+
 .validation {
-    background-color: #a94442;
-    color: #ffffff;
+  margin-top: 5;
+  color: #f44335;
 }
