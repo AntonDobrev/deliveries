@@ -13,7 +13,10 @@
                 <ListPicker #picker width="100%" [items]="statusNamesArray" [selectedIndex]="currentItemStatusIndex" verticalAlignment="center" horizontalAlignment="center"
                     (selectedIndexChange)="selectedIndexChanged(picker)">
                 </ListPicker>
-                <Button class="btn btn-remove" col="1" text="Delete" (tap)="onDelete()"></Button>
+            </StackLayout>
+            <StackLayout class="btn btn-remove" (tap)="onDelete()" orientation="horizontal">
+                <Label class="if" text="&#x66;"></Label>
+                <Label text="Delete order"></Label>
             </StackLayout>
             <!--- editableListForm14 additional fields -->
         </StackLayout>

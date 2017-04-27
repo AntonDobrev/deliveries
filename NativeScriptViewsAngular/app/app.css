@@ -1,5 +1,9 @@
 @import "nativescript-theme-core/css/core.light.css";
 
+TextField {
+  placeholder-color: #9b9b9b;
+}
+
 .if {
   font-family: "deliveries-icon-font";
   vertical-align: middle;
@@ -18,12 +22,17 @@
   color: #fff;
 }
 
+.btn .if {
+  margin-right: 5;
+}
+
 .btn-primary {
   background-color: #3277d5;
 }
 
 .btn-remove {
-  background-color: #c22500;
+  margin: 0;
+  color: #f43c2e;
 }
 
 .container {
@@ -98,11 +107,11 @@ SearchBar {
 }
 
 .ng-valid[required] {
-    border-left-color: #42A948; 
+    border-left-color: #42A948;
     border-left-width: 3;
 }
 .ng-invalid {
-    border-left-color: #a94442; 
+    border-left-color: #a94442;
     border-left-width: 3;
 }
 .validation {
